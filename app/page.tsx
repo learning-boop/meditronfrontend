@@ -4,7 +4,6 @@ import TrustBar from "@/components/home/TrustBar";
 import ConditionsSection from "@/components/home/ConditionsSection";
 import TherapiesSection from "@/components/home/TherapiesSection";
 import WhyMeditron from "@/components/home/WhyMeditron";
-import VideoSection from "@/components/home/VideoSection";
 import Testimonials from "@/components/home/Testimonials";
 import BlogPreview from "@/components/home/BlogPreview";
 import FinalCTA from "@/components/home/FinalCTA";

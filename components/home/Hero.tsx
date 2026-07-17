@@ -1,17 +1,52 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MessageCircle, ClipboardList } from "lucide-react";
 import { NAP } from "@/lib/data";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 export default function Hero() {
   const waUrl = `https://wa.me/${NAP.whatsapp}?text=${encodeURIComponent(
     "Hi Meditron, I'd like to book a free assessment for my child."
   )}`;
 
-  return (
-    <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+  const sectionRef = useRef<HTMLElement>(null);
 
-      {/* ── Mobile banner (portrait) — shown below md ── */}
+  // Raw mouse position normalised to -1 → +1
+  const rawX = useMotionValue(0);
+  const rawY = useMotionValue(0);
+
+  // Spring smoothing gives the "floating" feel
+  const springX = useSpring(rawX, { stiffness: 50, damping: 18 });
+  const springY = useSpring(rawY, { stiffness: 50, damping: 18 });
+
+  // Map to pixel offsets — keep subtle so it feels elegant, not dizzying
+  const translateX = useTransform(springX, [-1, 1], [-22, 22]);
+  const translateY = useTransform(springY, [-1, 1], [-14, 14]);
+
+  function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
+    const rect = sectionRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    rawX.set((e.clientX - rect.left - rect.width / 2) / (rect.width / 2));
+    rawY.set((e.clientY - rect.top - rect.height / 2) / (rect.height / 2));
+  }
+
+  function handleMouseLeave() {
+    rawX.set(0);
+    rawY.set(0);
+  }
+
+  return (
+    <section
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative min-h-[92vh] flex items-center justify-center overflow-hidden"
+    >
+
+      {/* ── Mobile banner — shown below md ── */}
       <div className="absolute inset-0 block md:hidden">
         <Image
           src="/images/mobile_banner.png"
@@ -23,17 +58,35 @@ export default function Hero() {
         />
       </div>
 
-      {/* ── Desktop banner — shown from md up ── */}
+      {/* ── Desktop: Layer 1 — static background ── */}
       <div className="absolute inset-0 hidden md:block">
         <Image
-          src="/images/banner.png"
-          alt="Meditron Child Development Centre — caring therapists with children in Vijayawada"
+          src="/images/background-1.png"
+          alt=""
+          aria-hidden="true"
           fill
           className="object-cover object-center"
           priority
           sizes="100vw"
         />
       </div>
+
+      {/* ── Desktop: Layer 2 — people (parallax float) ── */}
+      {/* scale(1.06) gives edge buffer so movement never reveals gaps */}
+      <motion.div
+        aria-hidden="true"
+        className="absolute inset-0 hidden md:block pointer-events-none"
+        style={{ translateX, translateY, scale: 1.06 }}
+      >
+        <Image
+          src="/images/people.png"
+          alt="Therapists and children at Meditron Child Development Centre"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
+        />
+      </motion.div>
 
       {/* ── Gradient overlay ── */}
       <div
@@ -43,11 +96,6 @@ export default function Hero() {
 
       {/* ── Centered content ── */}
       <div className="relative z-10 w-full max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 py-12 sm:py-24 text-center">
-        {/* Badge */}
-        <span className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full mb-6 sm:mb-8 border border-white/25 hidden md:block">
-          <span className="w-2 h-2 rounded-full bg-accent animate-pulse shrink-0" />
-          Vijayawada&apos;s Trusted Child Development Centre
-        </span>
 
         {/* Headline */}
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-4 sm:mb-6">

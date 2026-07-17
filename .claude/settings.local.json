@@ -5,7 +5,9 @@
       "Bash(cd \"D:/creative_touch/meditorn/front-end\" && npm run lint 2>&1)",
       "Bash(cd \"D:/creative_touch/meditorn/front-end\" && npm run lint 2>&1 && npx tsc --noEmit 2>&1)",
       "Bash(node -e \"const l = require\\('D:/creative_touch/meditorn/front-end/node_modules/lucide-react'\\); const keys = Object.keys\\(l\\).filter\\(k => /insta|face|youtube|twitter|tiktok/i.test\\(k\\)\\); console.log\\(keys.length ? keys : 'none found'\\)\")",
-      "Bash(cd \"D:\\\\creative_touch\\\\meditorn\\\\front-end\" && npm run lint 2>&1)"
+      "Bash(cd \"D:\\\\creative_touch\\\\meditorn\\\\front-end\" && npm run lint 2>&1)",
+      "Bash(cd \"D:\\\\creative_touch\\\\meditorn\\\\front-end\" && npx tsc --noEmit 2>&1)",
+      "Bash(cd \"D:\\\\creative_touch\\\\meditorn\\\\front-end\" && npm run build 2>&1)"
     ]
   }
 }
