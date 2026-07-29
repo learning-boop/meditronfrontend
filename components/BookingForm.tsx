@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Send, CheckCircle } from "lucide-react";
-import { NAP } from "@/lib/data";
+import { Send, CheckCircle, Loader2 } from "lucide-react";
+import { createAppointment } from "@/lib/api";
 
 const CONDITIONS = [
   "Autism Spectrum Disorder",
@@ -17,6 +17,7 @@ const CONDITIONS = [
 
 type Field = {
   parentName: string;
+  email: string;
   phone: string;
   childName: string;
   childAge: string;
@@ -26,6 +27,7 @@ type Field = {
 
 const EMPTY: Field = {
   parentName: "",
+  email: "",
   phone: "",
   childName: "",
   childAge: "",
@@ -36,27 +38,40 @@ const EMPTY: Field = {
 export default function BookingForm() {
   const [form, setForm] = useState<Field>(EMPTY);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const set = (key: keyof Field) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
-    setForm((f) => ({ ...f, [key]: e.target.value }));
+  const set =
+    (key: keyof Field) =>
+    (
+      e: React.ChangeEvent<
+        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      >
+    ) =>
+      setForm((f) => ({ ...f, [key]: e.target.value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const lines = [
-      `Hi Meditron! I'd like to book a free assessment.`,
-      ``,
-      `Parent: ${form.parentName}`,
-      `Phone: ${form.phone}`,
-      form.childName ? `Child's name: ${form.childName}` : "",
-      form.childAge ? `Child's age: ${form.childAge} years` : "",
-      form.concern ? `Primary concern: ${form.concern}` : "",
-      form.message ? `\nMessage: ${form.message}` : "",
-    ].filter(Boolean).join("\n");
+    setLoading(true);
+    setError(null);
 
-    window.open(
-      `https://wa.me/${NAP.whatsapp}?text=${encodeURIComponent(lines)}`,
-      "_blank"
-    );
+    const result = await createAppointment({
+      parentName: form.parentName,
+      email: form.email || undefined,
+      phone: form.phone,
+      childName: form.childName || undefined,
+      childAge: form.childAge ? Number(form.childAge) : undefined,
+      concern: form.concern || undefined,
+      message: form.message || undefined,
+    });
+
+    setLoading(false);
+
+    if (!result.ok) {
+      setError(result.error ?? "Something went wrong. Please try again.");
+      return;
+    }
+
     setSubmitted(true);
   };
 
@@ -67,29 +82,39 @@ export default function BookingForm() {
           <CheckCircle className="w-8 h-8 text-primary" />
         </div>
         <div>
-          <p className="text-slate-800 font-extrabold text-xl">WhatsApp is opening!</p>
+          <p className="text-slate-800 font-extrabold text-xl">
+            Request received!
+          </p>
           <p className="text-slate-500 text-sm mt-2 leading-relaxed max-w-xs">
-            Your details have been pre-filled. Just hit send and our team will reply within the hour.
+            Our team will contact you within 24 hours to confirm your
+            appointment.
           </p>
         </div>
         <button
-          onClick={() => { setForm(EMPTY); setSubmitted(false); }}
+          onClick={() => {
+            setForm(EMPTY);
+            setSubmitted(false);
+          }}
           className="text-primary text-sm font-semibold hover:underline"
         >
-          Fill the form again
+          Submit another request
         </button>
       </div>
     );
   }
 
-  const inputCls = "w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors";
-  const labelCls = "block text-slate-700 text-xs font-bold uppercase tracking-wide mb-1.5";
+  const inputCls =
+    "w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors";
+  const labelCls =
+    "block text-slate-700 text-xs font-bold uppercase tracking-wide mb-1.5";
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="parentName" className={labelCls}>Your Name *</label>
+          <label htmlFor="parentName" className={labelCls}>
+            Your Name *
+          </label>
           <input
             id="parentName"
             type="text"
@@ -101,7 +126,9 @@ export default function BookingForm() {
           />
         </div>
         <div>
-          <label htmlFor="phone" className={labelCls}>WhatsApp / Phone *</label>
+          <label htmlFor="phone" className={labelCls}>
+            WhatsApp / Phone *
+          </label>
           <input
             id="phone"
             type="tel"
@@ -114,9 +141,25 @@ export default function BookingForm() {
         </div>
       </div>
 
+      <div>
+        <label htmlFor="email" className={labelCls}>
+          Email Address
+        </label>
+        <input
+          id="email"
+          type="email"
+          placeholder="your@email.com (optional)"
+          value={form.email}
+          onChange={set("email")}
+          className={inputCls}
+        />
+      </div>
+
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="childName" className={labelCls}>Child&apos;s Name</label>
+          <label htmlFor="childName" className={labelCls}>
+            Child&apos;s Name
+          </label>
           <input
             id="childName"
             type="text"
@@ -127,7 +170,9 @@ export default function BookingForm() {
           />
         </div>
         <div>
-          <label htmlFor="childAge" className={labelCls}>Child&apos;s Age (years)</label>
+          <label htmlFor="childAge" className={labelCls}>
+            Child&apos;s Age (years)
+          </label>
           <input
             id="childAge"
             type="number"
@@ -142,7 +187,9 @@ export default function BookingForm() {
       </div>
 
       <div>
-        <label htmlFor="concern" className={labelCls}>Primary Concern</label>
+        <label htmlFor="concern" className={labelCls}>
+          Primary Concern
+        </label>
         <select
           id="concern"
           value={form.concern}
@@ -151,13 +198,17 @@ export default function BookingForm() {
         >
           <option value="">Select a condition (optional)</option>
           {CONDITIONS.map((c) => (
-            <option key={c} value={c}>{c}</option>
+            <option key={c} value={c}>
+              {c}
+            </option>
           ))}
         </select>
       </div>
 
       <div>
-        <label htmlFor="message" className={labelCls}>Anything else you&apos;d like us to know</label>
+        <label htmlFor="message" className={labelCls}>
+          Anything else you&apos;d like us to know
+        </label>
         <textarea
           id="message"
           rows={4}
@@ -168,12 +219,23 @@ export default function BookingForm() {
         />
       </div>
 
+      {error && (
+        <p className="text-red-500 text-sm text-center bg-red-50 rounded-xl px-4 py-3">
+          {error}
+        </p>
+      )}
+
       <button
         type="submit"
-        className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold py-4 rounded-xl text-sm transition-colors shadow-md"
+        disabled={loading}
+        className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark disabled:opacity-60 text-white font-bold py-4 rounded-xl text-sm transition-colors shadow-md"
       >
-        <Send className="w-4 h-4 shrink-0" />
-        Send via WhatsApp &amp; Book Assessment
+        {loading ? (
+          <Loader2 className="w-4 h-4 animate-spin shrink-0" />
+        ) : (
+          <Send className="w-4 h-4 shrink-0" />
+        )}
+        {loading ? "Submitting…" : "Book Free Assessment"}
       </button>
 
       <p className="text-center text-slate-400 text-xs">

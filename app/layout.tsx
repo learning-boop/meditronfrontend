@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import AnnouncementBar from "@/components/AnnouncementBar";
-import TimedPopup from "@/components/TimedPopup";
+import ConditionalLayout from "@/components/ConditionalLayout";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -34,10 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en-IN" className={`${nunito.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-cream font-sans">
-        <AnnouncementBar />
-        <Navbar />
-        {children}
-        <TimedPopup />
+        <ConditionalLayout>{children}</ConditionalLayout>
       </body>
     </html>
   );

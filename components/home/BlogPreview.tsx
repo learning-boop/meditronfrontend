@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Clock } from "lucide-react";
-import { blogPosts } from "@/lib/data";
+import { getPublishedPosts, API_URL } from "@/lib/api";
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-IN", {
@@ -10,7 +10,18 @@ function formatDate(dateStr: string) {
   });
 }
 
-export default function BlogPreview() {
+function resolveImg(url: string | null | undefined): string | null {
+  if (!url) return null;
+  if (url.startsWith("/uploads/")) return `${API_URL}${url}`;
+  return url;
+}
+
+export default async function BlogPreview() {
+  const posts = await getPublishedPosts();
+  const preview = posts.slice(0, 3);
+
+  if (preview.length === 0) return null;
+
   return (
     <section className="py-20 bg-cream" aria-labelledby="blog-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,28 +49,46 @@ export default function BlogPreview() {
 
         {/* Post cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {blogPosts.map((post) => (
+          {preview.map((post) => (
             <Link
               key={post.id}
               href={`/blog/${post.slug}`}
               className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-slate-100"
             >
-              {/* Image placeholder */}
-              <div className="h-44 bg-primary-light/60 flex items-center justify-center">
-                <p className="text-primary/30 text-xs tracking-widest uppercase">
-                  blog-cover.webp
-                </p>
-              </div>
+              {/* Cover image */}
+              {resolveImg(post.coverImage) ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={resolveImg(post.coverImage)!}
+                  alt={post.title}
+                  className="h-44 w-full object-cover"
+                />
+              ) : (
+                <div className="h-44 bg-primary-light/60 flex items-center justify-center">
+                  <p className="text-primary/30 text-xs tracking-widest uppercase">
+                    {post.category ?? "Article"}
+                  </p>
+                </div>
+              )}
 
               {/* Content */}
               <div className="flex flex-col flex-1 p-6">
-                <div className="flex items-center gap-3 text-slate-400 text-xs mb-3">
-                  <time dateTime={post.date}>{formatDate(post.date)}</time>
-                  <span aria-hidden="true">·</span>
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5" aria-hidden="true" />
-                    {post.readTime}
+                {post.category && (
+                  <span className="text-primary text-xs font-semibold uppercase tracking-wide mb-2">
+                    {post.category}
                   </span>
+                )}
+                <div className="flex items-center gap-3 text-slate-400 text-xs mb-3">
+                  <time dateTime={post.createdAt}>{formatDate(post.createdAt)}</time>
+                  {post.readTime && (
+                    <>
+                      <span aria-hidden="true">·</span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3.5 h-3.5" aria-hidden="true" />
+                        {post.readTime}
+                      </span>
+                    </>
+                  )}
                 </div>
                 <h3 className="font-extrabold text-slate-800 text-base leading-snug mb-2 group-hover:text-primary transition-colors">
                   {post.title}
