@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Manrope, Nunito_Sans, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import ConditionalLayout from "@/components/ConditionalLayout";
 
-const nunito = Nunito({
-  variable: "--font-nunito",
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const nunitoSans = Nunito_Sans({
+  variable: "--font-nunito-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const sourceSerif4 = Source_Serif_4({
+  variable: "--font-source-serif",
   subsets: ["latin"],
   display: "swap",
 });
@@ -30,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-IN" className={`${nunito.variable} h-full antialiased`}>
+    <html lang="en-IN" className={`${manrope.variable} ${nunitoSans.variable} ${sourceSerif4.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-cream font-sans">
         <ConditionalLayout>{children}</ConditionalLayout>
       </body>

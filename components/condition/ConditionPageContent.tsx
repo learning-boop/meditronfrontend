@@ -62,14 +62,14 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
   return (
     <motion.div
       variants={fadeUp}
-      className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm"
+      className="bg-clean-neutral rounded-2xl overflow-hidden border border-primary-light shadow-sm"
     >
       <button
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         className="flex items-center justify-between gap-4 w-full px-6 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded-2xl"
       >
-        <span className="font-bold text-slate-800 text-sm sm:text-base leading-snug">
+        <span className="font-bold text-confident-navy text-sm sm:text-base leading-snug">
           {question}
         </span>
         <ChevronDown
@@ -84,7 +84,7 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
         transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
         className="overflow-hidden"
       >
-        <p className="px-6 pb-6 text-slate-500 text-sm leading-relaxed">
+        <p className="px-6 pb-6 text-dusty-blue text-sm leading-relaxed">
           {answer}
         </p>
       </motion.div>
@@ -111,7 +111,7 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
       {/* ══════════════════════════════════════════════════════════════════
           1. HERO
       ══════════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-white overflow-hidden">
+      <section className="relative bg-clean-neutral overflow-hidden">
         {/* Background blobs */}
         <div
           className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full bg-primary-light/50 blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none"
@@ -126,7 +126,7 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
           {/* Breadcrumb */}
           <nav
             aria-label="Breadcrumb"
-            className="flex items-center gap-1 text-xs text-slate-400 mb-10"
+            className="flex items-center gap-1 text-xs text-sage mb-10"
           >
             <Link href="/" className="hover:text-primary transition-colors">
               Home
@@ -139,7 +139,7 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
               Conditions
             </Link>
             <ChevronRight className="w-3 h-3" aria-hidden="true" />
-            <span className="text-slate-600">{detail.name}</span>
+            <span className="text-muted-navy">{detail.name}</span>
           </nav>
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -161,7 +161,7 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
               {/* Headline */}
               <motion.h1
                 variants={fadeUp}
-                className="text-3xl sm:text-4xl lg:text-[2.8rem] font-extrabold text-slate-800 leading-[1.1] tracking-tight mb-5"
+                className="text-3xl sm:text-4xl lg:text-[2.8rem] font-extrabold text-confident-navy leading-[1.1] tracking-tight mb-5"
               >
                 {heroLine}
               </motion.h1>
@@ -169,7 +169,7 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
               {/* Sub */}
               <motion.p
                 variants={fadeUp}
-                className="text-slate-500 text-base sm:text-lg leading-relaxed mb-8 max-w-lg"
+                className="text-dusty-blue text-base sm:text-lg leading-relaxed mb-8 max-w-lg"
               >
                 {heroSub}
               </motion.p>
@@ -209,7 +209,7 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
                 ].map((chip) => (
                   <span
                     key={chip}
-                    className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 bg-slate-50 border border-slate-100 px-3.5 py-1.5 rounded-full"
+                    className="flex items-center gap-1.5 text-xs font-semibold text-dusty-blue bg-cream border border-primary-light px-3.5 py-1.5 rounded-full"
                   >
                     <CheckCircle
                       className="w-3.5 h-3.5 text-primary shrink-0"
@@ -247,17 +247,17 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.65, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl px-5 py-4 border border-slate-100"
+                className="absolute -bottom-5 -left-5 bg-clean-neutral rounded-2xl shadow-xl px-5 py-4 border border-primary-light"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-11 h-11 rounded-full bg-primary-light flex items-center justify-center shrink-0">
                     <Heart className="w-5 h-5 text-primary" aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="font-extrabold text-slate-800 text-sm leading-tight">
+                    <p className="font-extrabold text-confident-navy text-sm leading-tight">
                       95% of families
                     </p>
-                    <p className="text-slate-400 text-xs mt-0.5">
+                    <p className="text-sage text-xs mt-0.5">
                       saw progress within 6 months
                     </p>
                   </div>
@@ -287,13 +287,13 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
           </motion.span>
           <motion.h2
             variants={fadeUp}
-            className="mt-3 text-2xl sm:text-3xl font-extrabold text-slate-800 mb-6"
+            className="mt-3 text-2xl sm:text-3xl font-extrabold text-confident-navy mb-6"
           >
             Understanding what your child is going through
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="text-slate-500 text-sm sm:text-base leading-[1.95]"
+            className="text-dusty-blue text-sm sm:text-base leading-[1.95]"
           >
             {detail.intro}
           </motion.p>
@@ -303,7 +303,7 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
       {/* ══════════════════════════════════════════════════════════════════
           3. SIGNS
       ══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-white px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-clean-neutral px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial="hidden"
@@ -320,16 +320,16 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
             </motion.span>
             <motion.h2
               variants={fadeUp}
-              className="mt-3 text-2xl sm:text-3xl font-extrabold text-slate-800"
+              className="mt-3 text-2xl sm:text-3xl font-extrabold text-confident-navy"
             >
               You may have already noticed some of these
             </motion.h2>
             <motion.p
               variants={fadeUp}
-              className="mt-4 text-slate-400 text-sm max-w-xl mx-auto leading-relaxed"
+              className="mt-4 text-sage text-sm max-w-xl mx-auto leading-relaxed"
             >
               If your child shows{" "}
-              <strong className="text-slate-600 font-bold">
+              <strong className="text-muted-navy font-bold">
                 2–3 of these patterns consistently
               </strong>
               , that&apos;s your signal to reach out. You don&apos;t need a formal
@@ -357,7 +357,7 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
                     aria-hidden="true"
                   />
                 </div>
-                <p className="text-slate-700 text-sm leading-relaxed">{sign}</p>
+                <p className="text-navy text-sm leading-relaxed">{sign}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -414,15 +414,15 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
             <motion.div
               key={title}
               variants={fadeUp}
-              className="bg-white rounded-2xl p-7 border border-primary-light text-center hover:shadow-md transition-shadow"
+              className="bg-clean-neutral rounded-2xl p-7 border border-primary-light text-center hover:shadow-md transition-shadow"
             >
               <div className="w-12 h-12 rounded-2xl bg-primary-light flex items-center justify-center mx-auto mb-4">
                 <Icon className="w-6 h-6 text-primary" aria-hidden="true" />
               </div>
-              <h3 className="font-extrabold text-slate-800 text-base mb-2">
+              <h3 className="font-extrabold text-confident-navy text-base mb-2">
                 {title}
               </h3>
-              <p className="text-slate-400 text-sm leading-relaxed">{body}</p>
+              <p className="text-sage text-sm leading-relaxed">{body}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -496,7 +496,7 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
       {/* ══════════════════════════════════════════════════════════════════
           6. JOURNEY — what happens when you reach out
       ══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-white px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-clean-neutral px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial="hidden"
@@ -513,13 +513,13 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
             </motion.span>
             <motion.h2
               variants={fadeUp}
-              className="mt-3 text-2xl sm:text-3xl font-extrabold text-slate-800"
+              className="mt-3 text-2xl sm:text-3xl font-extrabold text-confident-navy"
             >
               What happens when you reach out
             </motion.h2>
             <motion.p
               variants={fadeUp}
-              className="mt-3 text-slate-400 text-sm"
+              className="mt-3 text-sage text-sm"
             >
               One WhatsApp message is all it takes to start.
             </motion.p>
@@ -551,10 +551,10 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
                       {step.num}
                     </span>
                   </div>
-                  <h3 className="text-slate-800 font-bold text-base mb-2">
+                  <h3 className="text-confident-navy font-bold text-base mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <p className="text-sage text-sm leading-relaxed">
                     {step.body}
                   </p>
                 </motion.div>
@@ -584,13 +584,13 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
             </motion.span>
             <motion.h2
               variants={fadeUp}
-              className="mt-3 text-2xl sm:text-3xl font-extrabold text-slate-800"
+              className="mt-3 text-2xl sm:text-3xl font-extrabold text-confident-navy"
             >
               Questions parents ask us most
             </motion.h2>
             <motion.p
               variants={fadeUp}
-              className="mt-3 text-slate-400 text-sm max-w-md mx-auto leading-relaxed"
+              className="mt-3 text-sage text-sm max-w-md mx-auto leading-relaxed"
             >
               No question is too small. If you don&apos;t see yours here, just
               WhatsApp us — we reply within the hour.

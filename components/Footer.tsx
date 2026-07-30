@@ -23,7 +23,7 @@ const nav = {
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300">
+    <footer className="bg-confident-navy text-primary-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-10 mb-14">
           {/* Brand + NAP */}
@@ -33,7 +33,7 @@ export default function Footer() {
                 Meditron
               </span>
             </Link>
-            <p className="text-sm leading-relaxed mb-5 text-slate-400">
+            <p className="text-sm leading-relaxed mb-5 text-sage">
               A specialised child development centre in Vijayawada, helping
               children with Autism, ADHD, Cerebral Palsy, and Down Syndrome
               reach their full potential.
@@ -46,7 +46,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Meditron on Instagram"
-                className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-accent flex items-center justify-center text-slate-400 hover:text-white transition-colors"
+                className="w-9 h-9 rounded-lg bg-navy/60 hover:bg-accent flex items-center justify-center text-sage hover:text-white transition-colors"
               >
                 <IconInstagram className="w-4 h-4" />
               </a>
@@ -55,7 +55,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Meditron on Facebook"
-                className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-[#1877F2] flex items-center justify-center text-slate-400 hover:text-white transition-colors"
+                className="w-9 h-9 rounded-lg bg-navy/60 hover:bg-[#1877F2] flex items-center justify-center text-sage hover:text-white transition-colors"
               >
                 <IconFacebook className="w-4 h-4" />
               </a>
@@ -64,7 +64,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Meditron on YouTube"
-                className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-[#FF0000] flex items-center justify-center text-slate-400 hover:text-white transition-colors"
+                className="w-9 h-9 rounded-lg bg-navy/60 hover:bg-[#FF0000] flex items-center justify-center text-sage hover:text-white transition-colors"
               >
                 <IconYouTube className="w-4 h-4" />
               </a>
@@ -73,7 +73,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Chat with Meditron on WhatsApp"
-                className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-[#25D366] flex items-center justify-center text-slate-400 hover:text-white transition-colors"
+                className="w-9 h-9 rounded-lg bg-navy/60 hover:bg-[#25D366] flex items-center justify-center text-sage hover:text-white transition-colors"
               >
                 <IconWhatsApp className="w-4 h-4" />
               </a>
@@ -138,7 +138,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-slate-400 hover:text-white transition-colors"
+                      className="text-sm text-sage hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -150,13 +150,13 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="border-t border-primary-light/20 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-dusty-blue">
           <p>
             &copy; {new Date().getFullYear()} {NAP.name}. All rights reserved.
           </p>
           <p>
             Built with care by{" "}
-            <span className="text-slate-400 font-medium">Creators Touch</span>
+            <span className="text-sage font-medium">Creators Touch</span>
           </p>
         </div>
       </div>

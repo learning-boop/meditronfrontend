@@ -82,10 +82,10 @@ export default function BookingForm() {
           <CheckCircle className="w-8 h-8 text-primary" />
         </div>
         <div>
-          <p className="text-slate-800 font-extrabold text-xl">
+          <p className="text-confident-navy font-extrabold text-xl">
             Request received!
           </p>
-          <p className="text-slate-500 text-sm mt-2 leading-relaxed max-w-xs">
+          <p className="text-dusty-blue text-sm mt-2 leading-relaxed max-w-xs">
             Our team will contact you within 24 hours to confirm your
             appointment.
           </p>
@@ -104,9 +104,9 @@ export default function BookingForm() {
   }
 
   const inputCls =
-    "w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors";
+    "w-full px-4 py-3 rounded-xl border border-primary-light bg-cream text-confident-navy text-sm placeholder:text-sage focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors";
   const labelCls =
-    "block text-slate-700 text-xs font-bold uppercase tracking-wide mb-1.5";
+    "block text-navy text-xs font-bold uppercase tracking-wide mb-1.5";
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
@@ -238,7 +238,7 @@ export default function BookingForm() {
         {loading ? "Submitting…" : "Book Free Assessment"}
       </button>
 
-      <p className="text-center text-slate-400 text-xs">
+      <p className="text-center text-sage text-xs">
         Free assessment · No obligation · Your details are private
       </p>
     </form>

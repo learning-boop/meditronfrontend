@@ -36,13 +36,13 @@ export default function Testimonials() {
         </span>
         <h2
           id="testimonials-heading"
-          className="mt-4 text-3xl sm:text-4xl font-extrabold text-slate-800 leading-tight"
+          className="mt-4 text-3xl sm:text-4xl font-extrabold text-confident-navy leading-tight"
         >
           Words from the families
           <br />
           <span className="text-primary">we walk with</span>
         </h2>
-        <p className="mt-4 text-slate-500 text-sm sm:text-base leading-relaxed">
+        <p className="mt-4 text-dusty-blue text-sm sm:text-base leading-relaxed">
           Every review is a milestone someone&apos;s child reached.
           Real families. Real journeys. Vijayawada.
         </p>
@@ -70,7 +70,7 @@ export default function Testimonials() {
                   <span className="text-accent font-black text-4xl leading-none block mb-3" aria-hidden="true">
                     &ldquo;
                   </span>
-                  <p className="text-white/85 text-sm sm:text-base leading-[1.85] italic">
+                  <p className="text-white/85 text-sm sm:text-base leading-[1.85] italic font-serif">
                     {t.quote}
                   </p>
                 </blockquote>
@@ -96,7 +96,7 @@ export default function Testimonials() {
             /* ── Side cards — warm white ── */
             <div
               key={t.id}
-              className={`bg-white rounded-[1.75rem] p-8 shadow-lg flex flex-col gap-5 ${
+              className={`bg-clean-neutral rounded-[1.75rem] p-8 shadow-lg flex flex-col gap-5 ${
                 i === 0
                   ? "md:-translate-y-4 md:-rotate-1"
                   : "md:translate-y-4 md:rotate-1"
@@ -105,13 +105,13 @@ export default function Testimonials() {
               <Stars />
 
               <blockquote className="flex-1">
-                <p className="text-slate-600 text-sm leading-[1.85] italic">
+                <p className="text-navy text-sm leading-[1.85] italic font-serif">
                   &ldquo;{t.quote}&rdquo;
                 </p>
               </blockquote>
 
               {/* Divider */}
-              <div className="h-px bg-slate-100" />
+              <div className="h-px bg-primary-light" />
 
               {/* Author */}
               <div className="flex items-center gap-3">
@@ -119,8 +119,8 @@ export default function Testimonials() {
                   <span className="text-primary font-black text-sm">{t.name.charAt(0)}</span>
                 </div>
                 <div>
-                  <p className="text-slate-800 font-bold text-sm">{t.name}</p>
-                  <p className="text-slate-400 text-xs mt-0.5">{t.role}</p>
+                  <p className="text-confident-navy font-bold text-sm">{t.name}</p>
+                  <p className="text-sage text-xs mt-0.5">{t.role}</p>
                 </div>
               </div>
             </div>
@@ -129,7 +129,7 @@ export default function Testimonials() {
       </div>
 
       {/* ── Bottom note ── */}
-      <p className="relative text-center text-slate-400 text-xs mt-14 tracking-wide">
+      <p className="relative text-center text-sage text-xs mt-14 tracking-wide">
         All stories are from real Meditron families in Vijayawada &mdash; shared with their permission.
       </p>
     </section>

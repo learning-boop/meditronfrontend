@@ -65,15 +65,15 @@ export default function AboutPage() {
       />
 
       {/* ── Our Story ──────────────────────────────────────────────────────── */}
-      <section className="py-20 bg-white px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-clean-neutral px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
           <ImgPlaceholder className="aspect-[4/5] w-full" label="Centre photo" />
           <div>
             <span className="text-accent font-semibold text-xs uppercase tracking-widest">Our Story</span>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-slate-800 mb-6">
+            <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-confident-navy mb-6">
               Started with a question no parent should have to ask alone
             </h2>
-            <div className="space-y-5 text-slate-500 text-sm sm:text-base leading-[1.85]">
+            <div className="space-y-5 text-dusty-blue text-sm sm:text-base leading-[1.85]">
               <p>
                 Every week, we would meet families who had spent months — sometimes years — trying to understand why their child wasn&apos;t talking, wasn&apos;t making eye contact, wasn&apos;t walking when others their age were. They had gone from doctor to doctor, collecting opinions but not answers. They were exhausted, scared, and alone.
               </p>
@@ -92,24 +92,24 @@ export default function AboutPage() {
       <section className="py-20 bg-cream px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-accent font-semibold text-xs uppercase tracking-widest">Our Mission</span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-slate-800 mb-8">
+          <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-confident-navy mb-8">
             What we are here to do
           </h2>
-          <blockquote className="text-slate-600 text-lg sm:text-xl leading-[1.8] italic border-l-4 border-primary pl-6 text-left max-w-3xl mx-auto">
+          <blockquote className="text-muted-navy text-lg sm:text-xl leading-[1.8] italic border-l-4 border-primary pl-6 text-left max-w-3xl mx-auto">
             &ldquo;To give every child in Vijayawada access to world-class developmental therapy — delivered with the warmth of a family that truly cares.&rdquo;
           </blockquote>
-          <p className="mt-8 text-slate-500 text-sm sm:text-base leading-relaxed">
+          <p className="mt-8 text-dusty-blue text-sm sm:text-base leading-relaxed">
             We achieve this through early identification, personalised therapy plans, consistent progress tracking, and a partnership with parents that extends well beyond the clinic walls.
           </p>
         </div>
       </section>
 
       {/* ── Values ─────────────────────────────────────────────────────────── */}
-      <section className="py-20 bg-white px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-clean-neutral px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
             <span className="text-accent font-semibold text-xs uppercase tracking-widest">How We Work</span>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-slate-800">Our four core values</h2>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-confident-navy">Our four core values</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v) => {
@@ -119,8 +119,8 @@ export default function AboutPage() {
                   <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
                     <Icon className="w-5 h-5 text-primary" aria-hidden="true" />
                   </div>
-                  <h3 className="font-extrabold text-slate-800 text-base">{v.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{v.body}</p>
+                  <h3 className="font-extrabold text-confident-navy text-base">{v.title}</h3>
+                  <p className="text-dusty-blue text-sm leading-relaxed">{v.body}</p>
                 </div>
               );
             })}
@@ -145,8 +145,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-accent font-semibold text-xs uppercase tracking-widest">Inside Meditron</span>
-            <h2 className="mt-3 text-3xl font-extrabold text-slate-800">A space built for children</h2>
-            <p className="mt-4 text-slate-500 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            <h2 className="mt-3 text-3xl font-extrabold text-confident-navy">A space built for children</h2>
+            <p className="mt-4 text-dusty-blue text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
               Our therapy rooms are bright, safe, and designed to feel non-clinical — because children learn best when they feel at home.
             </p>
           </div>
@@ -170,7 +170,7 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
+              className="inline-flex items-center justify-center gap-2 bg-clean-neutral text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
             >
               <CalendarCheck className="w-5 h-5 shrink-0" />
               Book Free Assessment

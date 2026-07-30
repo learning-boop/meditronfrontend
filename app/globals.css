@@ -1,24 +1,47 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fffbf5;
-  --foreground: #1e293b;
+  --background: #f7f5f2;
+  --foreground: #2a3a57;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Brand palette */
-  --color-primary: #0d9488;
-  --color-primary-light: #ccfbf1;
-  --color-primary-dark: #0f766e;
-  --color-cream: #fffbf5;
-  --color-accent: #f97316;
-  --color-accent-dark: #ea580c;
+  /* ── Meditron Emotional Colour Journey ── */
+
+  /* Primary — Calm Teal (Stage 2: Safety) */
+  --color-primary: #2a8e8b;
+  --color-primary-light: #d5ebe7;
+  --color-primary-dark: #3f8c8a;
+
+  /* Neutral / Background */
+  --color-cream: #f7f5f2;
+
+  /* Accent — Warm Coral (Stage 6: Action) */
+  --color-accent: #d67861;
+  --color-accent-dark: #c4614b;
+
+  /* Extended palette */
+  --color-navy: #234b6e;
+  --color-confident-navy: #2a3a57;
+  --color-dusty-blue: #7897aa;
+  --color-muted-navy: #34495e;
+  --color-sage: #a9bba9;
+  --color-healing-green: #75baa0;
+  --color-gold: #c6aa4e;
+  --color-terracotta: #c46a5e;
+  --color-clean-neutral: #f7f8f9;
 
   /* Typography */
-  --font-sans: var(--font-nunito);
+  --font-sans: var(--font-nunito-sans);
+  --font-heading: var(--font-manrope);
+  --font-serif: var(--font-source-serif);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
 }
 
 body {

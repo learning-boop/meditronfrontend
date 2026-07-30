@@ -76,7 +76,7 @@ export default function SuccessStoriesPage() {
       />
 
       {/* ── Featured stories ─────────────────────────────────────────────── */}
-      <section className="py-20 bg-white px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-clean-neutral px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto space-y-20">
           {stories.map((story, i) => (
             <article key={story.childName} className="relative">
@@ -89,16 +89,16 @@ export default function SuccessStoriesPage() {
                 {/* Condition chip */}
                 <div className="flex items-center gap-3 mb-5">
                   <span className="text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">{story.condition}</span>
-                  <span className="text-slate-400 text-xs">{story.duration} · {story.therapies.join(", ")}</span>
+                  <span className="text-sage text-xs">{story.duration} · {story.therapies.join(", ")}</span>
                 </div>
 
                 {/* Pull quote */}
-                <blockquote className="text-slate-800 font-extrabold text-xl sm:text-2xl leading-snug mb-6 border-l-4 border-accent pl-5">
+                <blockquote className="text-confident-navy font-extrabold text-xl sm:text-2xl leading-snug mb-6 border-l-4 border-accent pl-5">
                   {story.headline}
                 </blockquote>
 
                 {/* Body */}
-                <p className="text-slate-500 text-sm sm:text-base leading-[1.9] mb-6">{story.body}</p>
+                <p className="text-dusty-blue text-sm sm:text-base leading-[1.9] mb-6">{story.body}</p>
 
                 {/* Author */}
                 <div className="flex items-center gap-3">
@@ -106,8 +106,8 @@ export default function SuccessStoriesPage() {
                     <span className="text-primary font-black text-sm">{story.parent.charAt(0)}</span>
                   </div>
                   <div>
-                    <p className="font-bold text-slate-800 text-sm">{story.parent}</p>
-                    <p className="text-slate-400 text-xs mt-0.5">{story.parentRole}</p>
+                    <p className="font-bold text-confident-navy text-sm">{story.parent}</p>
+                    <p className="text-sage text-xs mt-0.5">{story.parentRole}</p>
                   </div>
                   <div className="ml-auto">
                     <Stars />
@@ -115,7 +115,7 @@ export default function SuccessStoriesPage() {
                 </div>
 
                 {i < stories.length - 1 && (
-                  <div className="mt-16 h-px bg-slate-100" />
+                  <div className="mt-16 h-px bg-primary-light" />
                 )}
               </div>
             </article>
@@ -128,22 +128,22 @@ export default function SuccessStoriesPage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <span className="text-accent font-semibold text-xs uppercase tracking-widest">More Voices</span>
-            <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold text-slate-800">
+            <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold text-confident-navy">
               In their own words
             </h2>
           </div>
           <div className="grid sm:grid-cols-3 gap-5">
             {testimonials.map((t) => (
-              <div key={t.id} className="bg-white rounded-2xl p-7 flex flex-col gap-4 shadow-sm">
+              <div key={t.id} className="bg-clean-neutral rounded-2xl p-7 flex flex-col gap-4 shadow-sm">
                 <Quote className="w-7 h-7 text-primary/20" aria-hidden="true" />
-                <p className="text-slate-600 text-sm leading-relaxed italic flex-1">&ldquo;{t.quote}&rdquo;</p>
+                <p className="text-muted-navy text-sm leading-relaxed italic flex-1">&ldquo;{t.quote}&rdquo;</p>
                 <div className="flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-full bg-primary-light flex items-center justify-center shrink-0">
                     <span className="text-primary font-black text-xs">{t.name.charAt(0)}</span>
                   </div>
                   <div>
-                    <p className="font-bold text-slate-800 text-xs">{t.name}</p>
-                    <p className="text-slate-400 text-[0.65rem] mt-0.5">{t.role}</p>
+                    <p className="font-bold text-confident-navy text-xs">{t.name}</p>
+                    <p className="text-sage text-[0.65rem] mt-0.5">{t.role}</p>
                   </div>
                 </div>
               </div>
@@ -183,7 +183,7 @@ export default function SuccessStoriesPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-6 py-3.5 rounded-xl transition-colors text-sm"
+              className="inline-flex items-center justify-center gap-2 bg-clean-neutral text-primary hover:bg-cream font-bold px-6 py-3.5 rounded-xl transition-colors text-sm"
             >
               <CalendarCheck className="w-4 h-4 shrink-0" />
               Book Free Assessment

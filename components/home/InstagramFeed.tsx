@@ -85,7 +85,7 @@ export default async function InstagramFeed() {
 
   return (
     <section
-      className="bg-slate-950 pt-16 pb-0"
+      className="bg-confident-navy pt-16 pb-0"
       aria-labelledby="instagram-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,7 +98,7 @@ export default async function InstagramFeed() {
               <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] flex items-center justify-center">
                 <IconInstagram className="w-4 h-4 text-white" />
               </div>
-              <span className="text-slate-500 text-xs font-bold uppercase tracking-[0.2em]">
+              <span className="text-dusty-blue text-xs font-bold uppercase tracking-[0.2em]">
                 Instagram
               </span>
             </div>
@@ -115,7 +115,7 @@ export default async function InstagramFeed() {
               </span>
             </h2>
 
-            <p className="text-slate-500 text-sm mt-3 leading-relaxed">
+            <p className="text-dusty-blue text-sm mt-3 leading-relaxed">
               Real moments. Real families. Real progress — posted every day.
             </p>
           </div>
@@ -159,7 +159,7 @@ export default async function InstagramFeed() {
                       ? post.caption.slice(0, 80)
                       : "View on Instagram"
                   }
-                  className="group relative aspect-square overflow-hidden bg-slate-800 block"
+                  className="group relative aspect-square overflow-hidden bg-navy block"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -186,7 +186,7 @@ export default async function InstagramFeed() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View Meditron on Instagram"
-                className="group relative aspect-square overflow-hidden bg-slate-800 block"
+                className="group relative aspect-square overflow-hidden bg-navy block"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -210,9 +210,9 @@ export default async function InstagramFeed() {
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2.5
             py-5 mt-2 sm:mt-3
-            text-slate-400 hover:text-white
+            text-sage hover:text-white
             text-sm font-semibold
-            border-t border-slate-800 hover:border-slate-600
+            border-t border-navy hover:border-dusty-blue
             transition-colors duration-200 group"
         >
           <IconInstagram className="w-4 h-4 group-hover:text-[#ee2a7b] transition-colors" />

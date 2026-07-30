@@ -11,7 +11,7 @@ const STRIP = [...videos, ...videos];
 
 export default function TherapiesSection() {
   return (
-    <section className="py-20 bg-white overflow-hidden" aria-labelledby="therapies-heading">
+    <section className="py-20 bg-clean-neutral overflow-hidden" aria-labelledby="therapies-heading">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
         <span className="text-accent font-semibold text-sm uppercase tracking-widest">
@@ -19,11 +19,11 @@ export default function TherapiesSection() {
         </span>
         <h2
           id="therapies-heading"
-          className="mt-3 text-3xl sm:text-4xl font-extrabold text-slate-800"
+          className="mt-3 text-3xl sm:text-4xl font-extrabold text-confident-navy"
         >
           Therapy Programmes We Offer
         </h2>
-        <p className="mt-4 text-slate-500 max-w-xl mx-auto leading-relaxed">
+        <p className="mt-4 text-dusty-blue max-w-xl mx-auto leading-relaxed">
           Each programme is tailored to the individual child and led by
           certified specialists with years of clinical experience.
         </p>

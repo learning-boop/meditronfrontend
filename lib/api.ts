@@ -1,5 +1,5 @@
 export const API_URL =
-  process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3000";
+  process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -41,7 +41,7 @@ export async function getPublishedPosts(): Promise<BlogPost[]> {
   try {
     const res = await fetch(`${API_URL}/blog`, { next: { revalidate: 60 } });
     if (!res.ok) return [];
-    return res.json();
+    return await res.json();
   } catch {
     return [];
   }
@@ -53,7 +53,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
       next: { revalidate: 60 },
     });
     if (!res.ok) return null;
-    return res.json();
+    return await res.json();
   } catch {
     return null;
   }

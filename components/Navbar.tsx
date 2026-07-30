@@ -24,7 +24,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
+    <header className="sticky top-0 z-50 bg-cream shadow-sm">
       <nav
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20"
         aria-label="Main navigation"
@@ -47,7 +47,7 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="px-3 py-2 text-sm font-semibold text-slate-600 hover:text-primary rounded-lg hover:bg-primary-light/50 transition-colors"
+                className="px-3 py-2 text-sm font-semibold text-muted-navy hover:text-primary rounded-lg hover:bg-primary-light/50 transition-colors"
               >
                 {link.label}
               </Link>
@@ -71,7 +71,7 @@ export default function Navbar() {
           onClick={() => setOpen((o) => !o)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
+          className="lg:hidden p-2 rounded-lg text-muted-navy hover:bg-primary-light transition-colors"
         >
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -79,14 +79,14 @@ export default function Navbar() {
 
       {/* ── Mobile menu ── */}
       {open && (
-        <div className="lg:hidden border-t border-slate-100 bg-white px-4 pb-6">
+        <div className="lg:hidden border-t border-primary-light bg-cream px-4 pb-6">
           <ul className="flex flex-col gap-1 pt-3">
             {links.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block px-3 py-2.5 text-sm font-semibold text-slate-700 hover:text-primary hover:bg-primary-light/40 rounded-lg transition-colors"
+                  className="block px-3 py-2.5 text-sm font-semibold text-navy hover:text-primary hover:bg-primary-light/40 rounded-lg transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -104,14 +104,14 @@ export default function Navbar() {
           </a>
 
           {/* Social icons — mobile drawer */}
-          <div className="flex items-center gap-3 mt-5 pt-5 border-t border-slate-100">
-            <a href={NAP.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-9 h-9 rounded-lg bg-slate-100 hover:bg-accent hover:text-white flex items-center justify-center text-slate-500 transition-colors">
+          <div className="flex items-center gap-3 mt-5 pt-5 border-t border-primary-light">
+            <a href={NAP.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-9 h-9 rounded-lg bg-primary-light hover:bg-accent hover:text-white flex items-center justify-center text-dusty-blue transition-colors">
               <IconInstagram className="w-4 h-4" />
             </a>
-            <a href={NAP.socials.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-9 h-9 rounded-lg bg-slate-100 hover:bg-[#1877F2] hover:text-white flex items-center justify-center text-slate-500 transition-colors">
+            <a href={NAP.socials.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-9 h-9 rounded-lg bg-primary-light hover:bg-[#1877F2] hover:text-white flex items-center justify-center text-dusty-blue transition-colors">
               <IconFacebook className="w-4 h-4" />
             </a>
-            <a href={NAP.socials.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-9 h-9 rounded-lg bg-slate-100 hover:bg-[#FF0000] hover:text-white flex items-center justify-center text-slate-500 transition-colors">
+            <a href={NAP.socials.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-9 h-9 rounded-lg bg-primary-light hover:bg-[#FF0000] hover:text-white flex items-center justify-center text-dusty-blue transition-colors">
               <IconYouTube className="w-4 h-4" />
             </a>
           </div>

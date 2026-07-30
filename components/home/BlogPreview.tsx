@@ -33,7 +33,7 @@ export default async function BlogPreview() {
             </span>
             <h2
               id="blog-heading"
-              className="mt-3 text-3xl sm:text-4xl font-extrabold text-slate-800"
+              className="mt-3 text-3xl sm:text-4xl font-extrabold text-confident-navy"
             >
               To Understand Your Child Better
             </h2>
@@ -53,7 +53,7 @@ export default async function BlogPreview() {
             <Link
               key={post.id}
               href={`/blog/${post.slug}`}
-              className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-slate-100"
+              className="group flex flex-col bg-clean-neutral rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-primary-light"
             >
               {/* Cover image */}
               {resolveImg(post.coverImage) ? (
@@ -78,7 +78,7 @@ export default async function BlogPreview() {
                     {post.category}
                   </span>
                 )}
-                <div className="flex items-center gap-3 text-slate-400 text-xs mb-3">
+                <div className="flex items-center gap-3 text-sage text-xs mb-3">
                   <time dateTime={post.createdAt}>{formatDate(post.createdAt)}</time>
                   {post.readTime && (
                     <>
@@ -90,10 +90,10 @@ export default async function BlogPreview() {
                     </>
                   )}
                 </div>
-                <h3 className="font-extrabold text-slate-800 text-base leading-snug mb-2 group-hover:text-primary transition-colors">
+                <h3 className="font-extrabold text-confident-navy text-base leading-snug mb-2 group-hover:text-primary transition-colors">
                   {post.title}
                 </h3>
-                <p className="text-slate-500 text-sm leading-relaxed flex-1">
+                <p className="text-dusty-blue text-sm leading-relaxed flex-1">
                   {post.excerpt}
                 </p>
                 <div className="flex items-center gap-1 mt-5 text-primary font-semibold text-sm group-hover:gap-2 transition-all">

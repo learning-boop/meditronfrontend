@@ -106,7 +106,7 @@ export default function TherapiesPage() {
           <section
             key={therapy.id}
             id={therapy.id}
-            className={`py-20 px-4 sm:px-6 lg:px-8 ${reverse ? "bg-cream" : "bg-white"}`}
+            className={`py-20 px-4 sm:px-6 lg:px-8 ${reverse ? "bg-cream" : "bg-clean-neutral"}`}
           >
             <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
               {/* Image */}
@@ -117,17 +117,17 @@ export default function TherapiesPage() {
               {/* Content */}
               <div className={reverse ? "md:order-1" : "md:order-2"}>
                 <span className="text-primary text-xs font-bold uppercase tracking-widest">{therapy.tagline}</span>
-                <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold text-slate-800 mb-4 leading-tight">
+                <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold text-confident-navy mb-4 leading-tight">
                   {therapy.heading}
                 </h2>
-                <p className="text-slate-500 text-sm sm:text-base leading-relaxed mb-8">{therapy.intro}</p>
+                <p className="text-dusty-blue text-sm sm:text-base leading-relaxed mb-8">{therapy.intro}</p>
 
                 {/* Who it's for */}
                 <div className="mb-8">
-                  <p className="text-slate-800 font-bold text-sm mb-3">Who benefits most:</p>
+                  <p className="text-confident-navy font-bold text-sm mb-3">Who benefits most:</p>
                   <ul className="space-y-2">
                     {therapy.whoFor.map((item) => (
-                      <li key={item} className="flex items-start gap-2.5 text-slate-500 text-sm">
+                      <li key={item} className="flex items-start gap-2.5 text-dusty-blue text-sm">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
                         {item}
                       </li>
@@ -141,8 +141,8 @@ export default function TherapiesPage() {
                     <div key={step.title} className="flex gap-4">
                       <span className="text-accent font-black text-lg leading-none shrink-0 w-6">{j + 1}.</span>
                       <div>
-                        <p className="font-bold text-slate-800 text-sm">{step.title}</p>
-                        <p className="text-slate-500 text-sm mt-1 leading-relaxed">{step.body}</p>
+                        <p className="font-bold text-confident-navy text-sm">{step.title}</p>
+                        <p className="text-dusty-blue text-sm mt-1 leading-relaxed">{step.body}</p>
                       </div>
                     </div>
                   ))}
@@ -166,7 +166,7 @@ export default function TherapiesPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
+              className="inline-flex items-center justify-center gap-2 bg-clean-neutral text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
             >
               <CalendarCheck className="w-5 h-5 shrink-0" />
               Book Free Assessment

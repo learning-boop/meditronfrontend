@@ -75,7 +75,7 @@ export default function ConditionsPage() {
           {conditions.map((c, i) => (
             <article
               key={c.slug}
-              className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col"
+              className="group bg-clean-neutral rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col"
             >
               {/* Image */}
               <div className="relative h-60 sm:h-72 overflow-hidden">
@@ -92,8 +92,8 @@ export default function ConditionsPage() {
               {/* Content */}
               <div className="flex flex-col flex-1 p-7 sm:p-8">
                 <span className="text-primary text-xs font-bold uppercase tracking-widest mb-2">{c.tagline}</span>
-                <h2 className="text-slate-800 font-extrabold text-xl sm:text-2xl mb-3">{c.name}</h2>
-                <p className="text-slate-500 text-sm leading-relaxed mb-5 flex-1">{c.summary}</p>
+                <h2 className="text-confident-navy font-extrabold text-xl sm:text-2xl mb-3">{c.name}</h2>
+                <p className="text-dusty-blue text-sm leading-relaxed mb-5 flex-1">{c.summary}</p>
 
                 {/* Symptom chips */}
                 <div className="flex flex-wrap gap-2 mb-6">
@@ -130,7 +130,7 @@ export default function ConditionsPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
+              className="inline-flex items-center justify-center gap-2 bg-clean-neutral text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
             >
               <CalendarCheck className="w-5 h-5 shrink-0" />
               Book Free Assessment

@@ -73,11 +73,11 @@ export default function WhyMeditron() {
               </p>
 
               {/* Letter body */}
-              <div className="space-y-5 text-slate-700 text-sm sm:text-base leading-[1.9]">
+              <div className="space-y-5 text-navy text-sm sm:text-base leading-[1.9]">
                 <p>
                   Every day, a mother sits in front of me and asks the same
                   question with the same eyes:{" "}
-                  <span className="font-semibold text-slate-800 italic">
+                  <span className="font-semibold text-confident-navy italic">
                     &ldquo;Doctor, will my child be okay?&rdquo;
                   </span>
                 </p>
@@ -106,12 +106,12 @@ export default function WhyMeditron() {
               </div>
 
               {/* Signature row */}
-              <div className="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+              <div className="mt-8 pt-6 border-t border-primary-light flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
                 <div>
-                  <p className="text-slate-800 font-extrabold text-base sm:text-lg">
+                  <p className="text-confident-navy font-extrabold text-base sm:text-lg">
                     Dr. Sunitha Reddy
                   </p>
-                  <p className="text-slate-500 text-xs sm:text-sm mt-0.5">
+                  <p className="text-dusty-blue text-xs sm:text-sm mt-0.5">
                     M.D. · Pediatric Rehabilitation &amp; Development
                   </p>
                   <p className="text-primary text-xs font-semibold mt-1">

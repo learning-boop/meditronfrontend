@@ -40,7 +40,7 @@ function renderInline(text: string): React.ReactNode[] {
   return text.split(/(\*\*[^*]+\*\*)/).map((part, i) => {
     if (part.startsWith("**") && part.endsWith("**")) {
       return (
-        <strong key={i} className="text-slate-700 font-semibold">
+        <strong key={i} className="text-navy font-semibold">
           {part.slice(2, -2)}
         </strong>
       );
@@ -61,7 +61,7 @@ function MarkdownContent({ content }: { content: string }) {
           return (
             <h2
               key={i}
-              className="text-slate-800 font-extrabold text-xl mt-10 mb-2"
+              className="text-confident-navy font-extrabold text-xl mt-10 mb-2"
             >
               {trimmed.slice(3)}
             </h2>
@@ -77,7 +77,7 @@ function MarkdownContent({ content }: { content: string }) {
               {items.map((item, j) => (
                 <li
                   key={j}
-                  className="text-slate-500 text-sm sm:text-base leading-relaxed"
+                  className="text-dusty-blue text-sm sm:text-base leading-relaxed"
                 >
                   {renderInline(item.replace(/^-\s+/, ""))}
                 </li>
@@ -89,7 +89,7 @@ function MarkdownContent({ content }: { content: string }) {
         return (
           <p
             key={i}
-            className="text-slate-500 text-sm sm:text-base leading-[1.9]"
+            className="text-dusty-blue text-sm sm:text-base leading-[1.9]"
           >
             {renderInline(trimmed)}
           </p>
@@ -126,7 +126,7 @@ export default async function BlogPostPage({
     .slice(0, 2);
 
   return (
-    <div className="bg-white">
+    <div className="bg-clean-neutral">
       {/* ── Article header ──────────────────────────────────────────────── */}
       <header className="bg-primary-dark px-4 sm:px-6 lg:px-8 pt-12 pb-16">
         <div className="max-w-3xl mx-auto">
@@ -151,7 +151,7 @@ export default async function BlogPostPage({
             {post.category && (
               <>
                 <span aria-hidden="true">·</span>
-                <span className="bg-white/10 px-2 py-0.5 rounded-full">
+                <span className="bg-clean-neutral/10 px-2 py-0.5 rounded-full">
                   {post.category}
                 </span>
               </>
@@ -195,7 +195,7 @@ export default async function BlogPostPage({
       {related.length > 0 && (
         <section className="bg-cream py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-slate-800 font-extrabold text-xl mb-8">
+            <h2 className="text-confident-navy font-extrabold text-xl mb-8">
               More from our blog
             </h2>
             <div className="grid sm:grid-cols-2 gap-5">
@@ -203,7 +203,7 @@ export default async function BlogPostPage({
                 <Link
                   key={p.id}
                   href={`/blog/${p.slug}`}
-                  className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                  className="group bg-clean-neutral rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
                 >
                   {p.category && (
                     <span className="text-primary text-xs font-semibold uppercase tracking-wide mb-2 block">
@@ -211,12 +211,12 @@ export default async function BlogPostPage({
                     </span>
                   )}
                   {p.readTime && (
-                    <div className="flex items-center gap-2 text-slate-400 text-xs mb-3">
+                    <div className="flex items-center gap-2 text-sage text-xs mb-3">
                       <Clock className="w-3 h-3" aria-hidden="true" />
                       {p.readTime}
                     </div>
                   )}
-                  <h3 className="font-bold text-slate-800 text-sm leading-snug group-hover:text-primary transition-colors mb-3">
+                  <h3 className="font-bold text-confident-navy text-sm leading-snug group-hover:text-primary transition-colors mb-3">
                     {p.title}
                   </h3>
                   <span className="inline-flex items-center gap-1 text-primary text-xs font-semibold group-hover:gap-2 transition-all">
@@ -241,7 +241,7 @@ export default async function BlogPostPage({
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-8 py-4 rounded-2xl transition-colors shadow-lg text-sm"
+            className="inline-flex items-center justify-center gap-2 bg-clean-neutral text-primary hover:bg-cream font-bold px-8 py-4 rounded-2xl transition-colors shadow-lg text-sm"
           >
             <CalendarCheck className="w-5 h-5 shrink-0" />
             Book Free Assessment

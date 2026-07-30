@@ -89,13 +89,13 @@ export default function ContactPage() {
           {/* Left — booking form */}
           <div>
             <span className="text-accent font-semibold text-xs uppercase tracking-widest">Book via WhatsApp</span>
-            <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold text-slate-800 mb-2">
+            <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold text-confident-navy mb-2">
               Book Your Free Assessment
             </h2>
-            <p className="text-slate-500 text-sm leading-relaxed mb-8">
+            <p className="text-dusty-blue text-sm leading-relaxed mb-8">
               Fill in the form and we&apos;ll open WhatsApp with everything pre-filled. Our team confirms your slot within the hour during working hours.
             </p>
-            <div className="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+            <div className="bg-clean-neutral rounded-2xl shadow-sm p-6 sm:p-8">
               <BookingForm />
             </div>
           </div>
@@ -109,7 +109,7 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               className="flex items-center gap-4 bg-[#25D366] hover:bg-[#1ebe5d] text-white rounded-2xl px-6 py-5 transition-colors shadow-md"
             >
-              <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-clean-neutral/20 flex items-center justify-center shrink-0">
                 <MessageCircle className="w-6 h-6" aria-hidden="true" />
               </div>
               <div>
@@ -119,8 +119,8 @@ export default function ContactPage() {
             </a>
 
             {/* Contact details card */}
-            <div className="bg-white rounded-2xl shadow-sm p-6 sm:p-8 flex-1">
-              <h3 className="font-extrabold text-slate-800 text-base mb-6">Contact Information</h3>
+            <div className="bg-clean-neutral rounded-2xl shadow-sm p-6 sm:p-8 flex-1">
+              <h3 className="font-extrabold text-confident-navy text-base mb-6">Contact Information</h3>
               <div className="space-y-6">
                 {contactItems.map((item) => {
                   const Icon = item.icon;
@@ -130,10 +130,10 @@ export default function ContactPage() {
                         <Icon className="w-4 h-4 text-primary" aria-hidden="true" />
                       </div>
                       <div>
-                        <p className="text-slate-400 text-xs font-semibold uppercase tracking-wide mb-0.5">
+                        <p className="text-sage text-xs font-semibold uppercase tracking-wide mb-0.5">
                           {item.label}
                         </p>
-                        <p className="text-slate-700 text-sm font-medium leading-snug">{item.value}</p>
+                        <p className="text-navy text-sm font-medium leading-snug">{item.value}</p>
                         {item.href && item.linkLabel && (
                           <a
                             href={item.href}
@@ -157,14 +157,14 @@ export default function ContactPage() {
       {/* ── Google Maps embed ─────────────────────────────────────────────── */}
       <section aria-label="Our location on the map">
         {/* Section header */}
-        <div className="bg-white px-4 sm:px-6 lg:px-8 pt-10 pb-6 border-t border-slate-100">
+        <div className="bg-clean-neutral px-4 sm:px-6 lg:px-8 pt-10 pb-6 border-t border-primary-light">
           <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
               <span className="text-accent font-semibold text-xs uppercase tracking-widest">How to Find Us</span>
-              <h2 className="mt-1 text-xl sm:text-2xl font-extrabold text-slate-800">
+              <h2 className="mt-1 text-xl sm:text-2xl font-extrabold text-confident-navy">
                 We&apos;re in Governorpet, Vijayawada
               </h2>
-              <p className="text-slate-500 text-sm mt-1">{NAP.address}</p>
+              <p className="text-dusty-blue text-sm mt-1">{NAP.address}</p>
             </div>
             <a
               href={NAP.mapUrl}
@@ -213,23 +213,23 @@ export default function ContactPage() {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────────────────── */}
-      <section className="py-16 bg-white px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-clean-neutral px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <span className="text-accent font-semibold text-xs uppercase tracking-widest">Before You Visit</span>
-            <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold text-slate-800">Common questions</h2>
+            <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold text-confident-navy">Common questions</h2>
           </div>
           <div className="space-y-4">
             {faqs.map((faq) => (
               <details key={faq.q} className="group bg-cream rounded-2xl overflow-hidden">
                 <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                  <span className="font-bold text-slate-800 text-sm">{faq.q}</span>
+                  <span className="font-bold text-confident-navy text-sm">{faq.q}</span>
                   <span className="text-primary text-xl font-black shrink-0 group-open:rotate-45 transition-transform leading-none">
                     +
                   </span>
                 </summary>
                 <div className="px-6 pb-6">
-                  <p className="text-slate-500 text-sm leading-relaxed">{faq.a}</p>
+                  <p className="text-dusty-blue text-sm leading-relaxed">{faq.a}</p>
                 </div>
               </details>
             ))}

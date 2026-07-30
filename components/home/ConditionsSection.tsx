@@ -57,7 +57,6 @@ const waUrl = `https://wa.me/${NAP.whatsapp}?text=${encodeURIComponent(
 
 // ─── component ──────────────────────────────────────────────────────
 export default function ConditionsSection() {
-  // Ref on the ADHD row (second item) — triggers the popup
   const adhdRowRef = useRef<HTMLDivElement>(null);
   const [showPopup, setShowPopup] = useState(false);
   const [dismissed, setDismissed] = useState(false);
@@ -69,9 +68,7 @@ export default function ConditionsSection() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Small delay so it doesn't feel like an ambush
           const t = setTimeout(() => setShowPopup(true), 900);
-          // Only trigger once
           observer.disconnect();
           return () => clearTimeout(t);
         }
@@ -98,11 +95,11 @@ export default function ConditionsSection() {
           </span>
           <h2
             id="conditions-heading"
-            className="mt-3 text-3xl sm:text-4xl font-extrabold text-slate-800"
+            className="mt-3 text-3xl sm:text-4xl font-extrabold text-confident-navy"
           >
             You&apos;ve noticed. Now let&apos;s help.
           </h2>
-          <p className="mt-4 text-slate-500 max-w-2xl mx-auto leading-relaxed text-base sm:text-lg">
+          <p className="mt-4 text-dusty-blue max-w-2xl mx-auto leading-relaxed text-base sm:text-lg">
             You&apos;ve noticed the small things no one else sees. That&apos;s
             not worry — that&apos;s a mother&apos;s instinct. Here&apos;s what
             it might mean, and how we help.
@@ -112,7 +109,7 @@ export default function ConditionsSection() {
         {/* ── Alternating image / content rows ── */}
         {conditions.map((condition, index) => {
           const reverse = index % 2 !== 0;
-          const contentBg = reverse ? "bg-cream" : "bg-white";
+          const contentBg = reverse ? "bg-cream" : "bg-clean-neutral";
           const isAdhdRow = index === 1;
 
           return (
@@ -145,10 +142,10 @@ export default function ConditionsSection() {
                 <span className="text-primary text-xs font-bold uppercase tracking-widest mb-3">
                   {condition.name}
                 </span>
-                <h3 className="text-slate-800 font-extrabold text-xl sm:text-2xl lg:text-3xl leading-tight mb-5">
+                <h3 className="text-confident-navy font-extrabold text-xl sm:text-2xl lg:text-3xl leading-tight mb-5">
                   {condition.question}
                 </h3>
-                <p className="text-slate-500 leading-relaxed text-sm sm:text-base mb-8 max-w-lg">
+                <p className="text-dusty-blue leading-relaxed text-sm sm:text-base mb-8 max-w-lg">
                   {condition.body}
                 </p>
                 <Link
@@ -168,7 +165,7 @@ export default function ConditionsSection() {
 
         {/* ── Closing CTA ── */}
         <div className="bg-primary-light py-16 px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-slate-700 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto italic mb-10">
+          <p className="text-navy text-base sm:text-lg leading-relaxed max-w-3xl mx-auto italic mb-10">
             &ldquo;Whatever brought you here tonight — the late talking, the
             school complaints, the milestone that hasn&apos;t come — it has a
             name, it has a path, and thousands of families in India are already
@@ -211,7 +208,7 @@ export default function ConditionsSection() {
             : "translate-y-full sm:translate-y-6 opacity-0 pointer-events-none"
           }`}
       >
-        <div className="bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl border border-slate-100 overflow-hidden">
+        <div className="bg-clean-neutral rounded-t-3xl sm:rounded-3xl shadow-2xl border border-primary-light overflow-hidden">
           {/* Accent top bar */}
           <div className="h-1.5 bg-gradient-to-r from-primary to-accent" />
 
@@ -223,7 +220,7 @@ export default function ConditionsSection() {
                   <Video className="w-5 h-5 text-primary" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="font-extrabold text-slate-800 text-sm leading-tight">
+                  <p className="font-extrabold text-confident-navy text-sm leading-tight">
                     Online Consultation
                   </p>
                   <p className="text-primary text-xs font-semibold mt-0.5">
@@ -234,24 +231,24 @@ export default function ConditionsSection() {
               <button
                 onClick={dismiss}
                 aria-label="Close notification"
-                className="text-slate-400 hover:text-slate-600 transition-colors p-1 -mt-1 -mr-1 shrink-0"
+                className="text-sage hover:text-muted-navy transition-colors p-1 -mt-1 -mr-1 shrink-0"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {/* Body */}
-            <p className="text-slate-600 text-sm leading-relaxed mb-4">
+            <p className="text-muted-navy text-sm leading-relaxed mb-4">
               Can&apos;t travel to our centre right now? Our specialists are
               available for{" "}
-              <span className="font-semibold text-slate-800">
+              <span className="font-semibold text-confident-navy">
                 secure one-on-one video sessions
               </span>{" "}
               — from your home, at your time, completely private.
             </p>
 
             {/* Trust badge */}
-            <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-5">
+            <div className="flex items-center gap-1.5 text-xs text-sage mb-5">
               <ShieldCheck className="w-3.5 h-3.5 text-primary shrink-0" aria-hidden="true" />
               Encrypted &amp; confidential · No travel needed · Flexible timing
             </div>

@@ -44,7 +44,7 @@ export default function TimedPopup() {
     >
       {/* ── Card — clicks don't close ── */}
       <div
-        className="relative bg-white rounded-[2rem] shadow-2xl w-full max-w-md overflow-hidden"
+        className="relative bg-clean-neutral rounded-[2rem] shadow-2xl w-full max-w-md overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Accent top bar */}
@@ -55,7 +55,7 @@ export default function TimedPopup() {
           <button
             onClick={dismiss}
             aria-label="Close"
-            className="absolute top-5 right-5 text-slate-300 hover:text-slate-500 transition-colors p-1 rounded-lg hover:bg-slate-100"
+            className="absolute top-5 right-5 text-sage hover:text-muted-navy transition-colors p-1 rounded-lg hover:bg-primary-light"
           >
             <X className="w-5 h-5" />
           </button>
@@ -68,13 +68,13 @@ export default function TimedPopup() {
           {/* Headline */}
           <h2
             id="popup-heading"
-            className="text-slate-800 font-extrabold text-xl sm:text-2xl leading-tight mb-3"
+            className="text-confident-navy font-extrabold text-xl sm:text-2xl leading-tight mb-3"
           >
             Still reading? That tells us something.
           </h2>
 
           {/* Body */}
-          <p className="text-slate-500 text-sm sm:text-[0.95rem] leading-[1.8] mb-6">
+          <p className="text-dusty-blue text-sm sm:text-[0.95rem] leading-[1.8] mb-6">
             Parents who take this much time to look around are parents who truly
             care. You don&apos;t have to figure this out alone — let&apos;s have
             a real conversation about your child. No paperwork, no pressure.
@@ -104,7 +104,7 @@ export default function TimedPopup() {
           </div>
 
           {/* Trust note */}
-          <p className="text-center text-slate-400 text-[0.7rem] mt-5 tracking-wide">
+          <p className="text-center text-sage text-[0.7rem] mt-5 tracking-wide">
             Free &middot; No commitment &middot; {NAP.hours}
           </p>
         </div>

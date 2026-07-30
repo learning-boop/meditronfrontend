@@ -60,7 +60,7 @@ export default async function BlogPage() {
       />
 
       {/* ── Category filter ───────────────────────────────────────────────── */}
-      <section className="bg-white border-b border-slate-100 px-4 sm:px-6 lg:px-8 py-4 sticky top-16 z-30">
+      <section className="bg-clean-neutral border-b border-primary-light px-4 sm:px-6 lg:px-8 py-4 sticky top-16 z-30">
         <div className="max-w-7xl mx-auto flex items-center gap-2 overflow-x-auto no-scrollbar">
           {categories.map((cat, i) => (
             <button
@@ -68,7 +68,7 @@ export default async function BlogPage() {
               className={`shrink-0 px-4 py-1.5 rounded-full text-xs font-bold transition-colors ${
                 i === 0
                   ? "bg-primary text-white"
-                  : "bg-slate-100 text-slate-500 hover:bg-primary/10 hover:text-primary"
+                  : "bg-primary-light text-dusty-blue hover:bg-primary/10 hover:text-primary"
               }`}
             >
               {cat}
@@ -82,7 +82,7 @@ export default async function BlogPage() {
         <div className="max-w-7xl mx-auto">
           {posts.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-slate-400 text-sm">
+              <p className="text-sage text-sm">
                 No articles yet — check back soon.
               </p>
             </div>
@@ -91,7 +91,7 @@ export default async function BlogPage() {
               {/* Featured post (first one) */}
               <Link
                 href={`/blog/${posts[0].slug}`}
-                className="group mb-12 flex flex-col lg:flex-row bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
+                className="group mb-12 flex flex-col lg:flex-row bg-clean-neutral rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
               >
                 <div className="lg:w-1/2 relative h-64 lg:h-auto overflow-hidden">
                   {resolveImg(posts[0].coverImage) ? (
@@ -114,13 +114,13 @@ export default async function BlogPage() {
                       {posts[0].category}
                     </span>
                   )}
-                  <h2 className="text-slate-800 font-extrabold text-xl sm:text-2xl leading-snug mb-3 group-hover:text-primary transition-colors">
+                  <h2 className="text-confident-navy font-extrabold text-xl sm:text-2xl leading-snug mb-3 group-hover:text-primary transition-colors">
                     {posts[0].title}
                   </h2>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-3">
+                  <p className="text-dusty-blue text-sm leading-relaxed mb-6 line-clamp-3">
                     {posts[0].excerpt}
                   </p>
-                  <div className="flex items-center gap-4 text-slate-400 text-xs mb-6">
+                  <div className="flex items-center gap-4 text-sage text-xs mb-6">
                     <time dateTime={posts[0].createdAt}>
                       {formatDate(posts[0].createdAt)}
                     </time>
@@ -148,7 +148,7 @@ export default async function BlogPage() {
                     <Link
                       key={post.id}
                       href={`/blog/${post.slug}`}
-                      className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col"
+                      className="group bg-clean-neutral rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col"
                     >
                       {resolveImg(post.coverImage) ? (
                         // eslint-disable-next-line @next/next/no-img-element
@@ -166,7 +166,7 @@ export default async function BlogPage() {
                             {post.category}
                           </span>
                         )}
-                        <div className="flex items-center gap-3 text-slate-400 text-xs mb-3">
+                        <div className="flex items-center gap-3 text-sage text-xs mb-3">
                           <time dateTime={post.createdAt}>
                             {formatDate(post.createdAt)}
                           </time>
@@ -180,10 +180,10 @@ export default async function BlogPage() {
                             </>
                           )}
                         </div>
-                        <h3 className="font-extrabold text-slate-800 text-base leading-snug mb-2 group-hover:text-primary transition-colors flex-1">
+                        <h3 className="font-extrabold text-confident-navy text-base leading-snug mb-2 group-hover:text-primary transition-colors flex-1">
                           {post.title}
                         </h3>
-                        <p className="text-slate-500 text-sm leading-relaxed mb-5 line-clamp-2">
+                        <p className="text-dusty-blue text-sm leading-relaxed mb-5 line-clamp-2">
                           {post.excerpt}
                         </p>
                         <span className="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
