@@ -1,5 +1,5 @@
 export const API_URL =
-  process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001";
+  process.env.NEXT_PUBLIC_API_URL ?? "https://13-127-244-179.sslip.io";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 

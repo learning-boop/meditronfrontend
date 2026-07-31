@@ -31,10 +31,10 @@ export async function generateMetadata({
 
 // ── Condition image map ───────────────────────────────────────────────────────
 const IMAGES: Record<string, string> = {
-  autism: "/images/autism.png",
-  adhd: "/images/adhd.png",
-  "cerebral-palsy": "/images/cerebral.png",
-  "down-syndrome": "/images/down.png",
+  autism: "/images/Conditions/1.png",
+  adhd: "/images/Conditions/2.png",
+  "cerebral-palsy": "/images/Conditions/3.png",
+  "down-syndrome": "/images/Conditions/4.png",
 };
 
 // ── Page ──────────────────────────────────────────────────────────────────────

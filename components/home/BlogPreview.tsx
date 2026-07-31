@@ -10,6 +10,12 @@ function formatDate(dateStr: string) {
   });
 }
 
+const FALLBACK_COVERS = [
+  "/images/Blogs/Blog_1.png",
+  "/images/Blogs/Blog_2.png",
+  "/images/Blogs/Blog_3.png",
+];
+
 function resolveImg(url: string | null | undefined): string | null {
   if (!url) return null;
   if (url.startsWith("/uploads/")) return `${API_URL}${url}`;
@@ -49,27 +55,19 @@ export default async function BlogPreview() {
 
         {/* Post cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {preview.map((post) => (
+          {preview.map((post, i) => (
             <Link
               key={post.id}
               href={`/blog/${post.slug}`}
               className="group flex flex-col bg-clean-neutral rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-primary-light"
             >
               {/* Cover image */}
-              {resolveImg(post.coverImage) ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={resolveImg(post.coverImage)!}
-                  alt={post.title}
-                  className="h-44 w-full object-cover"
-                />
-              ) : (
-                <div className="h-44 bg-primary-light/60 flex items-center justify-center">
-                  <p className="text-primary/30 text-xs tracking-widest uppercase">
-                    {post.category ?? "Article"}
-                  </p>
-                </div>
-              )}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={resolveImg(post.coverImage) ?? FALLBACK_COVERS[i % 3]}
+                alt={post.title}
+                className="h-44 w-full object-cover"
+              />
 
               {/* Content */}
               <div className="flex flex-col flex-1 p-6">

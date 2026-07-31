@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MessageCircle, Eye, ClipboardList } from "lucide-react";
 
 const trustChips = [
@@ -141,6 +142,26 @@ export default function WhyMeditron() {
                 ))}
               </div>
             </div>
+          </div>
+
+          {/* ── Photo strip ── */}
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { src: "/images/About/1.png", alt: "Mother and child at a consultation with a Meditron therapist" },
+              { src: "/images/About/2.png", alt: "Family meeting with a Meditron therapist for child assessment" },
+              { src: "/images/Mother%20obsvering/1.png", alt: "Mother watching her child's physiotherapy session at Meditron" },
+              { src: "/images/Mother%20obsvering/2.png", alt: "Parents watching their child's therapy progress at Meditron" },
+            ].map((photo) => (
+              <div key={photo.src} className="relative h-36 sm:h-44 rounded-2xl overflow-hidden">
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 50vw, 25vw"
+                />
+              </div>
+            ))}
           </div>
 
           {/* ── "Your first visit" steps ── */}

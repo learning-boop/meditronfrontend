@@ -13,7 +13,7 @@ export const conditions: Condition[] = [
     tagline: "Communication & Connection",
     description:
       "Early, play-based intervention that builds communication, social skills, and daily routines for children on the spectrum.",
-    image: "/images/condition-autism.webp",
+    image: "/images/Conditions/1.png",
   },
   {
     slug: "adhd",
@@ -21,7 +21,7 @@ export const conditions: Condition[] = [
     tagline: "Focus & Self-Regulation",
     description:
       "Evidence-based strategies to develop attention, impulse control, and learning skills so children can succeed at school and at home.",
-    image: "/images/condition-adhd.webp",
+    image: "/images/Conditions/2.png",
   },
   {
     slug: "cerebral-palsy",
@@ -29,7 +29,7 @@ export const conditions: Condition[] = [
     tagline: "Movement & Independence",
     description:
       "Multidisciplinary therapy to improve mobility, posture, speech, and everyday independence for children with CP.",
-    image: "/images/condition-cerebral-palsy.webp",
+    image: "/images/Conditions/3.png",
   },
   {
     slug: "down-syndrome",
@@ -37,7 +37,7 @@ export const conditions: Condition[] = [
     tagline: "Development & Potential",
     description:
       "Compassionate, goal-oriented programs supporting cognitive, language, and social growth at every stage of development.",
-    image: "/images/condition-down-syndrome.webp",
+    image: "/images/Conditions/4.png",
   },
 ];
 
@@ -54,21 +54,21 @@ export const therapies: Therapy[] = [
     name: "Speech Therapy",
     description:
       "Structured, engaging sessions that build language, articulation, and communication skills from the ground up.",
-    image: "/images/therapy-speech.webp",
+    image: "/images/Theorapies/1.png",
   },
   {
     slug: "occupational",
     name: "Occupational Therapy",
     description:
       "Developing fine motor skills, sensory processing, and daily-living abilities to increase independence.",
-    image: "/images/therapy-ot.webp",
+    image: "/images/Theorapies/2.png",
   },
   {
     slug: "physiotherapy",
     name: "Physiotherapy",
     description:
       "Movement-based therapy to strengthen gross motor skills, balance, coordination, and physical confidence.",
-    image: "/images/therapy-physio.webp",
+    image: "/images/Theorapies/3.png",
   },
 ];
 

@@ -2,12 +2,10 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { updateAppointmentStatus } from "@/lib/api";
+import { API_URL, updateAppointmentStatus } from "@/lib/api";
 import type { Appointment } from "@/lib/api";
 import AdminNav from "@/app/admin/_components/AdminNav";
 import { Loader2, RefreshCw, AlertCircle } from "lucide-react";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3000";
 
 const STATUS_COLOURS: Record<Appointment["status"], string> = {
   PENDING: "bg-yellow-100 text-yellow-700",

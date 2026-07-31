@@ -229,7 +229,7 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
               className="relative"
             >
               {/* Image card */}
-              <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-primary-light shadow-xl shadow-primary/10">
+              <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden bg-primary-light shadow-xl shadow-primary/10">
                 {image && (
                   <Image
                     src={image}
