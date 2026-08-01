@@ -30,7 +30,7 @@ export default function Navbar() {
         aria-label="Main navigation"
       >
         {/* ── Logo ── */}
-        <Link href="/" className="flex items-center shrink-0" onClick={() => setOpen(false)}>
+        <Link href="/" className="flex items-center gap-2.5 shrink-0" onClick={() => setOpen(false)}>
           <Image
             src="/images/meditron-child-development-center-logo.png"
             alt="Meditron Child Development Centre"
@@ -39,6 +39,14 @@ export default function Navbar() {
             className="h-10 md:h-12 w-auto object-contain"
             priority
           />
+          <span className="flex flex-col justify-center leading-none">
+            <span className="font-heading font-extrabold text-primary text-[1.1rem] md:text-[1.2rem] tracking-tight">
+              Meditron
+            </span>
+            <span className="font-heading font-semibold text-muted-navy text-[0.6rem] md:text-[0.65rem] tracking-[0.14em] uppercase mt-0.5">
+              Childcare Center
+            </span>
+          </span>
         </Link>
 
         {/* ── Desktop nav links ── */}
