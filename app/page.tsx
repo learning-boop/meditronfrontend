@@ -9,6 +9,14 @@ import BlogPreview from "@/components/home/BlogPreview";
 import FinalCTA from "@/components/home/FinalCTA";
 import InstagramFeed from "@/components/home/InstagramFeed";
 import Footer from "@/components/Footer";
+/* ── Muggu: mobile-only sections (all md:hidden) ── */
+import MobileReassurance from "@/components/mobile/MobileReassurance";
+import MobileDelayChecker from "@/components/mobile/MobileDelayChecker";
+import MobileSessionVideos from "@/components/mobile/MobileSessionVideos";
+import MobileReviews from "@/components/mobile/MobileReviews";
+import MobileCentreTour from "@/components/mobile/MobileCentreTour";
+import MobileParentCircle from "@/components/mobile/MobileParentCircle";
+import MobileStickyCTA from "@/components/mobile/MobileStickyCTA";
 import { NAP } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -79,28 +87,40 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <main>
-        {/* 1. Hero */}
+        {/* 1. Hero — Muggu on mobile, banner slideshow from md up */}
         <Hero />
-        {/* 2. Trust bar — stats strip */}
+        {/* 1b. Muggu reassurance + stats (mobile only) */}
+        <MobileReassurance />
+        {/* 2. Trust bar — unchanged */}
         <TrustBar />
-        {/* 3. Conditions We Treat */}
+        {/* 3. Conditions We Treat — unchanged */}
         <ConditionsSection />
-        {/* 4. Our Therapies */}
+        {/* 3b. Is it just a delay? (mobile only) */}
+        <MobileDelayChecker />
+        {/* 4. Our Therapies — unchanged */}
         <TherapiesSection />
-        {/* 5. Why Meditron */}
+        {/* 4b. Real session footage (mobile only) */}
+        <MobileSessionVideos />
+        {/* 5. Why Meditron — unchanged */}
         <WhyMeditron />
-        {/* 6. Video section */}
-        {/* <VideoSection /> */}
-        {/* 7. Success Stories / Testimonials */}
+        {/* 6. Success Stories / Testimonials — unchanged */}
         <Testimonials />
-        {/* 8. Blog preview */}
+        {/* 6b. Google reviews (mobile only) */}
+        <MobileReviews />
+        {/* 6c. Centre tour (mobile only) */}
+        <MobileCentreTour />
+        {/* 7. Blog preview — unchanged */}
         <BlogPreview />
-        {/* 9. Final CTA */}
+        {/* 7b. Amma's circle (mobile only) */}
+        <MobileParentCircle />
+        {/* 8. Final CTA — unchanged */}
         <FinalCTA />
-        {/* 10. Instagram feed */}
+        {/* 9. Instagram feed — unchanged */}
         <InstagramFeed />
       </main>
       <Footer />
+      {/* Mobile-only sticky action bar */}
+      <MobileStickyCTA />
     </>
   );
 }

@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Manrope, Nunito_Sans, Source_Serif_4 } from "next/font/google";
+import {
+  Manrope,
+  Nunito_Sans,
+  Source_Serif_4,
+  Mandali,
+  Ramabhadra,
+} from "next/font/google";
 import "./globals.css";
 import ConditionalLayout from "@/components/ConditionalLayout";
 
@@ -18,6 +24,21 @@ const nunitoSans = Nunito_Sans({
 const sourceSerif4 = Source_Serif_4({
   variable: "--font-source-serif",
   subsets: ["latin"],
+  display: "swap",
+});
+
+/* ── Telugu type — used by the mobile (Muggu) sections only ── */
+const mandali = Mandali({
+  variable: "--font-mandali",
+  subsets: ["telugu"],
+  weight: "400",
+  display: "swap",
+});
+
+const ramabhadra = Ramabhadra({
+  variable: "--font-ramabhadra",
+  subsets: ["telugu"],
+  weight: "400",
   display: "swap",
 });
 
@@ -42,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-IN" className={`${manrope.variable} ${nunitoSans.variable} ${sourceSerif4.variable} h-full antialiased`}>
+    <html lang="en-IN" className={`${manrope.variable} ${nunitoSans.variable} ${sourceSerif4.variable} ${mandali.variable} ${ramabhadra.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-cream font-sans">
         <ConditionalLayout>{children}</ConditionalLayout>
       </body>

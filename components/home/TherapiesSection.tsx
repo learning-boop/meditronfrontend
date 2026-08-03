@@ -49,9 +49,9 @@ export default function TherapiesSection() {
         </p>
       </div>
 
-      {/* Infinite sliding strip — all cards identical width + mr so the loop is gapless */}
+      {/* Infinite sliding strip — desktop only */}
       <div
-        className="flex animate-marquee-videos"
+        className="hidden md:flex animate-marquee-videos"
         style={{ width: "max-content" }}
         aria-hidden="true"
       >

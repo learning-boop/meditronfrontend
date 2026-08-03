@@ -85,7 +85,7 @@ export default async function InstagramFeed() {
 
   return (
     <section
-      className="bg-confident-navy pt-16 pb-0"
+      className="hidden md:block bg-confident-navy pt-16 pb-0"
       aria-labelledby="instagram-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

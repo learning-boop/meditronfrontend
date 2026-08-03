@@ -24,7 +24,7 @@ const nav = {
 export default function Footer() {
   return (
     <footer className="bg-confident-navy text-primary-light">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-28 md:pb-10">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-10 mb-14">
           {/* Brand + NAP */}
           <div className="col-span-2 sm:col-span-1">

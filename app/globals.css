@@ -38,6 +38,8 @@
   --font-sans: var(--font-nunito-sans);
   --font-heading: var(--font-manrope);
   --font-serif: var(--font-source-serif);
+  --font-telugu-display: var(--font-ramabhadra);
+  --font-telugu: var(--font-mandali);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -69,4 +71,46 @@ body {
 
 .animate-popup-in {
   animation: popup-in 0.25s ease-out both;
+}
+
+/* ── Muggu (mobile) additions ───────────────────────────────── */
+
+@keyframes muggu-dotdrift {
+  from { background-position: 0 0; }
+  to   { background-position: 44px 44px; }
+}
+.muggu-dots {
+  background-image: radial-gradient(rgba(42, 142, 139, 0.28) 1.4px, transparent 1.5px);
+  background-size: 22px 22px;
+  animation: muggu-dotdrift 26s linear infinite;
+}
+.muggu-dots-light {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.9) 1.2px, transparent 1.3px);
+  background-size: 26px 26px;
+}
+
+@keyframes muggu-pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45); }
+  70%  { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+.muggu-pulse { animation: muggu-pulse-ring 3.2s ease-out infinite; }
+
+@keyframes muggu-floaty {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-9px); }
+}
+.muggu-floaty { animation: muggu-floaty 2.4s ease-in-out infinite; }
+
+/* silk-border strip between mobile sections */
+.muggu-silk {
+  background: repeating-linear-gradient(90deg, #c6aa4e 0 8px, #d67861 8px 16px, #2a8e8b 16px 24px);
+}
+
+/* temple arch mask for the mobile hero photo */
+.muggu-arch { border-radius: 180px 180px 22px 22px; }
+.muggu-arch-outline { border-radius: 190px 190px 26px 26px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .muggu-dots, .muggu-pulse, .muggu-floaty { animation: none; }
 }
