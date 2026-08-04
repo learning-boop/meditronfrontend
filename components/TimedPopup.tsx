@@ -5,8 +5,9 @@ import Link from "next/link";
 import { X, CalendarCheck, MessageCircle, HeartHandshake } from "lucide-react";
 import { NAP } from "@/lib/data";
 
-const DELAY_MS = 60_000; // 1 minute of active time on site
+const DELAY_MS = 150_000; // 2.5 minutes — ensures it doesn't overlap with the conditions popup
 const SESSION_KEY = "meditron-popup-seen";
+const CONSULT_KEY = "meditron-consult-popup-seen";
 
 const waUrl = `https://wa.me/${NAP.whatsapp}?text=${encodeURIComponent(
   "Hi Meditron, I've been reading about your centre and would love to speak with someone about my child."
@@ -17,8 +18,8 @@ export default function TimedPopup() {
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    // Don't show again if already seen this session
-    if (sessionStorage.getItem(SESSION_KEY)) return;
+    // Don't show if this popup or the conditions consultation popup was already seen
+    if (sessionStorage.getItem(SESSION_KEY) || sessionStorage.getItem(CONSULT_KEY)) return;
 
     timerRef.current = setTimeout(() => setVisible(true), DELAY_MS);
     return () => {
@@ -55,7 +56,7 @@ export default function TimedPopup() {
           <button
             onClick={dismiss}
             aria-label="Close"
-            className="absolute top-5 right-5 text-sage hover:text-muted-navy transition-colors p-1 rounded-lg hover:bg-primary-light"
+            className="absolute top-5 right-5 text-sage hover:text-muted-navy transition-colors p-2.5 rounded-lg hover:bg-primary-light"
           >
             <X className="w-5 h-5" />
           </button>

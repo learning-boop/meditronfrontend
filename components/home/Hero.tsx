@@ -199,6 +199,20 @@ function DesktopHero() {
       />
 
       <div className="relative z-10 mt-auto w-full px-5 sm:px-10 lg:px-16 pb-10 sm:pb-14">
+        {/* Desktop headline */}
+        <div className="mb-8 max-w-2xl">
+          <p className="text-white/60 text-xs sm:text-sm font-bold uppercase tracking-[0.2em] mb-3">
+            Child Development Centre · Vijayawada
+          </p>
+          <h1 className="text-white font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-tight">
+            Your child is not broken.{" "}
+            <span className="text-accent">Just early in their own story.</span>
+          </h1>
+          <p className="mt-4 text-white/70 text-sm sm:text-base leading-relaxed max-w-xl">
+            Speech, occupational and physiotherapy for Autism, ADHD, Cerebral Palsy and Down Syndrome — by specialists who sit with you.
+          </p>
+        </div>
+
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-xs sm:max-w-none">
           <a
             href={waUrl}

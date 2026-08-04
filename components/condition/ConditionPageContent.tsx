@@ -21,17 +21,17 @@ import type { ConditionDetail } from "@/lib/conditions-detail";
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: EASE },
+    transition: { duration: 0.4, ease: EASE },
   },
 };
 
 const stagger: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.09 } },
+  visible: { transition: { staggerChildren: 0.07 } },
 };
 
 // ── Per-condition hero copy ────────────────────────────────────────────────────
@@ -84,7 +84,7 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
         transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
         className="overflow-hidden"
       >
-        <p className="px-6 pb-6 text-dusty-blue text-sm leading-relaxed">
+        <p className="px-6 pb-6 text-dusty-blue text-sm sm:text-base leading-relaxed">
           {answer}
         </p>
       </motion.div>
@@ -223,9 +223,9 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
 
             {/* ── Right: image ── */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="relative"
             >
               {/* Image card */}
@@ -246,8 +246,8 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.65, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute -bottom-5 -left-5 bg-clean-neutral rounded-2xl shadow-xl px-5 py-4 border border-primary-light"
+                transition={{ delay: 0.4, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute -bottom-5 left-0 sm:-left-5 bg-clean-neutral rounded-2xl shadow-xl px-5 py-4 border border-primary-light"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-11 h-11 rounded-full bg-primary-light flex items-center justify-center shrink-0">
@@ -484,7 +484,7 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
                 <h3 className="text-white font-bold text-base mb-3 leading-snug pr-10">
                   {t.name}
                 </h3>
-                <p className="text-white/55 text-sm leading-relaxed">
+                <p className="text-white/55 text-sm sm:text-base leading-relaxed">
                   {t.description}
                 </p>
               </motion.div>

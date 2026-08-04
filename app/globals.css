@@ -112,5 +112,14 @@ body {
 .muggu-arch-outline { border-radius: 190px 190px 26px 26px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .muggu-dots, .muggu-pulse, .muggu-floaty { animation: none; }
+  .muggu-dots, .muggu-pulse, .muggu-floaty,
+  .animate-marquee, .animate-marquee-videos,
+  .animate-popup-in { animation: none; }
+}
+
+/* ── Keyboard focus visibility ───────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
 }

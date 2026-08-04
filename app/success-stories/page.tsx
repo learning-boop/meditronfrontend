@@ -98,7 +98,7 @@ export default function SuccessStoriesPage() {
                 </blockquote>
 
                 {/* Body */}
-                <p className="text-dusty-blue text-sm sm:text-base leading-[1.9] mb-6">{story.body}</p>
+                <p className="text-dusty-blue text-sm sm:text-base leading-[1.9] mb-6 max-w-[65ch]">{story.body}</p>
 
                 {/* Author */}
                 <div className="flex items-center gap-3">

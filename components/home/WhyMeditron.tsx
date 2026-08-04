@@ -85,7 +85,7 @@ export default function WhyMeditron() {
                 <p>
                   I never answer with statistics first. I answer with what
                   I&apos;ve seen for{" "}
-                  <span className="font-bold text-primary">8+ years</span> in
+                  <span className="font-bold text-primary">8+ years</span>{" "}in
                   this room — children who wouldn&apos;t look up, now calling
                   out to their friends. Children who couldn&apos;t hold a
                   pencil, now writing their names and showing it to everyone{" "}
@@ -149,8 +149,8 @@ export default function WhyMeditron() {
             {[
               { src: "/images/About/1.png", alt: "Mother and child at a consultation with a Meditron therapist" },
               { src: "/images/About/2.png", alt: "Family meeting with a Meditron therapist for child assessment" },
-              { src: "/images/Mother%20obsvering/1.png", alt: "Mother watching her child's physiotherapy session at Meditron" },
-              { src: "/images/Mother%20obsvering/2.png", alt: "Parents watching their child's therapy progress at Meditron" },
+              { src: "/images/Mother obsvering/1.png", alt: "Mother watching her child's physiotherapy session at Meditron" },
+              { src: "/images/Mother obsvering/2.png", alt: "Parents watching their child's therapy progress at Meditron" },
             ].map((photo) => (
               <div key={photo.src} className="relative h-36 sm:h-44 rounded-2xl overflow-hidden">
                 <Image

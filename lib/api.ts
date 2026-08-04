@@ -114,7 +114,7 @@ export async function deletePost(token: string, id: string): Promise<boolean> {
 
 export async function createAppointment(data: object): Promise<{ ok: boolean; error?: string }> {
   try {
-    const res = await fetch(`${API_URL}/appointments`, {
+    const res = await fetch(`/api/appointments`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

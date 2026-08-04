@@ -14,7 +14,6 @@ const nav = {
   })),
   Centre: [
     { label: "About Us", href: "/about" },
-    { label: "Our Team", href: "/team" },
     { label: "Success Stories", href: "/success-stories" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },

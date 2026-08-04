@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { IconInstagram, IconFacebook, IconYouTube } from "@/components/SocialIcons";
 import { NAP } from "@/lib/data";
@@ -22,6 +23,9 @@ const waUrl = `https://wa.me/${NAP.whatsapp}?text=${encodeURIComponent(
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <header className="sticky top-0 z-50 bg-cream shadow-sm">
@@ -55,7 +59,11 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="px-3 py-2 text-sm font-semibold text-muted-navy hover:text-primary rounded-lg hover:bg-primary-light/50 transition-colors"
+                className={`px-3 py-2.5 text-sm font-semibold rounded-lg transition-colors ${
+                  isActive(link.href)
+                    ? "text-primary bg-primary-light/60"
+                    : "text-muted-navy hover:text-primary hover:bg-primary-light/50"
+                }`}
               >
                 {link.label}
               </Link>
@@ -79,7 +87,7 @@ export default function Navbar() {
           onClick={() => setOpen((o) => !o)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="lg:hidden p-2 rounded-lg text-muted-navy hover:bg-primary-light transition-colors"
+          className="lg:hidden p-2.5 rounded-lg text-muted-navy hover:bg-primary-light transition-colors"
         >
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -94,7 +102,11 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block px-3 py-2.5 text-sm font-semibold text-navy hover:text-primary hover:bg-primary-light/40 rounded-lg transition-colors"
+                  className={`block px-3 py-3 text-sm font-semibold rounded-lg transition-colors ${
+                    isActive(link.href)
+                      ? "text-primary bg-primary-light/60"
+                      : "text-navy hover:text-primary hover:bg-primary-light/40"
+                  }`}
                 >
                   {link.label}
                 </Link>

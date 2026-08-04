@@ -119,7 +119,7 @@ function ConditionCard({
         </div>
 
         {/* ── Content ── */}
-        <div className="flex-1 flex flex-col justify-center px-7 sm:px-12 lg:px-16 py-8 md:py-0 relative overflow-hidden">
+        <div className="flex-1 flex flex-col justify-center px-7 sm:px-12 lg:px-16 py-8 md:py-0 relative overflow-y-auto">
           {/* large decorative number */}
           <span
             aria-hidden="true"
@@ -130,7 +130,7 @@ function ConditionCard({
 
           <div className="relative z-10 max-w-xl">
             {/* condition badge */}
-            <span className="inline-block text-primary text-[0.7rem] font-bold uppercase tracking-[0.18em] mb-3 border border-primary/20 rounded-full px-3 py-1 bg-primary/5">
+            <span className="inline-block text-primary text-[0.8rem] font-bold uppercase tracking-[0.18em] mb-3 border border-primary/20 rounded-full px-3 py-1 bg-primary/5">
               {condition.name}
             </span>
 
@@ -191,6 +191,8 @@ export default function ConditionsSection() {
   const dismiss = () => {
     setShowPopup(false);
     setDismissed(true);
+    // Signal to TimedPopup that a conversion prompt has already been shown this session
+    try { sessionStorage.setItem("meditron-consult-popup-seen", "1"); } catch {}
   };
 
   return (
@@ -221,7 +223,7 @@ export default function ConditionsSection() {
           className="relative"
         >
           {/* sticky viewport frame */}
-          <div className="sticky top-0 h-screen overflow-hidden">
+          <div className="sticky top-0 h-screen">
             {conditions.map((condition, index) => (
               <ConditionCard
                 key={condition.slug}
@@ -296,7 +298,7 @@ export default function ConditionsSection() {
               <button
                 onClick={dismiss}
                 aria-label="Close notification"
-                className="text-sage hover:text-muted-navy transition-colors p-1 -mt-1 -mr-1 shrink-0"
+                className="text-sage hover:text-muted-navy transition-colors p-2.5 -mt-1 -mr-1 shrink-0"
               >
                 <X className="w-5 h-5" />
               </button>

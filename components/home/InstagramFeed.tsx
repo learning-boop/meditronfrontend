@@ -159,7 +159,7 @@ export default async function InstagramFeed() {
                       ? post.caption.slice(0, 80)
                       : "View on Instagram"
                   }
-                  className="group relative aspect-square overflow-hidden bg-navy block"
+                  className="group relative aspect-[4/5] overflow-hidden bg-navy block"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -186,7 +186,7 @@ export default async function InstagramFeed() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View Meditron on Instagram"
-                className="group relative aspect-square overflow-hidden bg-navy block"
+                className="group relative aspect-[4/5] overflow-hidden bg-navy block"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
