@@ -12,7 +12,6 @@ import Footer from "@/components/Footer";
 /* ── Muggu: mobile-only sections (all md:hidden) ── */
 import MobileReassurance from "@/components/mobile/MobileReassurance";
 import MobileDelayChecker from "@/components/mobile/MobileDelayChecker";
-import MobileSessionVideos from "@/components/mobile/MobileSessionVideos";
 import MobileReviews from "@/components/mobile/MobileReviews";
 import MobileCentreTour from "@/components/mobile/MobileCentreTour";
 import MobileParentCircle from "@/components/mobile/MobileParentCircle";
@@ -99,8 +98,6 @@ export default function HomePage() {
         <MobileDelayChecker />
         {/* 4. Our Therapies — unchanged */}
         <TherapiesSection />
-        {/* 4b. Real session footage (mobile only) */}
-        <MobileSessionVideos />
         {/* 5. Why Meditron — unchanged */}
         <WhyMeditron />
         {/* 6. Success Stories / Testimonials — unchanged */}

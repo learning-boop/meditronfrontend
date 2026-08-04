@@ -44,15 +44,6 @@ export default function WhyMeditron() {
       <div className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
 
-          {/* ── Section label ── */}
-          <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 text-accent/80 font-semibold text-xs uppercase tracking-[0.22em]">
-              <span className="block w-8 h-px bg-accent/40" />
-              From the Doctor&apos;s Desk
-              <span className="block w-8 h-px bg-accent/40" />
-            </span>
-          </div>
-
           {/* ── Letter card ── */}
           <div className="relative bg-cream rounded-[2rem] shadow-2xl">
             {/* Accent left bookmark bar */}
