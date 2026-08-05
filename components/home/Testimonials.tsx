@@ -15,7 +15,7 @@ function Stars() {
 export default function Testimonials() {
   return (
     <section
-      className="relative hidden md:block bg-cream py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative hidden md:block bg-cream py-12 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="testimonials-heading"
     >
       {/* ── Giant watermark quote — depth layer ── */}

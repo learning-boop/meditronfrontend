@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
 import TrustBar from "@/components/home/TrustBar";
+import AboutSection from "@/components/home/AboutSection";
 import ConditionsSection from "@/components/home/ConditionsSection";
 import TherapiesSection from "@/components/home/TherapiesSection";
 import WhyMeditron from "@/components/home/WhyMeditron";
@@ -92,6 +93,8 @@ export default function HomePage() {
         <MobileReassurance />
         {/* 2. Trust bar — unchanged */}
         <TrustBar />
+        {/* 2b. About Us — new section after slider */}
+        <AboutSection />
         {/* 3. Conditions We Treat — unchanged */}
         <ConditionsSection />
         {/* 3b. Is it just a delay? (mobile only) */}

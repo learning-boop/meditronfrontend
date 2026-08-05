@@ -8,7 +8,7 @@ export default function FinalCTA() {
   )}`;
 
   return (
-    <section className="py-20 bg-primary" aria-labelledby="cta-heading">
+    <section className="py-12 bg-primary" aria-labelledby="cta-heading">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2
           id="cta-heading"

@@ -119,7 +119,7 @@ function ConditionCard({
         </div>
 
         {/* ── Content ── */}
-        <div className="flex-1 flex flex-col justify-center px-7 sm:px-12 lg:px-16 py-8 md:py-0 relative overflow-y-auto">
+        <div className="flex-1 flex flex-col justify-center px-7 sm:px-12 lg:px-16 py-8 md:py-0 relative overflow-hidden">
           {/* large decorative number */}
           <span
             aria-hidden="true"
@@ -199,7 +199,7 @@ export default function ConditionsSection() {
     <>
       <section aria-labelledby="conditions-heading">
         {/* ── Section header ── */}
-        <div className="bg-cream py-10 sm:py-16 px-4 sm:px-6 lg:px-8 text-center">
+        <div className="bg-cream py-8 sm:py-12 px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-accent font-semibold text-sm uppercase tracking-widest">
             Does This Feel Like Your Child?
           </span>
@@ -236,7 +236,7 @@ export default function ConditionsSection() {
         </div>
 
         {/* ── Closing CTA ── */}
-        <div className="bg-primary-light py-16 px-4 sm:px-6 lg:px-8 text-center">
+        <div className="bg-primary-light py-10 px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-navy text-base sm:text-lg leading-relaxed max-w-3xl mx-auto italic mb-10">
             &ldquo;Whatever brought you here tonight — the late talking, the
             school complaints, the milestone that hasn&apos;t come — it has a

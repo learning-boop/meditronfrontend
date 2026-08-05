@@ -26,28 +26,28 @@ const slides: Slide[] = [
     number: "8+",
     title: "Years of Experience",
     sub: "Years spent learning what each child needs.",
-    duration: 500,
+    duration: 3500,
   },
   {
     kind: "stat",
     number: "500+",
     title: "Children Guided",
     sub: "Every one of them, someone's whole world.",
-    duration: 500,
+    duration: 3500,
   },
   {
     kind: "stat",
     number: "1000s",
     title: "of Small Firsts",
     sub: "First words. First steps. First eye contact — celebrated here every week.",
-    duration: 600,
+    duration: 3500,
   },
   {
     kind: "message",
     symbol: "\u201C",
     title: "అమ్మా, మీ బిడ్డ ఎవరికంటే తక్కువ కాదు.",
     sub: "ప్రతి బిడ్డ ఒక్కో పువ్వు — కొన్ని పువ్వులు కాస్త ఆలస్యంగా వికసిస్తాయి, అంతే.",
-    duration: 1000,
+    duration: 5000,
   },
 ];
 
@@ -91,8 +91,8 @@ export default function TrustBar() {
   const slide = slides[current];
 
   return (
-    <section className="bg-primary-dark py-12" aria-label="Meditron — our impact">
-      <div className="flex items-center gap-3 sm:gap-5 px-4 sm:px-6 lg:px-8">
+    <section className="bg-primary-dark py-8" aria-label="Meditron — our impact">
+      <div className="max-w-4xl mx-auto flex items-center gap-3 sm:gap-5 px-4 sm:px-6 lg:px-8">
 
         {/* ── Fading content: left number + right text ── */}
         <div

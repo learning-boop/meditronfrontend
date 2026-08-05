@@ -52,7 +52,7 @@ export default function TherapiesSection() {
   }, []);
 
   return (
-    <section className="py-20 bg-clean-neutral overflow-hidden" aria-labelledby="therapies-heading">
+    <section className="py-12 bg-clean-neutral overflow-hidden" aria-labelledby="therapies-heading">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
         <span className="text-accent font-semibold text-sm uppercase tracking-widest">
