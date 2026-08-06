@@ -65,7 +65,7 @@ export default function MobileCentreTour() {
         >
           <span className="block">
             <span className="block font-heading text-[0.8rem] font-extrabold text-confident-navy">
-              Plot 12, MG Road, Governorpet
+              Dr No 30-20-31A, Nehru Street, Seetharamapuram
             </span>
             <span className="mt-0.5 block text-[0.72rem] text-dusty-blue">
               Vijayawada 520002 · {NAP.hours}

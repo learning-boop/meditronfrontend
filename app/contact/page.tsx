@@ -69,7 +69,7 @@ const faqs = [
 // Once your Google Business Profile is verified, replace the `src` with the
 // "Embed a map" link from your Google Maps listing for a pinned result.
 const MAP_EMBED_SRC =
-  "https://maps.google.com/maps?q=MG+Road+Governorpet+Vijayawada+Andhra+Pradesh+520002&output=embed&z=16&hl=en";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6622.342390014608!2d80.63815296606113!3d16.517429554891226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35e5c10163d60f%3A0x2e710a52be245b99!2sMeditron%20Child%20Development%20Centre!5e1!3m2!1sen!2sin!4v1786032521574!5m2!1sen!2sin";
 
 export default function ContactPage() {
   return (
@@ -162,7 +162,7 @@ export default function ContactPage() {
             <div>
               <span className="text-accent font-semibold text-xs uppercase tracking-widest">How to Find Us</span>
               <h2 className="mt-1 text-xl sm:text-2xl font-extrabold text-confident-navy">
-                We&apos;re in Governorpet, Vijayawada
+                We&apos;re in Seetharamapuram, Vijayawada
               </h2>
               <p className="text-dusty-blue text-sm mt-1">{NAP.address}</p>
             </div>
@@ -182,7 +182,7 @@ export default function ContactPage() {
         <div className="relative h-[380px] sm:h-[480px] lg:h-[560px] w-full">
           <iframe
             src={MAP_EMBED_SRC}
-            title="Meditron Child Development Centre — MG Road, Governorpet, Vijayawada"
+            title="Meditron Child Development Centre — Nehru Street, Seetharamapuram, Vijayawada"
             className="absolute inset-0 w-full h-full border-0"
             loading="lazy"
             allowFullScreen

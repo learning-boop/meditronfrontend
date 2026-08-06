@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import TimedPopup from "@/components/TimedPopup";
+import Footer from "@/components/Footer";
 
 export default function ConditionalLayout({
   children,
@@ -18,6 +19,7 @@ export default function ConditionalLayout({
       {!isAdmin && <AnnouncementBar />}
       {!isAdmin && <Navbar />}
       {children}
+      {!isAdmin && <Footer />}
       {!isAdmin && <TimedPopup />}
     </>
   );

@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect, useRef } from "react";
 import { testimonials } from "@/lib/data";
 
 function Stars() {
@@ -12,13 +15,66 @@ function Stars() {
   );
 }
 
+const total = testimonials.length; // 6
+
+// Padded array for seamless loop: [last, ...all, first, second]
+const PADDED = [
+  testimonials[total - 1],
+  ...testimonials,
+  testimonials[0],
+  testimonials[1],
+];
+const N = PADDED.length; // total + 3 = 9
+
+// Track width as % of container: (N/3) * 100%
+// Each card as % of track: 100/N %
+// translateX per step: 100/N % of track = 100/3 % of container = 1 card width ✓
+const TRACK_WIDTH_PCT = (N / 3) * 100;
+const CARD_WIDTH_PCT = 100 / N;
+
 export default function Testimonials() {
+  // trackIdx: which index in PADDED is the center card (starts at 1 = testimonials[0])
+  const [trackIdx, setTrackIdx] = useState(1);
+  const [animated, setAnimated] = useState(true);
+  const resetting = useRef(false);
+
+  // Auto-advance every 4.5 s
+  useEffect(() => {
+    const id = setInterval(() => {
+      if (resetting.current) return;
+      setAnimated(true);
+      setTrackIdx((prev) => prev + 1);
+    }, 4500);
+    return () => clearInterval(id);
+  }, []);
+
+  // When we hit the clone at position total+1, instantly jump back to position 1
+  useEffect(() => {
+    if (trackIdx === total + 1) {
+      resetting.current = true;
+      const t = setTimeout(() => {
+        setAnimated(false);
+        setTrackIdx(1);
+        // Re-enable animation after the paint so the jump is invisible
+        requestAnimationFrame(() =>
+          requestAnimationFrame(() => {
+            setAnimated(true);
+            resetting.current = false;
+          })
+        );
+      }, 520);
+      return () => clearTimeout(t);
+    }
+  }, [trackIdx]);
+
+  const translateXPct = -((trackIdx - 1) * CARD_WIDTH_PCT);
+
   return (
     <section
-      className="relative hidden md:block bg-cream py-12 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative hidden md:block bg-cream py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="testimonials-heading"
     >
-      {/* ── Giant watermark quote — depth layer ── */}
+      {/* Watermark quote */}
       <span
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[55%] font-black text-primary pointer-events-none select-none leading-none"
         style={{ fontSize: "38rem", opacity: 0.03 }}
@@ -27,11 +83,11 @@ export default function Testimonials() {
         &ldquo;
       </span>
 
-      {/* ── Header ── */}
-      <div className="relative text-center mb-16 max-w-2xl mx-auto">
+      {/* Header */}
+      <div className="relative text-center mb-14 max-w-2xl mx-auto">
         <span className="inline-flex items-center gap-2 text-accent font-semibold text-xs uppercase tracking-[0.22em]">
           <span className="block w-8 h-px bg-accent/40" />
-          Parent Stories
+          Success Stories
           <span className="block w-8 h-px bg-accent/40" />
         </span>
         <h2
@@ -48,88 +104,116 @@ export default function Testimonials() {
         </p>
       </div>
 
-      {/* ── Three-card staggered grid ── */}
-      <div className="relative max-w-5xl mx-auto grid md:grid-cols-3 gap-6 items-center">
-        {testimonials.map((t, i) => {
-          const isCenter = i === 1;
-
-          if (isCenter) {
+      {/* ── Carousel ── */}
+      {/* Outer: clips the sliding track horizontally; py-6 gives room for shadow */}
+      <div className="relative max-w-5xl mx-auto" style={{ overflow: "hidden", paddingTop: "1.5rem", paddingBottom: "1.5rem" }}>
+        {/* Track */}
+        <div
+          style={{
+            display: "flex",
+            width: `${TRACK_WIDTH_PCT}%`,
+            transform: `translateX(${translateXPct}%)`,
+            transition: animated ? "transform 520ms cubic-bezier(0.4,0,0.2,1)" : "none",
+            alignItems: "center",
+          }}
+        >
+          {PADDED.map((t, i) => {
+            const isCenter = i === trackIdx;
             return (
-              /* ── Featured center card — dark teal ── */
               <div
-                key={t.id}
-                className="relative bg-primary-dark rounded-[1.75rem] p-8 shadow-2xl md:scale-[1.07] md:z-10 flex flex-col gap-6"
+                key={`${t.id}-${i}`}
+                style={{ flex: `0 0 ${CARD_WIDTH_PCT}%` }}
+                className="px-3"
               >
-                {/* Accent bar */}
-                <div className="h-px bg-gradient-to-r from-accent via-accent/40 to-transparent rounded-full" />
+                {isCenter ? (
+                  /* ── Featured center card — dark teal ── */
+                  <div className="relative bg-primary-dark rounded-[1.75rem] p-7 shadow-2xl flex flex-col gap-5 transition-all duration-500">
+                    {/* Accent bar */}
+                    <div className="h-px bg-gradient-to-r from-accent via-accent/40 to-transparent rounded-full" />
 
-                <Stars />
+                    <Stars />
 
-                <blockquote className="flex-1">
-                  {/* Opening mark */}
-                  <span className="text-accent font-black text-4xl leading-none block mb-3" aria-hidden="true">
-                    &ldquo;
-                  </span>
-                  <p className="text-white/85 text-sm sm:text-base leading-[1.85] italic font-serif">
-                    {t.quote}
-                  </p>
-                </blockquote>
+                    <blockquote className="flex-1">
+                      <span
+                        className="text-accent font-black text-4xl leading-none block mb-2"
+                        aria-hidden="true"
+                      >
+                        &ldquo;
+                      </span>
+                      <p className="text-white/85 text-sm sm:text-base leading-[1.85] italic font-serif">
+                        {t.quote}
+                      </p>
+                    </blockquote>
 
-                {/* Divider */}
-                <div className="h-px bg-white/10" />
+                    <div className="h-px bg-white/10" />
 
-                {/* Author */}
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
-                    <span className="text-accent font-black text-sm">{t.name.charAt(0)}</span>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
+                        <span className="text-accent font-black text-sm">
+                          {t.name.charAt(0)}
+                        </span>
+                      </div>
+                      <div>
+                        <p className="text-white font-bold text-sm">{t.name}</p>
+                        <p className="text-white/45 text-xs mt-0.5">{t.role}</p>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-white font-bold text-sm">{t.name}</p>
-                    <p className="text-white/45 text-xs mt-0.5">{t.role}</p>
+                ) : (
+                  /* ── Side cards — white ── */
+                  <div className="bg-white rounded-[1.75rem] p-7 shadow-md flex flex-col gap-5 opacity-80 transition-all duration-500">
+                    <Stars />
+
+                    <blockquote className="flex-1">
+                      <p className="text-navy text-sm leading-[1.85] italic font-serif">
+                        &ldquo;{t.quote}&rdquo;
+                      </p>
+                    </blockquote>
+
+                    <div className="h-px bg-primary-light" />
+
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center shrink-0">
+                        <span className="text-primary font-black text-sm">
+                          {t.name.charAt(0)}
+                        </span>
+                      </div>
+                      <div>
+                        <p className="text-confident-navy font-bold text-sm">{t.name}</p>
+                        <p className="text-sage text-xs mt-0.5">{t.role}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             );
-          }
+          })}
+        </div>
+      </div>
 
+      {/* ── Dot indicators ── */}
+      <div className="relative flex justify-center gap-2 mt-6">
+        {testimonials.map((t, i) => {
+          const isActive = PADDED[trackIdx]?.id === t.id;
           return (
-            /* ── Side cards — warm white ── */
-            <div
+            <button
               key={t.id}
-              className={`bg-clean-neutral rounded-[1.75rem] p-8 shadow-lg flex flex-col gap-5 ${
-                i === 0
-                  ? "md:-translate-y-4 md:-rotate-1"
-                  : "md:translate-y-4 md:rotate-1"
+              onClick={() => {
+                if (resetting.current) return;
+                setAnimated(true);
+                setTrackIdx(i + 1);
+              }}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                isActive ? "w-6 bg-primary" : "w-2 bg-sage/50 hover:bg-sage"
               }`}
-            >
-              <Stars />
-
-              <blockquote className="flex-1">
-                <p className="text-navy text-sm leading-[1.85] italic font-serif">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-              </blockquote>
-
-              {/* Divider */}
-              <div className="h-px bg-primary-light" />
-
-              {/* Author */}
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center shrink-0">
-                  <span className="text-primary font-black text-sm">{t.name.charAt(0)}</span>
-                </div>
-                <div>
-                  <p className="text-confident-navy font-bold text-sm">{t.name}</p>
-                  <p className="text-sage text-xs mt-0.5">{t.role}</p>
-                </div>
-              </div>
-            </div>
+              aria-label={`Go to review ${i + 1}`}
+            />
           );
         })}
       </div>
 
-      {/* ── Bottom note ── */}
-      <p className="relative text-center text-sage text-xs mt-14 tracking-wide">
+      {/* Bottom note */}
+      <p className="relative text-center text-sage text-xs mt-8 tracking-wide">
         All stories are from real Meditron families in Vijayawada &mdash; shared with their permission.
       </p>
     </section>

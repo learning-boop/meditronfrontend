@@ -46,6 +46,7 @@ export type Therapy = {
   name: string;
   description: string;
   image: string;
+  icon: string;
 };
 
 export const therapies: Therapy[] = [
@@ -55,6 +56,7 @@ export const therapies: Therapy[] = [
     description:
       "Structured, engaging sessions that build language, articulation, and communication skills from the ground up.",
     image: "/images/Theorapies/1.png",
+    icon: "MessageCircle",
   },
   {
     slug: "occupational",
@@ -62,6 +64,7 @@ export const therapies: Therapy[] = [
     description:
       "Developing fine motor skills, sensory processing, and daily-living abilities to increase independence.",
     image: "/images/Theorapies/2.png",
+    icon: "Hand",
   },
   {
     slug: "physiotherapy",
@@ -69,6 +72,63 @@ export const therapies: Therapy[] = [
     description:
       "Movement-based therapy to strengthen gross motor skills, balance, coordination, and physical confidence.",
     image: "/images/Theorapies/3.png",
+    icon: "Activity",
+  },
+  {
+    slug: "child-psychology",
+    name: "Child Psychology",
+    description:
+      "Compassionate psychological assessment and counselling to support emotional well-being, behaviour, and mental health.",
+    image: "/images/Theorapies/1.png",
+    icon: "Brain",
+  },
+  {
+    slug: "sensory-integration",
+    name: "Sensory Integration",
+    description:
+      "Specialised therapy that helps children process and respond to sensory information from their environment.",
+    image: "/images/Theorapies/2.png",
+    icon: "Sparkles",
+  },
+  {
+    slug: "behaviour-therapy",
+    name: "Behaviour Therapy",
+    description:
+      "Positive, evidence-based techniques to reduce challenging behaviours and build adaptive skills for everyday life.",
+    image: "/images/Theorapies/3.png",
+    icon: "Heart",
+  },
+  {
+    slug: "vision-therapy",
+    name: "Vision Therapy",
+    description:
+      "Targeted eye exercises and visual training to improve tracking, focusing, and visual-motor integration.",
+    image: "/images/Theorapies/1.png",
+    icon: "Eye",
+  },
+  {
+    slug: "play-therapy",
+    name: "Play Therapy",
+    description:
+      "Child-led play sessions that allow children to express emotions, develop social skills, and heal through the natural language of play.",
+    image: "/images/Theorapies/2.png",
+    icon: "Smile",
+  },
+  {
+    slug: "aba-therapy",
+    name: "ABA Therapy",
+    description:
+      "Applied Behaviour Analysis programmes using data-driven strategies to teach communication, social, and self-care skills.",
+    image: "/images/Theorapies/3.png",
+    icon: "BookOpen",
+  },
+  {
+    slug: "specific-learning",
+    name: "Specific Learning",
+    description:
+      "Targeted support for dyslexia, dyscalculia, and other learning differences to help children achieve their academic potential.",
+    image: "/images/Theorapies/1.png",
+    icon: "GraduationCap",
   },
 ];
 
@@ -106,6 +166,27 @@ export const testimonials: Testimonial[] = [
     role: "Mother of Vikram, 7",
     quote:
       "The occupational therapy here has been life-changing. Vikram can now write, dress himself, and join his classmates in school activities with confidence.",
+  },
+  {
+    id: 4,
+    name: "Lakshmi Patel",
+    role: "Mother of Sai, 5",
+    quote:
+      "The behaviour therapy sessions at Meditron have been incredible. Sai's meltdowns have reduced dramatically and he now communicates his needs so much better.",
+  },
+  {
+    id: 5,
+    name: "Venkat Rao",
+    role: "Father of Diya, 8",
+    quote:
+      "After two years of ABA therapy at Meditron, Diya is now attending mainstream school. The team's dedication to our daughter goes far beyond the therapy room.",
+  },
+  {
+    id: 6,
+    name: "Kavitha Nair",
+    role: "Mother of Rohan, 3",
+    quote:
+      "We came to Meditron when Rohan was barely making eye contact. The early intervention programme gave him the start he needed. He surprises us every single day.",
   },
 ];
 
@@ -150,11 +231,11 @@ export const blogPosts: BlogPost[] = [
 
 export const NAP = {
   name: "Meditron Child Development Centre",
-  address: "Plot 12, MG Road, Governorpet, Vijayawada, Andhra Pradesh 520002",
+  address: "Sri Nilayam, 2nd Floor, Dr No 30-20-31A, Nehru Street, Seetharamapuram, Vijayawada, Andhra Pradesh 520002",
   phone: "+91 95582 34569",
   whatsapp: "919558234569",
   email: "hello@meditronvijayawada.com",
-  mapUrl: "https://www.google.com/maps?q=Vijayawada+Andhra+Pradesh+India",
+  mapUrl: "https://www.google.com/maps/place/Meditron+Child+Development+Centre/@16.5174296,80.6381530,17z",
   hours: "Mon–Sat: 9 am – 6 pm",
   socials: {
     instagram: "https://www.instagram.com/meditroncdc/",

@@ -10,7 +10,7 @@ import { NAP } from "@/lib/data";
 // ─── condition data ─────────────────────────────────────────────────
 const conditions = [
   {
-    slug: "autism",
+    slug: "autism-vijayawada",
     name: "Autism Spectrum Disorder",
     question:
       "Not talking yet? Avoids looking into your eyes? Prefers playing alone?",
@@ -20,7 +20,7 @@ const conditions = [
     imageAlt: "Child with autism receiving therapy at Meditron, Vijayawada",
   },
   {
-    slug: "adhd",
+    slug: "adhd-vijayawada",
     name: "ADHD",
     question:
       "Can't sit still even for two minutes? School keeps complaining? Forgets everything instantly?",
@@ -30,7 +30,7 @@ const conditions = [
     imageAlt: "Child with ADHD in therapy session at Meditron, Vijayawada",
   },
   {
-    slug: "cerebral-palsy",
+    slug: "cerebral-palsy-vijayawada",
     name: "Cerebral Palsy",
     question:
       "Late to sit, stand, or walk? Stiff or floppy arms and legs? Milestones not coming?",
@@ -41,7 +41,7 @@ const conditions = [
       "Physiotherapy for child with cerebral palsy at Meditron, Vijayawada",
   },
   {
-    slug: "down-syndrome",
+    slug: "down-syndrome-vijayawada",
     name: "Down Syndrome",
     question: "Slower to learn, but faster to love?",
     body: "About 1 in 830 babies in India is born with Down syndrome. These children learn everything — speaking, reading, self-care — just on their own timeline. Our job is walking that timeline with them, milestone by milestone, so they live full, capable, joyful lives.",

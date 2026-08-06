@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { MessageCircle, Eye, ClipboardList } from "lucide-react";
 
 const trustChips = [
@@ -35,13 +34,31 @@ const visitSteps = [
 export default function WhyMeditron() {
   return (
     <section
-      className="bg-primary-dark overflow-hidden"
+      className="relative bg-primary-dark overflow-hidden"
       aria-label="About Meditron Child Development Centre"
     >
-      {/* ── Top decorative accent strip ── */}
-      <div className="h-1 bg-gradient-to-r from-accent via-accent/60 to-transparent" />
+      {/*
+        ── Video background ──────────────────────────────────────────────
+        Add src="/videos/your-video.mp4" to the <source> tag below and
+        change opacity-0 to opacity-20 (or desired level) on the <video>.
+      */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        aria-hidden="true"
+      >
+        <source src="/videos/Video Project 8.mp4" type="video/mp4" />
+      </video>
+      {/* Overlay at 50% so the video shows through */}
+      <div className="absolute inset-0 bg-primary-dark/50" aria-hidden="true" />
 
-      <div className="py-12 px-4 sm:px-6 lg:px-8">
+      {/* ── Top decorative accent strip ── */}
+      <div className="relative h-1 bg-gradient-to-r from-accent via-accent/60 to-transparent" />
+
+      <div className="relative py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
 
           {/* ── Large section title ── */}
@@ -55,44 +72,8 @@ export default function WhyMeditron() {
             </h2>
           </div>
 
-          {/* ── Two-column: images left, content right ── */}
-          <div className="grid lg:grid-cols-2 gap-8 items-start">
-
-            {/* ── Left: 3 images ── */}
-            <div className="grid grid-cols-2 gap-3">
-              {/* Large top image spanning both columns */}
-              <div className="col-span-2 relative h-56 sm:h-72 rounded-2xl overflow-hidden">
-                <Image
-                  src="/images/About/1.png"
-                  alt="Mother and child at a consultation with a Meditron therapist in Vijayawada"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              </div>
-              {/* Two smaller images below */}
-              <div className="relative h-40 sm:h-48 rounded-2xl overflow-hidden">
-                <Image
-                  src="/images/About/2.png"
-                  alt="Family meeting with a Meditron therapist for child assessment"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                />
-              </div>
-              <div className="relative h-40 sm:h-48 rounded-2xl overflow-hidden">
-                <Image
-                  src="/images/Mother obsvering/1.png"
-                  alt="Mother watching her child's physiotherapy session at Meditron"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                />
-              </div>
-            </div>
-
-            {/* ── Right: Letter card ── */}
+          {/* ── Centered letter card ── */}
+          <div className="max-w-2xl mx-auto">
             <div className="relative bg-cream rounded-[2rem] shadow-2xl">
               {/* Accent left bookmark bar */}
               <div className="absolute left-0 top-8 bottom-8 w-1 rounded-full bg-gradient-to-b from-accent via-primary to-accent/30" />

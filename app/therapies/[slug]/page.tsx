@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { conditionPages } from "@/lib/condition-pages";
-import { locations } from "@/lib/locations";
+import { therapyPages } from "@/lib/therapy-pages";
+import { locations, findLocation } from "@/lib/locations";
 import { generateLocationPage, toBaseSlug } from "@/lib/generate-location-page";
 import { NAP } from "@/lib/data";
 import TherapyPageContent from "@/components/therapy/TherapyPageContent";
 
-// ── Static params: every condition × every location ───────────────────────────
+// ── Static params: every therapy × every location ─────────────────────────────
 export function generateStaticParams() {
   const slugs: { slug: string }[] = [];
-  Object.keys(conditionPages).forEach((baseSlug) => {
+  Object.keys(therapyPages).forEach((baseSlug) => {
     locations.forEach((loc) => {
       slugs.push({
         slug: baseSlug.replace(`-vijayawada`, `-${loc.slug}`),
@@ -24,7 +24,7 @@ function resolveData(slug: string) {
   const location = locations.find((l) => slug.endsWith(`-${l.slug}`));
   if (!location) return null;
   const baseSlug = toBaseSlug(slug, location.slug);
-  const baseData = conditionPages[baseSlug];
+  const baseData = therapyPages[baseSlug];
   if (!baseData) return null;
   return { data: generateLocationPage(baseData, location), location };
 }
@@ -47,7 +47,7 @@ export async function generateMetadata({
 }
 
 // ── Page ───────────────────────────────────────────────────────────────────────
-export default async function ConditionPage({
+export default async function TherapyPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -59,7 +59,7 @@ export default async function ConditionPage({
   const { data, location } = resolved;
 
   const waUrl = `https://wa.me/${NAP.whatsapp}?text=${encodeURIComponent(
-    `Hi Meditron, I'd like to book an assessment for ${data.name} treatment in ${location.name}.`
+    `Hi Meditron, I'd like to book an assessment for ${data.name} in ${location.name}.`
   )}`;
 
   const jsonLd = {

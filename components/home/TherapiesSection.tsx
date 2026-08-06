@@ -2,6 +2,42 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import {
+  MessageCircle,
+  Hand,
+  Activity,
+  Brain,
+  Sparkles,
+  Heart,
+  Eye,
+  Smile,
+  BookOpen,
+  GraduationCap,
+  type LucideIcon,
+} from "lucide-react";
+import { therapies } from "@/lib/data";
+
+const iconMap: Record<string, LucideIcon> = {
+  MessageCircle,
+  Hand,
+  Activity,
+  Brain,
+  Sparkles,
+  Heart,
+  Eye,
+  Smile,
+  BookOpen,
+  GraduationCap,
+};
+
+// Card accent colours cycling through the brand palette
+const cardAccents = [
+  { bg: "bg-primary/10", icon: "text-primary", border: "border-primary/20" },
+  { bg: "bg-accent/10", icon: "text-accent", border: "border-accent/20" },
+  { bg: "bg-healing-green/15", icon: "text-healing-green", border: "border-healing-green/20" },
+  { bg: "bg-gold/15", icon: "text-gold", border: "border-gold/20" },
+  { bg: "bg-dusty-blue/15", icon: "text-dusty-blue", border: "border-dusty-blue/20" },
+];
 
 // Using 3 Vimeo videos — lazy-loaded only when the strip enters the viewport
 const videos = [
@@ -12,24 +48,6 @@ const videos = [
 
 // Two identical copies so translateX(-50%) loops perfectly with no gap or jump
 const STRIP = [...videos, ...videos];
-
-const therapyCards = [
-  {
-    label: "Speech Therapy",
-    image: "/images/Theorapies/1.png",
-    alt: "Speech and language therapy session at Meditron — child learning to communicate with therapist",
-  },
-  {
-    label: "Occupational Therapy",
-    image: "/images/Theorapies/2.png",
-    alt: "Occupational therapy session at Meditron — child building independence and daily living skills",
-  },
-  {
-    label: "Physiotherapy",
-    image: "/images/Theorapies/3.png",
-    alt: "Physiotherapy session at Meditron — child building movement, strength and balance",
-  },
-];
 
 export default function TherapiesSection() {
   const stripRef = useRef<HTMLDivElement>(null);
@@ -84,7 +102,6 @@ export default function TherapiesSection() {
             style={{ aspectRatio: "9/16" }}
           >
             {iframesActive ? (
-              /* Vimeo background player — only loaded when strip is in viewport */
               <iframe
                 src={`https://player.vimeo.com/video/${video.id}?background=1&autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0`}
                 className="absolute inset-0 w-full h-full"
@@ -93,7 +110,6 @@ export default function TherapiesSection() {
                 title={`Meditron ${video.label} session`}
               />
             ) : (
-              /* Poster image shown while Vimeo is not yet loaded */
               <Image
                 src={video.poster}
                 alt={`${video.label} session at Meditron`}
@@ -102,7 +118,6 @@ export default function TherapiesSection() {
                 sizes="440px"
               />
             )}
-            {/* Label overlay on poster */}
             {!iframesActive && (
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-5">
                 <span className="text-white text-sm font-semibold">{video.label}</span>
@@ -112,24 +127,26 @@ export default function TherapiesSection() {
         ))}
       </div>
 
-      {/* Static therapy cards — branded imagery for each programme */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
-        <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
-          {therapyCards.map((card) => (
-            <div
-              key={card.label}
-              className="relative rounded-2xl overflow-hidden"
-              style={{ aspectRatio: "16/9" }}
-            >
-              <Image
-                src={card.image}
-                alt={card.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 640px) 100vw, 33vw"
-              />
-            </div>
-          ))}
+      {/* All 10 therapy cards — icon grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5">
+          {therapies.map((therapy, i) => {
+            const Icon = iconMap[therapy.icon];
+            const accent = cardAccents[i % cardAccents.length];
+            return (
+              <div
+                key={therapy.slug}
+                className={`flex flex-col items-center text-center gap-3 p-5 rounded-2xl border ${accent.border} ${accent.bg} hover:shadow-md transition-shadow duration-200`}
+              >
+                <div className={`p-3 rounded-xl bg-white/70 shadow-sm`}>
+                  {Icon && <Icon className={`w-6 h-6 ${accent.icon}`} strokeWidth={1.8} />}
+                </div>
+                <span className="text-sm font-semibold text-confident-navy leading-snug">
+                  {therapy.name}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

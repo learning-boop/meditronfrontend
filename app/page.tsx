@@ -9,7 +9,6 @@ import Testimonials from "@/components/home/Testimonials";
 import BlogPreview from "@/components/home/BlogPreview";
 import FinalCTA from "@/components/home/FinalCTA";
 import InstagramFeed from "@/components/home/InstagramFeed";
-import Footer from "@/components/Footer";
 /* ── Muggu: mobile-only sections (all md:hidden) ── */
 import MobileReassurance from "@/components/mobile/MobileReassurance";
 import MobileDelayChecker from "@/components/mobile/MobileDelayChecker";
@@ -43,7 +42,7 @@ const jsonLd = {
       email: NAP.email,
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Plot 12, MG Road, Governorpet",
+        streetAddress: "Sri Nilayam, 2nd Floor, Dr No 30-20-31A, Nehru Street, Seetharamapuram",
         addressLocality: "Vijayawada",
         addressRegion: "Andhra Pradesh",
         postalCode: "520002",
@@ -118,7 +117,6 @@ export default function HomePage() {
         {/* 9. Instagram feed — unchanged */}
         <InstagramFeed />
       </main>
-      <Footer />
       {/* Mobile-only sticky action bar */}
       <MobileStickyCTA />
     </>

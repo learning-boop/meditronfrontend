@@ -24,17 +24,26 @@ const navItems: NavItem[] = [
     label: "About",
     items: [
       { label: "About Doctor", href: "/about" },
-      { label: "Our Team", href: "/team" },
     ],
   },
   {
     kind: "dropdown",
     label: "Services",
     items: [
-      { label: "Autism Spectrum Disorder", href: "/conditions/autism" },
-      { label: "ADHD", href: "/conditions/adhd" },
-      { label: "Cerebral Palsy", href: "/conditions/cerebral-palsy" },
-      { label: "Down Syndrome", href: "/conditions/down-syndrome" },
+      { label: "Autism Spectrum Disorder", href: "/conditions/autism-vijayawada" },
+      { label: "ADHD", href: "/conditions/adhd-vijayawada" },
+      { label: "Cerebral Palsy", href: "/conditions/cerebral-palsy-vijayawada" },
+      { label: "Down Syndrome", href: "/conditions/down-syndrome-vijayawada" },
+      { label: "Child Psychology", href: "/therapies/child-psychology-vijayawada" },
+      { label: "Occupational Therapy", href: "/therapies/occupational-therapy-vijayawada" },
+      { label: "Physiotherapy", href: "/therapies/physiotherapy-vijayawada" },
+      { label: "Sensory Integration", href: "/therapies/sensory-integration-vijayawada" },
+      { label: "Behaviour Therapy", href: "/therapies/behaviour-therapy-vijayawada" },
+      { label: "Vision Therapy", href: "/therapies/vision-therapy-vijayawada" },
+      { label: "Speech Therapy", href: "/therapies/speech-therapy-vijayawada" },
+      { label: "Play Therapy", href: "/therapies/play-therapy-vijayawada" },
+      { label: "ABA Therapy", href: "/therapies/aba-therapy-vijayawada" },
+      { label: "Specific Learning", href: "/therapies/specific-learning-vijayawada" },
     ],
   },
   { kind: "link", label: "Testimonials", href: "/success-stories" },
@@ -51,9 +60,11 @@ const waUrl = `https://wa.me/${NAP.whatsapp}?text=${encodeURIComponent(
 function DesktopDropdown({
   item,
   isActive,
+  align = "left",
 }: {
   item: DropdownLink;
   isActive: (href: string) => boolean;
+  align?: "left" | "right";
 }) {
   const [open, setOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -92,25 +103,31 @@ function DesktopDropdown({
 
       {/* Dropdown panel */}
       <div
-        className={`absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-lg border border-primary-light/60 overflow-hidden transition-all duration-200 origin-top z-50 ${
+        className={`absolute top-full mt-1 bg-white rounded-xl shadow-lg border border-primary-light/60 overflow-hidden transition-all duration-200 origin-top z-50 ${
+          align === "right" ? "right-0" : "left-0"
+        } ${
+          item.items.length > 5 ? "w-[26rem]" : "w-52"
+        } ${
           open
             ? "opacity-100 scale-y-100 pointer-events-auto"
             : "opacity-0 scale-y-95 pointer-events-none"
         }`}
       >
-        {item.items.map((sub) => (
-          <Link
-            key={sub.href}
-            href={sub.href}
-            className={`block px-4 py-3 text-sm font-semibold transition-colors border-b border-primary-light/40 last:border-0 ${
-              isActive(sub.href)
-                ? "text-primary bg-primary-light/50"
-                : "text-muted-navy hover:text-primary hover:bg-primary-light/40"
-            }`}
-          >
-            {sub.label}
-          </Link>
-        ))}
+        <div className={item.items.length > 5 ? "grid grid-cols-2" : "flex flex-col"}>
+          {item.items.map((sub) => (
+            <Link
+              key={sub.href}
+              href={sub.href}
+              className={`block px-4 py-3 text-sm font-semibold transition-colors border-b border-primary-light/40 ${
+                isActive(sub.href)
+                  ? "text-primary bg-primary-light/50"
+                  : "text-muted-navy hover:text-primary hover:bg-primary-light/40"
+              }`}
+            >
+              {sub.label}
+            </Link>
+          ))}
+        </div>
       </div>
     </li>
   );
@@ -154,14 +171,6 @@ export default function Navbar() {
             className="h-10 md:h-12 w-auto object-contain"
             priority
           />
-          <span className="flex flex-col justify-center leading-none">
-            <span className="font-heading font-extrabold text-primary text-[1.1rem] md:text-[1.2rem] tracking-tight">
-              Meditron
-            </span>
-            <span className="font-heading font-semibold text-muted-navy text-[0.6rem] md:text-[0.65rem] tracking-[0.14em] uppercase mt-0.5">
-              Childcare Center
-            </span>
-          </span>
         </Link>
 
         {/* ── Desktop nav ── */}
@@ -184,7 +193,12 @@ export default function Navbar() {
               );
             }
             return (
-              <DesktopDropdown key={item.label} item={item} isActive={isActive} />
+              <DesktopDropdown
+                key={item.label}
+                item={item}
+                isActive={isActive}
+                align={item.items.length > 5 ? "right" : "left"}
+              />
             );
           })}
         </ul>

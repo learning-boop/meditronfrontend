@@ -128,7 +128,7 @@ export default function AboutPage() {
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-accent-dark mb-0.5">Based in</p>
                 <p className="text-confident-navy font-extrabold text-base leading-tight">Vijayawada, Andhra Pradesh</p>
-                <p className="text-muted-navy text-xs mt-0.5">Governorpet · Est. 2018</p>
+                <p className="text-muted-navy text-xs mt-0.5">Seetharamapuram · Est. 2018</p>
               </div>
             </div>
           </div>
