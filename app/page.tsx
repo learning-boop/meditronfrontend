@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
 import TrustBar from "@/components/home/TrustBar";
 import AboutSection from "@/components/home/AboutSection";
+import DoctorInterview from "@/components/home/DoctorInterview";
 import ConditionsSection from "@/components/home/ConditionsSection";
 import TherapiesSection from "@/components/home/TherapiesSection";
 import WhyMeditron from "@/components/home/WhyMeditron";
@@ -94,6 +95,8 @@ export default function HomePage() {
         <TrustBar />
         {/* 2b. About Us — new section after slider */}
         <AboutSection />
+        {/* 2c. Doctor media interview — placed right after About */}
+        <DoctorInterview />
         {/* 3. Conditions We Treat — unchanged */}
         <ConditionsSection />
         {/* 3b. Is it just a delay? (mobile only) */}

@@ -39,11 +39,13 @@ const cardAccents = [
   { bg: "bg-dusty-blue/15", icon: "text-dusty-blue", border: "border-dusty-blue/20" },
 ];
 
-// Using 3 Vimeo videos — lazy-loaded only when the strip enters the viewport
+// Using 5 Vimeo videos — lazy-loaded only when the strip enters the viewport
 const videos = [
   { id: "1210464722", label: "Occupational Therapy", poster: "/images/Theorapies/2.png" },
-  { id: "1210464721", label: "Speech Therapy", poster: "/images/Theorapies/1.png" },
   { id: "1210464720", label: "Physiotherapy", poster: "/images/Theorapies/3.png" },
+  { id: "1210464686", label: "Therapy Session", poster: "/images/Theorapies/1.png" },
+  { id: "1210464685", label: "Therapy Session", poster: "/images/Theorapies/2.png" },
+  { id: "1210464684", label: "Therapy Session", poster: "/images/Theorapies/3.png" },
 ];
 
 // Two identical copies so translateX(-50%) loops perfectly with no gap or jump
@@ -73,9 +75,6 @@ export default function TherapiesSection() {
     <section className="py-12 bg-clean-neutral overflow-hidden" aria-labelledby="therapies-heading">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
-        <span className="text-accent font-semibold text-sm uppercase tracking-widest">
-          Our Services
-        </span>
         <h2
           id="therapies-heading"
           className="mt-3 text-3xl sm:text-4xl font-extrabold text-confident-navy"
