@@ -234,7 +234,7 @@ export const NAP = {
   address: "Sri Nilayam, 2nd Floor, Dr No 30-20-31A, Nehru Street, Seetharamapuram, Vijayawada, Andhra Pradesh 520002",
   phone: "+91 95582 34569",
   whatsapp: "919558234569",
-  email: "hello@meditronvijayawada.com",
+  email: "meditronhealthcare@gmail.com",
   mapUrl: "https://www.google.com/maps/place/Meditron+Child+Development+Centre/@16.5174296,80.6381530,17z",
   hours: "Mon–Sat: 9 am – 6 pm",
   socials: {

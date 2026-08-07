@@ -47,10 +47,12 @@ export default function WhyMeditron() {
         muted
         loop
         playsInline
+        preload="auto"
+        poster="/images/About/1.png"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         aria-hidden="true"
       >
-        <source src="/videos/Video Project 8.mp4" type="video/mp4" />
+        <source src="/videos/meditron-cdc-background.mp4" type="video/mp4" />
       </video>
       {/* Overlay at 50% so the video shows through */}
       <div className="absolute inset-0 bg-primary-dark/50" aria-hidden="true" />

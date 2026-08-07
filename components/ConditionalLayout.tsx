@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import TimedPopup from "@/components/TimedPopup";
 import Footer from "@/components/Footer";
+import SocialPeekTabs from "@/components/SocialPeekTabs";
 
 export default function ConditionalLayout({
   children,
@@ -21,6 +22,7 @@ export default function ConditionalLayout({
       {children}
       {!isAdmin && <Footer />}
       {!isAdmin && <TimedPopup />}
+      {!isAdmin && <SocialPeekTabs />}
     </>
   );
 }

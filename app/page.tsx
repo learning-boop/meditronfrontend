@@ -96,7 +96,7 @@ export default function HomePage() {
         {/* 2b. About Us — new section after slider */}
         <AboutSection />
         {/* 2c. Doctor media interview — placed right after About */}
-        <DoctorInterview />
+        {/* <DoctorInterview /> */}
         {/* 3. Conditions We Treat — unchanged */}
         <ConditionsSection />
         {/* 3b. Is it just a delay? (mobile only) */}
