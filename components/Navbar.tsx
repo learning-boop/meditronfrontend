@@ -23,7 +23,7 @@ const navItems: NavItem[] = [
     kind: "dropdown",
     label: "About",
     items: [
-      { label: "About Doctor", href: "/about" },
+      { label: "Dr. Sirisha", href: "/about" },
     ],
   },
   {
@@ -154,7 +154,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-cream shadow-sm">
       <nav
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-[4.5rem] md:h-24"
         aria-label="Main navigation"
       >
         {/* ── Logo ── */}
@@ -166,9 +166,9 @@ export default function Navbar() {
           <Image
             src="/images/meditron-child-development-center-logo.png"
             alt="Meditron Child Development Centre"
-            width={160}
-            height={48}
-            className="h-10 md:h-12 w-auto object-contain"
+            width={200}
+            height={64}
+            className="h-12 md:h-16 w-auto object-contain"
             priority
           />
         </Link>

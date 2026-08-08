@@ -38,7 +38,7 @@ export default function Footer() {
       {/* Teal accent stripe */}
       <div className="h-1 w-full bg-gradient-to-r from-primary via-healing-green to-primary" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-28 md:pb-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-36 md:pb-10">
 
         {/* ── Location links — no title, at the top ──────────────────────── */}
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-6 pb-10 border-b border-white/8 mb-12">
@@ -201,15 +201,12 @@ export default function Footer() {
             </ul>
 
             {/* Book appointment CTA */}
-            <a
-              href={`https://wa.me/${NAP.whatsapp}?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20Meditron.`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="mt-8 inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-colors"
             >
-              <IconWhatsApp className="w-4 h-4" />
               Book Appointment
-            </a>
+            </Link>
           </div>
 
         </div>

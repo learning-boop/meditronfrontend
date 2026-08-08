@@ -43,16 +43,6 @@ function MobileHero() {
       />
 
       <div className="relative">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease }}
-          className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/15 px-2.5 py-1 font-heading text-[0.65rem] font-extrabold uppercase tracking-[0.14em] text-[#8d7521]"
-        >
-          <span className="h-[5px] w-[5px] rounded-full bg-gold" aria-hidden="true" />
-          Vijayawada · Since 2018
-        </motion.div>
-
         <motion.p
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}

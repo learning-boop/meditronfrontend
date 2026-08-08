@@ -18,9 +18,9 @@ import PageHero from "@/components/PageHero";
 import { NAP } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About Meditron | Best Child Development Centre in Vijayawada",
   description:
-    "Learn about Meditron Child Development Centre — our story, our mission, and why hundreds of families in Vijayawada trust us with their children's futures.",
+    "Learn about Meditron — Vijayawada's best child development centre. Our story, our mission, and why hundreds of families trust us for Autism, ADHD, Cerebral Palsy, and Down Syndrome therapy.",
 };
 
 const waUrl = `https://wa.me/${NAP.whatsapp}?text=${encodeURIComponent(
@@ -140,13 +140,24 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-5 text-muted-navy text-sm sm:text-base leading-[1.85]">
               <p>
-                Every week, we would meet families who had spent months — sometimes years — trying to understand why their child wasn&apos;t talking, wasn&apos;t making eye contact, wasn&apos;t walking when others their age were. They had gone from doctor to doctor, collecting opinions but not answers. They were exhausted, scared, and alone.
+                Every week, we meet families who have spent months — sometimes years — trying to understand why their child wasn&apos;t talking, wasn&apos;t making eye contact, wasn&apos;t walking when others their age were. They had gone from doctor to doctor, collecting opinions but not answers. They were exhausted, scared, and alone.
               </p>
               <p>
                 Meditron began as an answer to that. A place where a family could walk in with their questions and walk out with a plan. Not a referral. Not a waiting list. A real plan, built around their real child.
               </p>
               <p>
-                We are based in Vijayawada, Andhra Pradesh — and we are proud of it. This is our community. These are our children. We speak your language — Telugu, Hindi, English — because communication between a therapist and a parent matters as much as the therapy itself.
+                We specialise in{" "}
+                <Link href="/conditions/autism-vijayawada" className="text-primary font-semibold hover:underline underline-offset-2">Autism</Link>,{" "}
+                <Link href="/conditions/adhd-vijayawada" className="text-primary font-semibold hover:underline underline-offset-2">ADHD</Link>,{" "}
+                <Link href="/conditions/cerebral-palsy-vijayawada" className="text-primary font-semibold hover:underline underline-offset-2">Cerebral Palsy</Link>, and{" "}
+                <Link href="/conditions/down-syndrome-vijayawada" className="text-primary font-semibold hover:underline underline-offset-2">Down Syndrome</Link>{" "}
+                — offering{" "}
+                <Link href="/therapies/speech-therapy-vijayawada" className="text-primary font-semibold hover:underline underline-offset-2">speech therapy</Link>,{" "}
+                <Link href="/therapies/occupational-therapy-vijayawada" className="text-primary font-semibold hover:underline underline-offset-2">occupational therapy</Link>,{" "}
+                <Link href="/therapies/physiotherapy-vijayawada" className="text-primary font-semibold hover:underline underline-offset-2">physiotherapy</Link>, and more — all under one roof in Vijayawada.
+              </p>
+              <p>
+                We speak your language — Telugu, Hindi, English — because communication between a therapist and a parent matters as much as the therapy itself.
               </p>
             </div>
           </div>
@@ -228,6 +239,54 @@ export default function AboutPage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Conditions & Therapies quick-links ─────────────────────────────── */}
+      <section className="py-16 bg-primary-light/40 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid sm:grid-cols-2 gap-10">
+            {/* Conditions */}
+            <div>
+              <h3 className="text-xs font-bold uppercase tracking-widest text-accent-dark mb-4">Conditions We Treat in Vijayawada</h3>
+              <ul className="space-y-2.5">
+                {[
+                  { label: "Autism Spectrum Disorder in Vijayawada", href: "/conditions/autism-vijayawada" },
+                  { label: "ADHD in Vijayawada", href: "/conditions/adhd-vijayawada" },
+                  { label: "Cerebral Palsy in Vijayawada", href: "/conditions/cerebral-palsy-vijayawada" },
+                  { label: "Down Syndrome in Vijayawada", href: "/conditions/down-syndrome-vijayawada" },
+                ].map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className="flex items-center gap-2 text-sm text-muted-navy hover:text-primary font-medium transition-colors group">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary group-hover:bg-accent transition-colors shrink-0" />
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Therapies */}
+            <div>
+              <h3 className="text-xs font-bold uppercase tracking-widest text-accent-dark mb-4">Therapies We Offer in Vijayawada</h3>
+              <ul className="space-y-2.5">
+                {[
+                  { label: "Speech Therapy in Vijayawada", href: "/therapies/speech-therapy-vijayawada" },
+                  { label: "Occupational Therapy in Vijayawada", href: "/therapies/occupational-therapy-vijayawada" },
+                  { label: "Physiotherapy in Vijayawada", href: "/therapies/physiotherapy-vijayawada" },
+                  { label: "ABA Therapy in Vijayawada", href: "/therapies/aba-therapy-vijayawada" },
+                  { label: "Behaviour Therapy in Vijayawada", href: "/therapies/behaviour-therapy-vijayawada" },
+                  { label: "Sensory Integration in Vijayawada", href: "/therapies/sensory-integration-vijayawada" },
+                ].map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className="flex items-center gap-2 text-sm text-muted-navy hover:text-primary font-medium transition-colors group">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary group-hover:bg-accent transition-colors shrink-0" />
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>

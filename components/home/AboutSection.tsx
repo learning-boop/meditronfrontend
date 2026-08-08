@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+const inlineLink = "text-primary font-semibold underline-offset-2 hover:underline";
+
 const highlights = [
   { number: "8+", label: "Years of experience" },
   { number: "500+", label: "Children guided" },
@@ -71,10 +73,16 @@ export default function AboutSection() {
             </p>
 
             <p className="mt-4 text-dusty-blue text-base leading-relaxed">
-              We work with children living with Autism, ADHD, Cerebral Palsy, and
-              Down Syndrome, offering speech therapy, occupational therapy, and
-              physiotherapy under one roof — by specialists who speak Telugu,
-              Hindi, and English, and who sit with families the way family does.
+              We work with children living with{" "}
+              <Link href="/conditions/autism-vijayawada" className={inlineLink}>Autism</Link>,{" "}
+              <Link href="/conditions/adhd-vijayawada" className={inlineLink}>ADHD</Link>,{" "}
+              <Link href="/conditions/cerebral-palsy-vijayawada" className={inlineLink}>Cerebral Palsy</Link>, and{" "}
+              <Link href="/conditions/down-syndrome-vijayawada" className={inlineLink}>Down Syndrome</Link>,
+              offering{" "}
+              <Link href="/therapies/speech-therapy-vijayawada" className={inlineLink}>speech therapy</Link>,{" "}
+              <Link href="/therapies/occupational-therapy-vijayawada" className={inlineLink}>occupational therapy</Link>, and{" "}
+              <Link href="/therapies/physiotherapy-vijayawada" className={inlineLink}>physiotherapy</Link>{" "}
+              under one roof — by specialists who speak Telugu, Hindi, and English.
             </p>
 
             {/* Stats row */}

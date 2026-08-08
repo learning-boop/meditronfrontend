@@ -20,13 +20,13 @@ import MobileStickyCTA from "@/components/mobile/MobileStickyCTA";
 import { NAP } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Meditron Child Development Centre | Vijayawada",
+  title: "Best Child Development Centre in Vijayawada | Meditron CDC",
   description:
-    "Meditron is Vijayawada's trusted child development centre, offering expert speech, occupational, and physiotherapy for Autism, ADHD, Cerebral Palsy, and Down Syndrome.",
+    "Meditron is the best child development centre in Vijayawada, offering expert speech therapy, occupational therapy, and physiotherapy for Autism, ADHD, Cerebral Palsy, and Down Syndrome.",
   openGraph: {
-    title: "Meditron Child Development Centre | Vijayawada",
+    title: "Best Child Development Centre in Vijayawada | Meditron CDC",
     description:
-      "Expert therapy for children with Autism, ADHD, Cerebral Palsy, and Down Syndrome in Vijayawada, Andhra Pradesh.",
+      "Best therapy for children with Autism, ADHD, Cerebral Palsy, and Down Syndrome in Vijayawada, Andhra Pradesh.",
     url: "https://meditronvijayawada.com",
   },
 };

@@ -43,7 +43,7 @@ const conditions = [
   {
     slug: "down-syndrome-vijayawada",
     name: "Down Syndrome",
-    question: "Slower to learn, but faster to love?",
+    question: "Slower to learn, but faster to love.",
     body: "About 1 in 830 babies in India is born with Down syndrome. These children learn everything — speaking, reading, self-care — just on their own timeline. Our job is walking that timeline with them, milestone by milestone, so they live full, capable, joyful lives.",
     cta: "Understand Down Syndrome Care",
     image: "/images/Conditions/4.png",
@@ -100,12 +100,12 @@ function ConditionCard({
         }`}
       >
         {/* ── Image ── */}
-        <div className="relative w-full md:w-[46%] h-[38vh] md:h-full shrink-0">
+        <div className="relative w-full md:w-[46%] h-[44%] min-h-[220px] md:h-full shrink-0">
           <Image
             src={condition.image}
             alt={condition.imageAlt}
             fill
-            className="object-cover"
+            className="object-cover object-top"
             sizes="(max-width: 768px) 100vw, 46vw"
           />
           {/* edge fade toward content */}
@@ -119,7 +119,7 @@ function ConditionCard({
         </div>
 
         {/* ── Content ── */}
-        <div className="flex-1 flex flex-col justify-center px-7 sm:px-12 lg:px-16 py-8 md:py-0 relative overflow-hidden">
+        <div className="flex-1 flex flex-col justify-center px-5 sm:px-12 lg:px-16 py-5 md:py-0 relative overflow-hidden">
           {/* large decorative number */}
           <span
             aria-hidden="true"

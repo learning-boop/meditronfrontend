@@ -43,8 +43,8 @@ export default function SocialPeekTabs() {
      * Desktop: vertically centred in viewport.
      */
     <div
-      className="fixed right-0 z-40 flex flex-col gap-3
-                 bottom-[5.5rem] md:bottom-auto md:top-1/2 md:-translate-y-1/2"
+      className="hidden md:flex fixed right-0 z-40 flex-col gap-3
+                 md:top-1/2 md:-translate-y-1/2"
       aria-label="Follow us on social media"
     >
       <AnimatePresence>

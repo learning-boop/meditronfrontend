@@ -1,7 +1,7 @@
-import { MessageCircle, Eye, ClipboardList } from "lucide-react";
+import Image from "next/image";
 
 const trustChips = [
-  "M.D. · Pediatric Rehabilitation",
+  "Pediatric Rehabilitation",
   "8+ years with children",
   "500+ families guided",
   "Speaks Telugu, Hindi & English",
@@ -10,21 +10,21 @@ const trustChips = [
 const visitSteps = [
   {
     num: "01",
-    icon: MessageCircle,
+    image: "/images/Mother obsvering/1.png",
     badge: "45 mins",
     title: "We talk",
     body: "You tell me everything you've noticed — nothing is too small, nothing is too much.",
   },
   {
     num: "02",
-    icon: Eye,
+    image: "/images/About/1.png",
     badge: "No pressure",
     title: "I observe your child",
     body: "Playing naturally, in their own way. No tests. No clipboards. Just watching.",
   },
   {
     num: "03",
-    icon: ClipboardList,
+    image: "/images/About/2.png",
     badge: "Before you leave",
     title: "You leave with clarity",
     body: "A clear plan in your hands — not confusion, not a stack of referrals. A real path forward.",
@@ -130,7 +130,7 @@ export default function WhyMeditron() {
                 <div className="mt-6 pt-5 border-t border-primary-light flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
                   <div>
                     <p className="text-confident-navy font-extrabold text-base sm:text-lg">
-                      Dr. Sunitha Reddy
+                      Dr. Sirisha
                     </p>
                     <p className="text-dusty-blue text-xs sm:text-sm mt-0.5">
                       M.D. · Pediatric Rehabilitation &amp; Development
@@ -170,23 +170,28 @@ export default function WhyMeditron() {
             </p>
 
             <div className="grid sm:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden">
-              {visitSteps.map((step) => {
-                const Icon = step.icon;
-                return (
+              {visitSteps.map((step) => (
                   <div
                     key={step.num}
-                    className="bg-primary-dark/80 px-7 py-7 flex flex-col gap-4 group hover:bg-primary/30 transition-colors duration-300"
+                    className="bg-primary-dark/80 px-5 py-6 flex flex-col gap-4 group hover:bg-primary/30 transition-colors duration-300"
                   >
-                    <div className="flex items-center justify-between">
-                      <span className="text-accent font-black text-3xl leading-none tabular-nums">
+                    {/* Background image thumbnail */}
+                    <div className="relative w-full h-28 rounded-xl overflow-hidden">
+                      <Image
+                        src={step.image}
+                        alt={step.title}
+                        fill
+                        className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-primary-dark/40" />
+                      {/* Number badge over image */}
+                      <span className="absolute top-3 left-3 text-accent font-black text-2xl leading-none tabular-nums drop-shadow">
                         {step.num}
                       </span>
-                      <span className="text-[0.65rem] font-bold text-white/35 uppercase tracking-widest border border-white/15 rounded-full px-2.5 py-1">
+                      <span className="absolute top-3 right-3 text-[0.6rem] font-bold text-white/80 uppercase tracking-widest border border-white/25 rounded-full px-2 py-0.5 bg-black/20">
                         {step.badge}
                       </span>
-                    </div>
-                    <div className="w-9 h-9 rounded-xl bg-accent/15 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-accent" aria-hidden="true" />
                     </div>
                     <div>
                       <h3 className="text-white font-bold text-base leading-snug">
@@ -197,8 +202,7 @@ export default function WhyMeditron() {
                       </p>
                     </div>
                   </div>
-                );
-              })}
+                ))}
             </div>
           </div>
 
