@@ -8,6 +8,7 @@ import TherapiesSection from "@/components/home/TherapiesSection";
 import WhyMeditron from "@/components/home/WhyMeditron";
 import Testimonials from "@/components/home/Testimonials";
 import BlogPreview from "@/components/home/BlogPreview";
+import ResourceHub from "@/components/home/ResourceHub";
 import FinalCTA from "@/components/home/FinalCTA";
 import InstagramFeed from "@/components/home/InstagramFeed";
 /* ── Muggu: mobile-only sections (all md:hidden) ── */
@@ -115,6 +116,8 @@ export default function HomePage() {
         <BlogPreview />
         {/* 7b. Amma's circle (mobile only) */}
         <MobileParentCircle />
+        {/* 7c. Resource hub — Healing Stories, For Parents, International */}
+        <ResourceHub />
         {/* 8. Final CTA — unchanged */}
         <FinalCTA />
         {/* 9. Instagram feed — unchanged */}

@@ -19,7 +19,7 @@ export const therapyPages: Record<string, TherapyPageData> = {
   "speech-therapy-vijayawada": {
     slug: "speech-therapy-vijayawada",
     name: "Speech Therapy",
-    image: "/images/Theorapies/1.png",
+    image: "/images/Conditions/speech-therapy-vijayawada.png",
     metaTitle: "Best Speech Therapy in Vijayawada | Meditron Child Development Centre",
     metaDescription:
       "Expert Speech Therapy in Vijayawada at Meditron. Certified speech-language pathologists helping children with communication delays, autism, and language disorders.",
@@ -119,7 +119,7 @@ export const therapyPages: Record<string, TherapyPageData> = {
   "occupational-therapy-vijayawada": {
     slug: "occupational-therapy-vijayawada",
     name: "Occupational Therapy",
-    image: "/images/Theorapies/2.png",
+    image: "/images/Conditions/occupational-therapy-vijayawada.png",
     metaTitle: "Best Occupational Therapy in Vijayawada | Meditron Child Development Centre",
     metaDescription:
       "Expert Occupational Therapy in Vijayawada at Meditron. Helping children with fine motor skills, sensory processing, and daily living independence.",
@@ -219,7 +219,7 @@ export const therapyPages: Record<string, TherapyPageData> = {
   "physiotherapy-vijayawada": {
     slug: "physiotherapy-vijayawada",
     name: "Physiotherapy",
-    image: "/images/Theorapies/3.png",
+    image: "/images/Conditions/physiotherapy-vijayawada.png",
     metaTitle: "Best Physiotherapy in Vijayawada | Meditron Child Development Centre",
     metaDescription:
       "Expert Paediatric Physiotherapy in Vijayawada at Meditron. Helping children with Cerebral Palsy, motor delays, balance and movement challenges.",
@@ -319,7 +319,7 @@ export const therapyPages: Record<string, TherapyPageData> = {
   "child-psychology-vijayawada": {
     slug: "child-psychology-vijayawada",
     name: "Child Psychology",
-    image: "/images/Theorapies/1.png",
+    image: "/images/Conditions/child-psychology-vijayawada.png",
     metaTitle: "Best Child Psychology in Vijayawada | Meditron Child Development Centre",
     metaDescription:
       "Expert Child Psychology services in Vijayawada at Meditron. Assessment, diagnosis, and evidence-based therapy for children's emotional and behavioural difficulties.",
@@ -419,7 +419,7 @@ export const therapyPages: Record<string, TherapyPageData> = {
   "sensory-integration-vijayawada": {
     slug: "sensory-integration-vijayawada",
     name: "Sensory Integration",
-    image: "/images/Theorapies/2.png",
+    image: "/images/Conditions/sensory-integration-vijayawada.png",
     metaTitle: "Best Sensory Integration Therapy in Vijayawada | Meditron Child Development Centre",
     metaDescription:
       "Expert Sensory Integration Therapy in Vijayawada at Meditron. Helping children with ASD, ADHD, and sensory processing difficulties through our dedicated sensory gym.",
@@ -519,7 +519,7 @@ export const therapyPages: Record<string, TherapyPageData> = {
   "behaviour-therapy-vijayawada": {
     slug: "behaviour-therapy-vijayawada",
     name: "Behaviour Therapy",
-    image: "/images/Theorapies/3.png",
+    image: "/images/Conditions/behaviour-therapy-vijayawada.png",
     metaTitle: "Best Behaviour Therapy in Vijayawada | Meditron Child Development Centre",
     metaDescription:
       "Expert Behaviour Therapy in Vijayawada at Meditron. Evidence-based support for children with challenging behaviours, ASD, ADHD, and emotional difficulties.",
@@ -619,7 +619,7 @@ export const therapyPages: Record<string, TherapyPageData> = {
   "vision-therapy-vijayawada": {
     slug: "vision-therapy-vijayawada",
     name: "Vision Therapy",
-    image: "/images/Theorapies/1.png",
+    image: "/images/Conditions/vision-therapy-vijayawada.png",
     metaTitle: "Best Vision Therapy in Vijayawada | Meditron Child Development Centre",
     metaDescription:
       "Expert Vision Therapy in Vijayawada at Meditron. Helping children with reading difficulties, convergence insufficiency, and visual processing disorders.",
@@ -719,7 +719,7 @@ export const therapyPages: Record<string, TherapyPageData> = {
   "play-therapy-vijayawada": {
     slug: "play-therapy-vijayawada",
     name: "Play Therapy",
-    image: "/images/Theorapies/2.png",
+    image: "/images/Conditions/play-therapy-vijayawada.png",
     metaTitle: "Best Play Therapy in Vijayawada | Meditron Child Development Centre",
     metaDescription:
       "Expert Play Therapy in Vijayawada at Meditron. Helping children process emotions, heal from trauma, and develop through the natural language of play.",
@@ -919,7 +919,7 @@ export const therapyPages: Record<string, TherapyPageData> = {
   "specific-learning-vijayawada": {
     slug: "specific-learning-vijayawada",
     name: "Specific Learning",
-    image: "/images/Theorapies/1.png",
+    image: "/images/Conditions/specific-learning-vijayawada.png",
     metaTitle: "Best Specific Learning Disability Support in Vijayawada | Meditron Child Development Centre",
     metaDescription:
       "Expert Specific Learning Disability support in Vijayawada at Meditron. Assessment and remediation for dyslexia, dyscalculia, and dysgraphia in children.",

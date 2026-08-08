@@ -28,6 +28,9 @@ const treatmentLinks = vjTherapies.slice(0, 5).map((t) => ({
 const quickLinks = [
   { label: "About Us", href: "/about" },
   { label: "Our Team", href: "/team" },
+  { label: "Healing Stories", href: "/healing-stories" },
+  { label: "For Parents", href: "/for-parents" },
+  { label: "International Patients", href: "/international" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];

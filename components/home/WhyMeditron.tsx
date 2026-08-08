@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const trustChips = [
   "Pediatric Rehabilitation",
   "8+ years with children",
@@ -7,29 +5,6 @@ const trustChips = [
   "Speaks Telugu, Hindi & English",
 ];
 
-const visitSteps = [
-  {
-    num: "01",
-    image: "/images/Mother obsvering/1.png",
-    badge: "45 mins",
-    title: "We talk",
-    body: "You tell me everything you've noticed — nothing is too small, nothing is too much.",
-  },
-  {
-    num: "02",
-    image: "/images/About/1.png",
-    badge: "No pressure",
-    title: "I observe your child",
-    body: "Playing naturally, in their own way. No tests. No clipboards. Just watching.",
-  },
-  {
-    num: "03",
-    image: "/images/About/2.png",
-    badge: "Before you leave",
-    title: "You leave with clarity",
-    body: "A clear plan in your hands — not confusion, not a stack of referrals. A real path forward.",
-  },
-];
 
 export default function WhyMeditron() {
   return (
@@ -163,48 +138,6 @@ export default function WhyMeditron() {
             </div>
           </div>
 
-          {/* ── "Your first visit" steps ── */}
-          <div className="mt-10">
-            <p className="text-center text-white/40 text-xs font-semibold uppercase tracking-[0.2em] mb-6">
-              Your first visit with me
-            </p>
-
-            <div className="grid sm:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden">
-              {visitSteps.map((step) => (
-                  <div
-                    key={step.num}
-                    className="bg-primary-dark/80 px-5 py-6 flex flex-col gap-4 group hover:bg-primary/30 transition-colors duration-300"
-                  >
-                    {/* Background image thumbnail */}
-                    <div className="relative w-full h-28 rounded-xl overflow-hidden">
-                      <Image
-                        src={step.image}
-                        alt={step.title}
-                        fill
-                        className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                      />
-                      <div className="absolute inset-0 bg-primary-dark/40" />
-                      {/* Number badge over image */}
-                      <span className="absolute top-3 left-3 text-accent font-black text-2xl leading-none tabular-nums drop-shadow">
-                        {step.num}
-                      </span>
-                      <span className="absolute top-3 right-3 text-[0.6rem] font-bold text-white/80 uppercase tracking-widest border border-white/25 rounded-full px-2 py-0.5 bg-black/20">
-                        {step.badge}
-                      </span>
-                    </div>
-                    <div>
-                      <h3 className="text-white font-bold text-base leading-snug">
-                        {step.title}
-                      </h3>
-                      <p className="text-white/50 text-sm leading-relaxed mt-2">
-                        {step.body}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
 
         </div>
       </div>
