@@ -148,45 +148,45 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Priya Sharma",
-    role: "Mother of Arjun, 6",
-    quote:
-      "Meditron transformed our son's life. Within six months of speech therapy he started speaking full sentences. The therapists here are incredibly patient and skilled.",
-  },
-  {
-    id: 2,
-    name: "Ravi Kumar",
-    role: "Father of Ananya, 4",
-    quote:
-      "We were worried about our daughter's development delays. The team at Meditron gave us a clear plan and supported our whole family throughout the journey.",
-  },
-  {
-    id: 3,
-    name: "Sunita Reddy",
-    role: "Mother of Vikram, 7",
-    quote:
-      "The occupational therapy here has been life-changing. Vikram can now write, dress himself, and join his classmates in school activities with confidence.",
-  },
-  {
-    id: 4,
-    name: "Lakshmi Patel",
-    role: "Mother of Sai, 5",
-    quote:
-      "The behaviour therapy sessions at Meditron have been incredible. Sai's meltdowns have reduced dramatically and he now communicates his needs so much better.",
-  },
-  {
-    id: 5,
-    name: "Venkat Rao",
-    role: "Father of Diya, 8",
-    quote:
-      "After two years of ABA therapy at Meditron, Diya is now attending mainstream school. The team's dedication to our daughter goes far beyond the therapy room.",
-  },
-  {
-    id: 6,
     name: "Kavitha Nair",
     role: "Mother of Rohan, 3",
     quote:
-      "We came to Meditron when Rohan was barely making eye contact. The early intervention programme gave him the start he needed. He surprises us every single day.",
+      "We came when Rohan was barely making eye contact. I used to call his name twenty times and he wouldn't turn. Eight months later he ran to the gate when I came to pick him up and called out 'Amma.' I sat in the car and cried for ten minutes.",
+  },
+  {
+    id: 2,
+    name: "Priya Sharma",
+    role: "Mother of Arjun, 6",
+    quote:
+      "For three years I waited for Arjun to say a complete sentence. Six months of speech therapy here and he said 'Amma, I want rice and dal.' I know how small that sounds. I know how enormous it is. The therapists are patient in a way I didn't know professionals could be.",
+  },
+  {
+    id: 3,
+    name: "Ravi Kumar",
+    role: "Father of Ananya, 4",
+    quote:
+      "మా పాప ఇప్పుడు తనే బట్టలు వేసుకుంటుంది. ఇది చిన్న విషయంలా అనిపిస్తుంది — కానీ మనకు అది పండగ. డాక్టర్ గారు మా భయాన్ని ముందే తీసేశారు. అప్పుడే మేము నిజంగా మొదలు పెట్టాం.",
+  },
+  {
+    id: 4,
+    name: "Sunita Reddy",
+    role: "Mother of Vikram, 7",
+    quote:
+      "Vikram couldn't hold a pencil when we started. His teacher had given up. Now he writes, dresses himself, and last month he brought home a drawing he'd made at school. He put it in my hands and said 'For you, Amma.' Therapy didn't just change his skills. It changed who he believes he can be.",
+  },
+  {
+    id: 5,
+    name: "Lakshmi Patel",
+    role: "Mother of Sai, 5",
+    quote:
+      "The meltdowns were destroying our family. We were afraid to go anywhere. Six months of behaviour therapy and last week Sai sat through his cousin's birthday party — start to finish. He even said thank you when we left. I cried in the auto on the way home.",
+  },
+  {
+    id: 6,
+    name: "Venkat Rao",
+    role: "Father of Diya, 8",
+    quote:
+      "When the diagnosis came we thought that was it — a ceiling on what she could become. Two years later Diya is in mainstream school, making friends, and telling me about her day every evening. They believe in her like family.",
   },
 ];
 

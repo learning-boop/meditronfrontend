@@ -1,8 +1,10 @@
 const trustChips = [
-  "Pediatric Rehabilitation",
-  "8+ years with children",
-  "500+ families guided",
-  "Speaks Telugu, Hindi & English",
+  "BPT · Bachelor of Physiotherapy",
+  "Certified Intensive Care for Autism",
+  "Certified Sensory Integration Therapy",
+  "Certified Speech-Language Pathologist",
+  "Certified Brain Gym Practitioner",
+  "8+ Years · 500+ Families",
 ];
 
 
@@ -105,10 +107,10 @@ export default function WhyMeditron() {
                 <div className="mt-6 pt-5 border-t border-primary-light flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
                   <div>
                     <p className="text-confident-navy font-extrabold text-base sm:text-lg">
-                      Dr. Sirisha
+                      Venkata Sirisha Matla
                     </p>
                     <p className="text-dusty-blue text-xs sm:text-sm mt-0.5">
-                      M.D. · Pediatric Rehabilitation &amp; Development
+                      BPT · Sensory Integration · Brain Gym
                     </p>
                     <p className="text-primary text-xs font-semibold mt-1">
                       Founder, Meditron CDC · Vijayawada

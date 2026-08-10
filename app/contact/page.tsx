@@ -5,9 +5,12 @@ import BookingForm from "@/components/BookingForm";
 import { NAP } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Book Free Assessment",
+  title: "Book a Free Assessment | Contact Meditron CDC Vijayawada",
   description:
-    "Book a free child development assessment at Meditron, Vijayawada. Talk to our specialists about Autism, ADHD, Cerebral Palsy, and Down Syndrome therapy for your child.",
+    "Book a free child development assessment at Meditron CDC, Vijayawada. No fee, no pressure — just a conversation about your child. Call, WhatsApp, or visit us in Seetharamapuram.",
+  alternates: {
+    canonical: "https://meditroncdc.com/contact",
+  },
 };
 
 const waUrl = `https://wa.me/${NAP.whatsapp}?text=${encodeURIComponent(

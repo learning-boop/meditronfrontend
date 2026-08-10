@@ -23,12 +23,23 @@ import { NAP } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Best Child Development Centre in Vijayawada | Meditron CDC",
   description:
-    "Meditron is the best child development centre in Vijayawada, offering expert speech therapy, occupational therapy, and physiotherapy for Autism, ADHD, Cerebral Palsy, and Down Syndrome.",
+    "Meditron CDC is Vijayawada's best child development centre — speech therapy, physiotherapy, occupational therapy and sensory integration for Autism, ADHD, Cerebral Palsy, and Down Syndrome. Free first assessment.",
+  alternates: {
+    canonical: "https://meditroncdc.com",
+  },
   openGraph: {
     title: "Best Child Development Centre in Vijayawada | Meditron CDC",
     description:
-      "Best therapy for children with Autism, ADHD, Cerebral Palsy, and Down Syndrome in Vijayawada, Andhra Pradesh.",
-    url: "https://meditronvijayawada.com",
+      "Speech therapy, physiotherapy and sensory integration for Autism, ADHD, Cerebral Palsy and Down Syndrome — Vijayawada, Andhra Pradesh. Free first assessment.",
+    url: "https://meditroncdc.com",
+    images: [
+      {
+        url: "/images/og-meditron.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Meditron Child Development Centre — Best therapy centre in Vijayawada",
+      },
+    ],
   },
 };
 
@@ -37,14 +48,20 @@ const jsonLd = {
   "@graph": [
     {
       "@type": ["MedicalClinic", "LocalBusiness"],
-      "@id": "https://meditronvijayawada.com/#clinic",
+      "@id": "https://meditroncdc.com/#clinic",
       name: NAP.name,
-      url: "https://meditronvijayawada.com",
+      url: "https://meditroncdc.com",
       telephone: NAP.phone,
       email: NAP.email,
+      sameAs: [
+        NAP.socials.instagram,
+        NAP.socials.facebook,
+        NAP.socials.youtube,
+      ],
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Sri Nilayam, 2nd Floor, Dr No 30-20-31A, Nehru Street, Seetharamapuram",
+        streetAddress:
+          "Sri Nilayam, 2nd Floor, Dr No 30-20-31A, Nehru Street, Seetharamapuram",
         addressLocality: "Vijayawada",
         addressRegion: "Andhra Pradesh",
         postalCode: "520002",
@@ -75,7 +92,44 @@ const jsonLd = {
         "Speech Therapy",
         "Occupational Therapy",
         "Physiotherapy",
+        "Sensory Integration Therapy",
+        "ABA Therapy",
+        "Behaviour Therapy",
       ],
+      founder: {
+        "@type": "Person",
+        "@id": "https://meditroncdc.com/#founder",
+        name: "Venkata Sirisha Matla",
+        jobTitle: "Founder & Lead Therapist",
+        worksFor: { "@id": "https://meditroncdc.com/#clinic" },
+        hasCredential: [
+          {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "degree",
+            name: "Bachelor of Physiotherapy (BPT)",
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "certificate",
+            name: "Certified in Intensive Care for Autism",
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "certificate",
+            name: "Certified Sensory Integration Therapist",
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "certificate",
+            name: "Certified Speech-Language Pathologist (Techniques)",
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "certificate",
+            name: "Certified Brain Gym Practitioner (26 Movements)",
+          },
+        ],
+      },
     },
   ],
 };

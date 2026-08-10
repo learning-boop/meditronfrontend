@@ -45,15 +45,56 @@ const ramabhadra = Ramabhadra({
 export const metadata: Metadata = {
   title: {
     default: "Meditron Child Development Centre | Vijayawada",
-    template: "%s | Meditron Vijayawada",
+    template: "%s | Meditron CDC Vijayawada",
   },
   description:
-    "Meditron is a leading child development centre in Vijayawada, Andhra Pradesh, providing expert therapy for Autism, ADHD, Cerebral Palsy, and Down Syndrome.",
-  metadataBase: new URL("https://meditronvijayawada.com"),
+    "Meditron is Vijayawada's leading child development centre — expert speech therapy, physiotherapy, occupational therapy and sensory integration for Autism, ADHD, Cerebral Palsy, and Down Syndrome.",
+  metadataBase: new URL("https://meditroncdc.com"),
+  keywords: [
+    "child development centre Vijayawada",
+    "speech therapy Vijayawada",
+    "physiotherapy for children Vijayawada",
+    "occupational therapy Vijayawada",
+    "autism treatment Vijayawada",
+    "ADHD treatment Vijayawada",
+    "cerebral palsy therapy Vijayawada",
+    "down syndrome therapy Vijayawada",
+    "sensory integration Vijayawada",
+    "paediatric therapy Vijayawada",
+    "Meditron CDC",
+  ],
+  alternates: {
+    canonical: "https://meditroncdc.com",
+  },
   openGraph: {
     siteName: "Meditron Child Development Centre",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "/images/og-meditron.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Meditron Child Development Centre — Vijayawada",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Meditron Child Development Centre | Vijayawada",
+    description:
+      "Expert speech therapy, physiotherapy and sensory integration for children in Vijayawada. Autism · ADHD · Cerebral Palsy · Down Syndrome.",
+    images: ["/images/og-meditron.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

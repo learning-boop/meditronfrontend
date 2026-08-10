@@ -14,12 +14,13 @@ export default function FinalCTA() {
           id="cta-heading"
           className="text-3xl sm:text-4xl font-extrabold text-white mb-4"
         >
-          Ready to Help Your Child Thrive?
+          You&apos;ve waited long enough.
+          <span className="block text-accent mt-1">Let&apos;s begin.</span>
         </h2>
         <p className="text-white/80 text-lg leading-relaxed mb-10">
-          Book a free initial consultation with our specialists. We&apos;ll
-          listen, assess, and create a personalised therapy plan — no obligation,
-          just guidance.
+          The first call is the hardest one. After that, you&apos;ll wonder why
+          you waited. Book a free assessment — no pressure, no jargon, no
+          judgement. Just a conversation about your child.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a

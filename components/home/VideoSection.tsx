@@ -18,17 +18,17 @@ export default function VideoSection() {
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span className="text-accent font-semibold text-sm uppercase tracking-widest">
-          See Us in Action
+          Inside Meditron
         </span>
         <h2
           id="video-heading"
           className="mt-3 text-3xl sm:text-4xl font-extrabold text-white mb-4"
         >
-          A Day at Meditron
+          The moments that matter
         </h2>
         <p className="text-white/70 leading-relaxed mb-10 max-w-xl mx-auto">
-          Watch how our therapists create a nurturing, playful environment that
-          helps children grow and families find hope.
+          The first word. The first step. The first time they look up and smile.
+          This is what we work for — and what you came here hoping to see.
         </p>
 
         {/* Video player */}

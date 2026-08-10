@@ -43,23 +43,14 @@ function MobileHero() {
       />
 
       <div className="relative">
-        <motion.p
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.08, ease }}
-          className="mt-4 font-[family-name:var(--font-telugu-display)] text-[1.3rem] leading-[1.5] text-primary"
-        >
-          అమ్మా, మీ బిడ్డ ఎవరికంటే తక్కువ కాదు.
-        </motion.p>
-
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.16, ease }}
           className="mt-2.5 font-heading text-[2.35rem] font-extrabold leading-[1.06] tracking-[-0.03em] text-confident-navy text-pretty"
         >
-          Your child is not broken.
-          <span className="text-accent"> Just early in their own story.</span>
+          Your child isn't late.
+          <span className="text-accent"> They're on their way.</span>
         </motion.h1>
 
         <motion.p
@@ -98,11 +89,6 @@ function MobileHero() {
               aria-hidden="true"
             />
             <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2.5 p-4">
-              <p className="font-[family-name:var(--font-telugu)] text-[0.9rem] leading-snug text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.4)]">
-                తల్లి కళ్ల ముందే
-                <br />
-                ప్రతి థెరపీ సెషన్.
-              </p>
               <div className="shrink-0 rounded-xl bg-white/90 px-2.5 py-1.5 text-center">
                 <span className="block font-heading text-[0.95rem] font-extrabold leading-none text-primary">
                   45
@@ -195,11 +181,11 @@ function DesktopHero() {
             Child Development Centre · Vijayawada
           </p>
           <h1 className="text-white font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-tight">
-            Your child is not broken.{" "}
-            <span className="text-accent">Just early in their own story.</span>
+            Your child isn't late.{" "}
+            <span className="text-accent">They're on their way.</span>
           </h1>
           <p className="mt-4 text-white/70 text-sm sm:text-base leading-relaxed max-w-xl">
-            Speech, occupational and physiotherapy for Autism, ADHD, Cerebral Palsy and Down Syndrome — by specialists who sit with you.
+            Speech therapy, physiotherapy and sensory integration for Autism, ADHD, Cerebral Palsy and Down Syndrome — by specialists who sit with you, in Telugu, at your child&apos;s pace.
           </p>
         </div>
 
