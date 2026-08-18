@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Clock, ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Footer from "@/components/Footer";
-import { getPublishedPosts } from "@/lib/api";
+import { getPublishedPosts, resolveImageUrl } from "@/lib/api";
 import type { BlogPost } from "@/lib/api";
 
 export const metadata: Metadata = {
@@ -117,10 +117,10 @@ export default async function BlogPage() {
                   01
                 </div>
               </div>
-              {posts[0].coverImage && (
+              {resolveImageUrl(posts[0].coverImage) && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
-                  src={posts[0].coverImage}
+                  src={resolveImageUrl(posts[0].coverImage)!}
                   alt={posts[0].coverImageAlt || posts[0].title}
                   className="absolute inset-0 w-full h-full object-cover"
                 />
@@ -178,10 +178,10 @@ export default async function BlogPage() {
                         {post.category}
                       </span>
                     )}
-                    {post.coverImage && (
+                    {resolveImageUrl(post.coverImage) && (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
-                        src={post.coverImage}
+                        src={resolveImageUrl(post.coverImage)!}
                         alt={post.coverImageAlt || post.title}
                         className="h-48 w-full object-cover"
                       />

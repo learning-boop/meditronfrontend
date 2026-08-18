@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Clock } from "lucide-react";
-import { getPublishedPosts, API_URL } from "@/lib/api";
+import { getPublishedPosts, resolveImageUrl } from "@/lib/api";
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-IN", {
@@ -16,11 +16,6 @@ const FALLBACK_COVERS = [
   "/images/Blogs/Blog_3.png",
 ];
 
-function resolveImg(url: string | null | undefined): string | null {
-  if (!url) return null;
-  if (url.startsWith("/uploads/")) return `${API_URL}${url}`;
-  return url;
-}
 
 export default async function BlogPreview() {
   const posts = await getPublishedPosts();
@@ -64,7 +59,7 @@ export default async function BlogPreview() {
               {/* Cover image */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={resolveImg(post.coverImage) ?? FALLBACK_COVERS[i % 3]}
+                src={resolveImageUrl(post.coverImage) ?? FALLBACK_COVERS[i % 3]}
                 alt={post.coverImageAlt || post.title}
                 className="h-44 w-full object-cover"
               />

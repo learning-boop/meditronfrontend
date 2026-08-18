@@ -2,14 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Clock, CalendarCheck } from "lucide-react";
-import { getPostBySlug, getPublishedPosts, API_URL } from "@/lib/api";
+import { getPostBySlug, getPublishedPosts, resolveImageUrl } from "@/lib/api";
 import { sanitizeHtml, isHtmlContent } from "@/lib/sanitize";
 
-function resolveImg(url: string | null | undefined): string | null {
-  if (!url) return null;
-  if (url.startsWith("/uploads/")) return `${API_URL}${url}`;
-  return url;
-}
 import type { BlogPost } from "@/lib/api";
 
 export const revalidate = 60;
@@ -169,10 +164,10 @@ export default async function BlogPostPage({
 
       {/* ── Cover image ──────────────────────────────────────────────────── */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
-        {resolveImg(post.coverImage) ? (
+        {resolveImageUrl(post.coverImage) ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={resolveImg(post.coverImage)!}
+            src={resolveImageUrl(post.coverImage)!}
             alt={post.coverImageAlt || post.title}
             className="rounded-2xl w-full h-64 object-cover"
           />

@@ -8,6 +8,19 @@ export const API_URL =
 // CORS allowlist (meditroncdc.com only) blocks it on localhost.
 export const CLIENT_API_URL = "/backend-api";
 
+/**
+ * Uploaded covers are stored as backend-relative paths ("/uploads/x.png").
+ * Rendering them as-is makes the browser request them from the site's own
+ * origin, which 404s — they must be resolved against the API host.
+ */
+export function resolveImageUrl(
+  url: string | null | undefined
+): string | null {
+  if (!url) return null;
+  if (url.startsWith("/uploads/")) return `${API_URL}${url}`;
+  return url;
+}
+
 // ── Types ─────────────────────────────────────────────────────────────────────
 
 export type BlogPost = {
