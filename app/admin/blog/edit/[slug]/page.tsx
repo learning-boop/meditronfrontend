@@ -94,6 +94,7 @@ export default function EditPostPage() {
             excerpt: post.excerpt,
             content: post.content ?? "",
             coverImage: post.coverImage ?? "",
+            coverImageAlt: post.coverImageAlt ?? "",
             category: post.category ?? "",
             readTime: post.readTime ?? "",
             metaTitle: post.metaTitle ?? "",

@@ -8,6 +8,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import ConditionalLayout from "@/components/ConditionalLayout";
+import LucidFocusTracker from "@/components/LucidFocusTracker";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -107,6 +108,7 @@ export default function RootLayout({
     <html lang="en-IN" className={`${manrope.variable} ${nunitoSans.variable} ${sourceSerif4.variable} ${mandali.variable} ${ramabhadra.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-cream font-sans">
         <ConditionalLayout>{children}</ConditionalLayout>
+        <LucidFocusTracker />
       </body>
     </html>
   );

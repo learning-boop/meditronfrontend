@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Clock, CalendarCheck } from "lucide-react";
 import { getPostBySlug, getPublishedPosts, API_URL } from "@/lib/api";
+import { sanitizeHtml, isHtmlContent } from "@/lib/sanitize";
 
 function resolveImg(url: string | null | undefined): string | null {
   if (!url) return null;
@@ -172,7 +173,7 @@ export default async function BlogPostPage({
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={resolveImg(post.coverImage)!}
-            alt={post.title}
+            alt={post.coverImageAlt || post.title}
             className="rounded-2xl w-full h-64 object-cover"
           />
         ) : (
@@ -187,7 +188,15 @@ export default async function BlogPostPage({
       {/* ── Article body ────────────────────────────────────────────────── */}
       {post.content && (
         <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-          <MarkdownContent content={post.content} />
+          {isHtmlContent(post.content) ? (
+            <div
+              className="article-body text-dusty-blue text-sm sm:text-base"
+              dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }}
+            />
+          ) : (
+            // Posts written before the rich-text editor are still markdown.
+            <MarkdownContent content={post.content} />
+          )}
         </article>
       )}
 

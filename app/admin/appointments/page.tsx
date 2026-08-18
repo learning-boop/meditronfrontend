@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { API_URL, updateAppointmentStatus } from "@/lib/api";
+import { CLIENT_API_URL, updateAppointmentStatus } from "@/lib/api";
 import type { Appointment } from "@/lib/api";
 import AdminNav from "@/app/admin/_components/AdminNav";
 import { Loader2, RefreshCw, AlertCircle } from "lucide-react";
@@ -46,7 +46,7 @@ export default function AppointmentsPage() {
     setError(null);
 
     try {
-      const res = await fetch(`${API_URL}/appointments`, {
+      const res = await fetch(`${CLIENT_API_URL}/appointments`, {
         headers: { Authorization: `Bearer ${token}` },
         cache: "no-store",
       });

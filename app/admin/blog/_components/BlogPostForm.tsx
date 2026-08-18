@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { uploadImage } from "@/lib/api";
 import { API_URL } from "@/lib/api";
+import RichTextEditor from "@/components/admin/RichTextEditor";
 import { Loader2, ImagePlus, X } from "lucide-react";
 
 const CATEGORIES = [
@@ -22,6 +23,7 @@ export type BlogPostFormValues = {
   excerpt: string;
   content: string;
   coverImage: string;
+  coverImageAlt: string;
   category: string;
   readTime: string;
   metaTitle: string;
@@ -36,6 +38,7 @@ export const EMPTY_FORM: BlogPostFormValues = {
   excerpt: "",
   content: "",
   coverImage: "",
+  coverImageAlt: "",
   category: "",
   readTime: "",
   metaTitle: "",
@@ -77,6 +80,7 @@ export default function BlogPostForm({
   const [slugManual, setSlugManual] = useState(!!initialValues?.slug);
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
+  const [contentError, setContentError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const set = (key: keyof BlogPostFormValues, value: string | boolean) => {
@@ -120,6 +124,14 @@ export default function BlogPostForm({
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        // contentEditable has no native `required`, so guard here. An empty
+        // editor still reports markup like "<br>", hence the text check.
+        const plain = form.content.replace(/<[^>]*>/g, "").trim();
+        if (!plain) {
+          setContentError("Content is required.");
+          return;
+        }
+        setContentError(null);
         onSubmit(form);
       }}
       className="space-y-6"
@@ -176,17 +188,17 @@ export default function BlogPostForm({
         {/* Content */}
         <div>
           <label className={labelCls}>Content *</label>
-          <textarea
-            required
-            rows={20}
-            placeholder={`Write your article here. Markdown supported:\n\n## Section Heading\n\nParagraph text...\n\n- List item one\n- List item two\n\n**Bold text** for emphasis.`}
+          <RichTextEditor
             value={form.content}
-            onChange={(e) => set("content", e.target.value)}
-            className={`${inputCls} resize-y font-mono text-xs leading-relaxed`}
+            onChange={(html) => set("content", html)}
+            placeholder="Write your article here. Use the toolbar above for headings, bold, italic, underline, lists and links."
           />
           <p className="text-slate-400 text-xs mt-1">
-            Supports ## headings, **bold**, and - bullet lists.
+            Pasted text is inserted unformatted, so copied styling never leaks in.
           </p>
+          {contentError && (
+            <p className="text-red-500 text-xs mt-1">{contentError}</p>
+          )}
         </div>
       </div>
 
@@ -199,7 +211,7 @@ export default function BlogPostForm({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={imageDisplayUrl}
-              alt="Cover preview"
+              alt={form.coverImageAlt || "Cover preview"}
               className="w-full h-48 object-cover"
             />
             <button
@@ -236,6 +248,22 @@ export default function BlogPostForm({
           className="hidden"
           onChange={handleImageUpload}
         />
+
+        {/* Alt text */}
+        <div>
+          <label className={labelCls}>Alt Text</label>
+          <input
+            type="text"
+            placeholder="e.g. Therapist guiding a child through a speech exercise at Meditron"
+            value={form.coverImageAlt}
+            onChange={(e) => set("coverImageAlt", e.target.value)}
+            className={inputCls}
+          />
+          <p className="text-slate-400 text-xs mt-1">
+            Describes the image for screen readers and search engines. Falls back
+            to the post title if left blank.
+          </p>
+        </div>
 
         {/* Or paste a URL */}
         <div>

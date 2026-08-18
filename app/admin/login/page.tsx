@@ -26,8 +26,8 @@ export default function AdminLoginPage() {
     const result = await signIn(email, password);
     setLoading(false);
 
-    if (!result) {
-      setError("Invalid email or password.");
+    if ("error" in result) {
+      setError(result.error);
       return;
     }
 

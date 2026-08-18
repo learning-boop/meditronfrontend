@@ -1,5 +1,12 @@
+// Absolute backend URL. Use for server-side fetches (Server Components) and for
+// building <img> src values — never for fetches made from the browser.
 export const API_URL =
   process.env.NEXT_PUBLIC_API_URL ?? "https://13-127-244-179.sslip.io";
+
+// Same-origin proxy prefix, rewritten to API_URL in next.config.ts. Every call
+// made from a client component must go through this, otherwise the backend's
+// CORS allowlist (meditroncdc.com only) blocks it on localhost.
+export const CLIENT_API_URL = "/backend-api";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -10,6 +17,9 @@ export type BlogPost = {
   excerpt: string;
   content?: string;
   coverImage?: string | null;
+  // Requires a matching `coverImageAlt` column on the backend BlogPost model —
+  // until that exists the value is sent but not persisted.
+  coverImageAlt?: string | null;
   category?: string | null;
   readTime?: string | null;
   published: boolean;
@@ -60,7 +70,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
 }
 
 export async function getAllPostsAdmin(token: string): Promise<BlogPost[]> {
-  const res = await fetch(`${API_URL}/blog?all=true`, {
+  const res = await fetch(`${CLIENT_API_URL}/blog?all=true`, {
     headers: { Authorization: `Bearer ${token}` },
     cache: "no-store",
   });
@@ -72,7 +82,7 @@ export async function createPost(
   token: string,
   data: Partial<BlogPost>
 ): Promise<BlogPost | { error: string }> {
-  const res = await fetch(`${API_URL}/blog`, {
+  const res = await fetch(`${CLIENT_API_URL}/blog`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -90,7 +100,7 @@ export async function updatePost(
   id: string,
   data: Partial<BlogPost>
 ): Promise<BlogPost | null> {
-  const res = await fetch(`${API_URL}/blog/${id}`, {
+  const res = await fetch(`${CLIENT_API_URL}/blog/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -103,7 +113,7 @@ export async function updatePost(
 }
 
 export async function deletePost(token: string, id: string): Promise<boolean> {
-  const res = await fetch(`${API_URL}/blog/${id}`, {
+  const res = await fetch(`${CLIENT_API_URL}/blog/${id}`, {
     method: "DELETE",
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -134,8 +144,8 @@ export async function getAppointments(
   status?: string
 ): Promise<Appointment[]> {
   const url = status
-    ? `${API_URL}/appointments?status=${status}`
-    : `${API_URL}/appointments`;
+    ? `${CLIENT_API_URL}/appointments?status=${status}`
+    : `${CLIENT_API_URL}/appointments`;
   const res = await fetch(url, {
     headers: { Authorization: `Bearer ${token}` },
     cache: "no-store",
@@ -149,7 +159,7 @@ export async function updateAppointmentStatus(
   id: string,
   status: "PENDING" | "CONFIRMED" | "CANCELLED"
 ): Promise<boolean> {
-  const res = await fetch(`${API_URL}/appointments/${id}/status`, {
+  const res = await fetch(`${CLIENT_API_URL}/appointments/${id}/status`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -163,7 +173,7 @@ export async function updateAppointmentStatus(
 export async function uploadImage(token: string, file: File): Promise<string | null> {
   const formData = new FormData();
   formData.append("file", file);
-  const res = await fetch(`${API_URL}/upload/image`, {
+  const res = await fetch(`${CLIENT_API_URL}/upload/image`, {
     method: "POST",
     headers: { Authorization: `Bearer ${token}` },
     body: formData,
@@ -175,19 +185,31 @@ export async function uploadImage(token: string, file: File): Promise<string | n
 
 // ── Auth ──────────────────────────────────────────────────────────────────────
 
+export type SignInResult =
+  | { token: string; user: { name: string; email: string } }
+  | { error: string };
+
 export async function signIn(
   email: string,
   password: string
-): Promise<{ token: string; user: { name: string; email: string } } | null> {
+): Promise<SignInResult> {
   try {
-    const res = await fetch(`${API_URL}/api/auth/sign-in/email`, {
+    const res = await fetch(`/api/admin-signin`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
-    if (!res.ok) return null;
+    if (!res.ok) {
+      // Always prefer the backend's own message — a generic "invalid password"
+      // here once masked a 403 INVALID_ORIGIN for hours.
+      const json = await res.json().catch(() => ({}));
+      const message = (json as { message?: string }).message;
+      if (message) return { error: message };
+      if (res.status === 401) return { error: "Invalid email or password." };
+      return { error: `Sign-in failed (HTTP ${res.status}).` };
+    }
     return res.json();
   } catch {
-    return null;
+    return { error: "Could not reach the server. Check your connection." };
   }
 }

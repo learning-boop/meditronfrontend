@@ -123,3 +123,38 @@ body {
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+/* ── Admin rich-text editor + published article body ──────────── */
+/* contentEditable strips Tailwind's reset context, so block elements need
+   explicit styling to render as authors expect while typing. */
+.admin-rte h2 { font-size: 1.25rem; font-weight: 800; margin: 1.25rem 0 0.5rem; }
+.admin-rte h3 { font-size: 1.05rem; font-weight: 700; margin: 1rem 0 0.4rem; }
+.admin-rte p { margin: 0 0 0.75rem; }
+.admin-rte ul { list-style: disc; padding-left: 1.5rem; margin: 0 0 0.75rem; }
+.admin-rte ol { list-style: decimal; padding-left: 1.5rem; margin: 0 0 0.75rem; }
+.admin-rte li { margin: 0.2rem 0; }
+.admin-rte a { color: var(--color-primary); text-decoration: underline; }
+.admin-rte blockquote {
+  border-left: 3px solid var(--color-primary);
+  padding-left: 0.9rem;
+  margin: 0 0 0.75rem;
+  font-style: italic;
+  color: #64748b;
+}
+
+/* Published article body — mirrors the editor so what you type is what ships. */
+.article-body h2 { font-size: 1.4rem; font-weight: 800; margin: 2.2rem 0 0.6rem; }
+.article-body h3 { font-size: 1.15rem; font-weight: 700; margin: 1.6rem 0 0.5rem; }
+.article-body p { margin: 0 0 1.15rem; line-height: 1.9; }
+.article-body ul { list-style: disc; padding-left: 1.6rem; margin: 0 0 1.15rem; }
+.article-body ol { list-style: decimal; padding-left: 1.6rem; margin: 0 0 1.15rem; }
+.article-body li { margin: 0.35rem 0; line-height: 1.8; }
+.article-body a { color: var(--color-primary); text-decoration: underline; }
+.article-body a:hover { opacity: 0.8; }
+.article-body strong { font-weight: 700; }
+.article-body blockquote {
+  border-left: 3px solid var(--color-primary);
+  padding-left: 1.1rem;
+  margin: 0 0 1.15rem;
+  font-style: italic;
+}

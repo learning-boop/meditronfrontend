@@ -121,7 +121,7 @@ export default async function BlogPage() {
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={posts[0].coverImage}
-                  alt={posts[0].title}
+                  alt={posts[0].coverImageAlt || posts[0].title}
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               )}
@@ -182,7 +182,7 @@ export default async function BlogPage() {
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
                         src={post.coverImage}
-                        alt={post.title}
+                        alt={post.coverImageAlt || post.title}
                         className="h-48 w-full object-cover"
                       />
                     )}

@@ -65,7 +65,7 @@ export default async function BlogPreview() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={resolveImg(post.coverImage) ?? FALLBACK_COVERS[i % 3]}
-                alt={post.title}
+                alt={post.coverImageAlt || post.title}
                 className="h-44 w-full object-cover"
               />
 
