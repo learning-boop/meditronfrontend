@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { htmlFromClipboard } from "@/lib/paste-html";
 import {
   Bold,
   Italic,
@@ -106,7 +107,7 @@ export default function RichTextEditor({ value, onChange, placeholder }: Props) 
         <select
           aria-label="Text style"
           defaultValue="p"
-          onChange={(e) => exec("formatBlock", e.target.value)}
+          onChange={(e) => exec("formatBlock", `<${e.target.value}>`)}
           className="h-8 px-2 rounded-lg bg-transparent text-slate-600 text-xs font-semibold hover:bg-white cursor-pointer focus:outline-none"
         >
           <option value="p">Paragraph</option>
@@ -128,13 +129,13 @@ export default function RichTextEditor({ value, onChange, placeholder }: Props) 
 
         {divider}
 
-        <button type="button" title="Heading 2" onClick={() => exec("formatBlock", "h2")} className={btn}>
+        <button type="button" title="Heading 2" onClick={() => exec("formatBlock", "<h2>")} className={btn}>
           <Heading2 className="w-4 h-4" />
         </button>
-        <button type="button" title="Heading 3" onClick={() => exec("formatBlock", "h3")} className={btn}>
+        <button type="button" title="Heading 3" onClick={() => exec("formatBlock", "<h3>")} className={btn}>
           <Heading3 className="w-4 h-4" />
         </button>
-        <button type="button" title="Quote" onClick={() => exec("formatBlock", "blockquote")} className={btn}>
+        <button type="button" title="Quote" onClick={() => exec("formatBlock", "<blockquote>")} className={btn}>
           <Quote className="w-4 h-4" />
         </button>
 
@@ -185,12 +186,20 @@ export default function RichTextEditor({ value, onChange, placeholder }: Props) 
           aria-label="Post content"
           onInput={sync}
           onBlur={sync}
-          // Strip formatting from pasted content so Word/Docs markup never
-          // reaches the stored HTML.
+          // Keep headings, bold, italic, lists and links from the clipboard;
+          // discard the fonts, colours and wrappers Word and Docs bring along.
           onPaste={(e) => {
             e.preventDefault();
-            const text = e.clipboardData.getData("text/plain");
-            document.execCommand("insertText", false, text);
+            const html = e.clipboardData.getData("text/html");
+            if (html) {
+              document.execCommand("insertHTML", false, htmlFromClipboard(html));
+            } else {
+              document.execCommand(
+                "insertText",
+                false,
+                e.clipboardData.getData("text/plain")
+              );
+            }
             sync();
           }}
           className="admin-rte min-h-[380px] max-h-[70vh] overflow-y-auto px-4 py-4 text-slate-800 text-sm leading-relaxed focus:outline-none"
