@@ -55,9 +55,24 @@ function formatDate(d: string) {
   });
 }
 
-export default async function BlogPage() {
+export default async function BlogPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string }>;
+}) {
   const apiPosts = await getPublishedPosts();
-  const posts: BlogPost[] = apiPosts.length > 0 ? apiPosts : FALLBACK_POSTS;
+  const allPosts: BlogPost[] = apiPosts.length > 0 ? apiPosts : FALLBACK_POSTS;
+
+  const selected = (await searchParams).category ?? "All";
+  const posts =
+    selected === "All"
+      ? allPosts
+      : allPosts.filter((p) => p.category === selected);
+
+  const countFor = (cat: string) =>
+    cat === "All"
+      ? allPosts.length
+      : allPosts.filter((p) => p.category === cat).length;
 
   return (
     <>
@@ -72,18 +87,27 @@ export default async function BlogPage() {
       <section className="bg-clean-neutral border-b border-primary-light px-4 sm:px-6 lg:px-8 py-4 sticky top-16 z-30">
         <div className="max-w-7xl mx-auto relative">
           <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
-            {categories.map((cat, i) => (
-              <button
-                key={cat}
-                className={`shrink-0 px-4 py-2.5 min-h-[44px] rounded-full text-xs font-bold transition-colors ${
-                  i === 0
-                    ? "bg-primary text-white"
-                    : "bg-primary-light text-primary hover:bg-primary/10"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+            {categories.map((cat) => {
+              const active = cat === selected;
+              const empty = countFor(cat) === 0;
+              return (
+                <Link
+                  key={cat}
+                  href={cat === "All" ? "/blog" : `/blog?category=${encodeURIComponent(cat)}`}
+                  scroll={false}
+                  aria-current={active ? "page" : undefined}
+                  className={`shrink-0 px-4 py-2.5 min-h-[44px] flex items-center rounded-full text-xs font-bold transition-colors ${
+                    active
+                      ? "bg-primary text-white"
+                      : empty
+                        ? "bg-primary-light/50 text-primary/40 hover:bg-primary-light"
+                        : "bg-primary-light text-primary hover:bg-primary/10"
+                  }`}
+                >
+                  {cat}
+                </Link>
+              );
+            })}
           </div>
           {/* Fade cue — signals more chips off-screen to the right */}
           <div
@@ -96,6 +120,23 @@ export default async function BlogPage() {
       {/* ── Posts grid ───────────────────────────────────────────────────── */}
       <section className="py-20 bg-cream px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
+          {posts.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-confident-navy font-bold text-lg">
+                No posts in {selected} yet.
+              </p>
+              <p className="text-dusty-blue text-sm mt-2">
+                We are still writing for this category — please check back soon.
+              </p>
+              <Link
+                href="/blog"
+                className="inline-block mt-6 bg-primary hover:bg-primary-dark text-white font-bold text-sm px-6 py-3 rounded-xl transition-colors"
+              >
+                View all articles
+              </Link>
+            </div>
+          ) : (
+          <>
           {/* Featured post (first one) */}
           <Link
             href={`/blog/${posts[0].slug}`}
@@ -216,6 +257,8 @@ export default async function BlogPage() {
                 </Link>
               ))}
             </div>
+          )}
+          </>
           )}
         </div>
       </section>
