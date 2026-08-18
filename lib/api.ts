@@ -99,17 +99,29 @@ export async function updatePost(
   token: string,
   id: string,
   data: Partial<BlogPost>
-): Promise<BlogPost | null> {
-  const res = await fetch(`${CLIENT_API_URL}/blog/${id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(data),
-  });
-  if (!res.ok) return null;
-  return res.json();
+): Promise<BlogPost | { error: string }> {
+  try {
+    const res = await fetch(`${CLIENT_API_URL}/blog/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      // Report what the server actually said. Guessing at the cause once cost
+      // hours on a sign-in failure that was really a CORS rejection.
+      const message = (json as { message?: string | string[] }).message;
+      if (Array.isArray(message)) return { error: message.join(", ") };
+      if (message) return { error: message };
+      return { error: `Update failed (HTTP ${res.status}).` };
+    }
+    return json;
+  } catch {
+    return { error: "Could not reach the server. Check your connection." };
+  }
 }
 
 export async function deletePost(token: string, id: string): Promise<boolean> {

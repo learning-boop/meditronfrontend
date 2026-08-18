@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { getAllPostsAdmin, deletePost } from "@/lib/api";
+import { getAllPostsAdmin, deletePost, updatePost } from "@/lib/api";
 import type { BlogPost } from "@/lib/api";
 import AdminNav from "@/app/admin/_components/AdminNav";
 import { Loader2, Plus, Trash2, Eye, EyeOff, Pencil } from "lucide-react";
@@ -22,6 +22,8 @@ export default function AdminBlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [deleting, setDeleting] = useState<string | null>(null);
+  const [publishing, setPublishing] = useState<string | null>(null);
+  const [actionError, setActionError] = useState<string | null>(null);
 
   useEffect(() => {
     const t = localStorage.getItem("admin_token");
@@ -43,6 +45,23 @@ export default function AdminBlogPage() {
   useEffect(() => {
     load();
   }, [load]);
+
+  // The publish switch used to live only at the bottom of the edit form, which
+  // made it easy to save a post and never notice it stayed a draft.
+  const togglePublished = async (post: BlogPost) => {
+    if (!token) return;
+    setPublishing(post.id);
+    setActionError(null);
+    const result = await updatePost(token, post.id, {
+      published: !post.published,
+    });
+    setPublishing(null);
+    if ("error" in result) {
+      setActionError(`Could not update "${post.title}": ${result.error}`);
+      return;
+    }
+    await load();
+  };
 
   const handleDelete = async (id: string, title: string) => {
     if (!token) return;
@@ -88,6 +107,11 @@ export default function AdminBlogPage() {
           </div>
         ) : (
           <div className="space-y-3">
+            {actionError && (
+              <p className="text-red-600 text-sm bg-red-50 border border-red-100 rounded-xl px-4 py-3">
+                {actionError}
+              </p>
+            )}
             {posts.map((post) => (
               <div
                 key={post.id}
@@ -98,15 +122,30 @@ export default function AdminBlogPage() {
                     <span className="font-bold text-slate-800 text-sm truncate">
                       {post.title}
                     </span>
-                    {post.published ? (
-                      <span className="flex items-center gap-1 text-xs font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full">
-                        <Eye className="w-3 h-3" /> Published
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-1 text-xs font-bold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">
-                        <EyeOff className="w-3 h-3" /> Draft
-                      </span>
-                    )}
+                    <button
+                      type="button"
+                      onClick={() => togglePublished(post)}
+                      disabled={publishing === post.id}
+                      title={
+                        post.published
+                          ? "Visible on the site — click to unpublish"
+                          : "Hidden from the site — click to publish"
+                      }
+                      className={`flex items-center gap-1 text-xs font-bold px-2 py-0.5 rounded-full transition-colors disabled:opacity-50 ${
+                        post.published
+                          ? "text-green-600 bg-green-50 hover:bg-green-100"
+                          : "text-slate-500 bg-slate-100 hover:bg-slate-200"
+                      }`}
+                    >
+                      {publishing === post.id ? (
+                        <Loader2 className="w-3 h-3 animate-spin" />
+                      ) : post.published ? (
+                        <Eye className="w-3 h-3" />
+                      ) : (
+                        <EyeOff className="w-3 h-3" />
+                      )}
+                      {post.published ? "Published" : "Draft — click to publish"}
+                    </button>
                   </div>
                   <div className="flex items-center gap-3 mt-1 text-slate-400 text-xs flex-wrap">
                     <span className="font-mono text-slate-300">/blog/{post.slug}</span>

@@ -40,8 +40,8 @@ export default function EditPostPage() {
     const result = await updatePost(token, post.id, values);
     setIsSubmitting(false);
 
-    if (!result) {
-      setError("Failed to update post. The slug may already be taken.");
+    if ("error" in result) {
+      setError(result.error);
       return;
     }
 
