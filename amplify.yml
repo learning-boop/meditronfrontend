@@ -1,0 +1,22 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # `npm ci` is intentionally avoided: npm >= 11 prunes the transitive
+        # deps of sharp's optional wasm32 build (@emnapi/runtime, @emnapi/core)
+        # from package-lock.json, which then makes `npm ci` abort with
+        # "package.json and package-lock.json are not in sync". `npm install`
+        # resolves the same tree without that strict check.
+        - npm install --cache .npm --prefer-offline
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - .next/cache/**/*
+      - .npm/**/*
