@@ -108,31 +108,44 @@ export default function RootLayout({
   return (
     <html lang="en-IN" className={`${manrope.variable} ${nunitoSans.variable} ${sourceSerif4.variable} ${mandali.variable} ${ramabhadra.variable} h-full antialiased`}>
       
-      {/* Google Ads */}
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=AW-18396742379"
-        strategy="afterInteractive"
-      />
-      <Script id="google-ads" strategy="afterInteractive">{`
+      <head>
+        {/* Google Ads */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18396742379"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads" strategy="afterInteractive">{`
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'AW-18396742379');
-      `}</Script>
+        `}</Script>
 
-      {/* Meta Pixel */}
-      <Script id="meta-pixel" strategy="afterInteractive">{`
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1093634546952615');
-        fbq('track', 'PageView');
-      `}</Script>
+        {/* Meta Pixel */}
+        <Script id="meta-pixel" strategy="afterInteractive">{`
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '1093634546952615');
+          fbq('track', 'PageView');
+        `}</Script>
+        
+        <meta name="google-site-verification" content="XJk05mGov31Q9ZcWBPdxDAJXCxNmTOjyE8gPbuBubZY" />
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-Z57TKCZ017"></Script>
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-Z57TKCZ017');
+          `}
+        </Script>
+      </head>
 
       <body className="min-h-full flex flex-col bg-cream font-sans">
         {/* Meta Pixel noscript fallback */}
