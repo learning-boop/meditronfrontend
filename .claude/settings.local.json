@@ -23,7 +23,10 @@
       "Bash(cd \"D:/creative_touch/meditorn/front-end\" && npx tsc --noEmit 2>&1)",
       "Bash(cd \"D:\\\\creative_touch\\\\meditorn\\\\front-end\\\\public\\\\images\\\\Conditions\" && \\\\\nmv \"ChatGPT Image Aug 6, 2026, 08_52_43 PM \\(1\\).png\" \"child-psychology-vijayawada.png\" && \\\\\nmv \"ChatGPT Image Aug 6, 2026, 08_52_44 PM \\(2\\).png\" \"occupational-therapy-vijayawada.png\" && \\\\\nmv \"ChatGPT Image Aug 6, 2026, 08_52_44 PM \\(3\\).png\" \"physiotherapy-vijayawada.png\" && \\\\\nmv \"ChatGPT Image Aug 6, 2026, 08_52_44 PM \\(4\\).png\" \"sensory-integration-vijayawada.png\" && \\\\\nmv \"ChatGPT Image Aug 6, 2026, 08_52_44 PM \\(5\\).png\" \"behaviour-therapy-vijayawada.png\" && \\\\\nmv \"ChatGPT Image Aug 6, 2026, 08_52_44 PM \\(6\\).png\" \"vision-therapy-vijayawada.png\" && \\\\\nmv \"ChatGPT Image Aug 6, 2026, 08_52_44 PM \\(7\\).png\" \"speech-therapy-vijayawada.png\" && \\\\\nmv \"ChatGPT Image Aug 6, 2026, 08_52_44 PM \\(8\\).png\" \"play-therapy-vijayawada.png\" && \\\\\nmv \"ChatGPT Image Aug 6, 2026, 08_52_44 PM \\(10\\).png\" \"specific-learning-vijayawada.png\" && \\\\\nls)",
       "WebSearch",
-      "WebFetch(domain:meditroncdc.com)"
+      "WebFetch(domain:meditroncdc.com)",
+      "Bash(cd \"D:/creative_touch/meditorn/backend/meditron-api\" && npx prisma migrate dev --name add_cover_image_alt 2>&1)",
+      "Bash(cd \"D:/creative_touch/meditorn/backend/meditron-api\" && npx prisma db push 2>&1)",
+      "Bash(cd \"D:/creative_touch/meditorn/backend/meditron-api\" && npx prisma generate 2>&1)"
     ]
   }
 }

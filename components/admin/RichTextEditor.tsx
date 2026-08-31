@@ -16,6 +16,8 @@ import {
   Undo2,
   Redo2,
   RemoveFormatting,
+  Highlighter,
+  X,
 } from "lucide-react";
 
 const FONTS = [
@@ -24,6 +26,13 @@ const FONTS = [
   { label: "Serif", value: "Georgia, 'Times New Roman', serif" },
   { label: "Mono", value: "ui-monospace, 'SFMono-Regular', monospace" },
 ];
+
+type LinkModal = {
+  text: string;
+  url: string;
+  external: boolean;
+  nofollow: boolean;
+};
 
 type Props = {
   value: string;
@@ -34,6 +43,9 @@ type Props = {
 export default function RichTextEditor({ value, onChange, placeholder }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [isEmpty, setIsEmpty] = useState(!value);
+  const [linkModal, setLinkModal] = useState<LinkModal | null>(null);
+  // Saved before the modal opens so we can restore selection on insert.
+  const savedRangeRef = useRef<Range | null>(null);
 
   // contentEditable is uncontrolled: writing innerHTML on every keystroke would
   // reset the caret. Seed it once, then only push changes outward.
@@ -63,21 +75,83 @@ export default function RichTextEditor({ value, onChange, placeholder }: Props) 
     [sync]
   );
 
-  const addLink = useCallback(() => {
-    const selection = window.getSelection()?.toString();
-    if (!selection) {
+  // ── Link handling ───────────────────────────────────────────────────────────
+
+  const openLinkModal = useCallback(() => {
+    const selection = window.getSelection();
+    if (!selection || selection.isCollapsed) {
       alert("Select the text you want to turn into a link first.");
       return;
     }
-    const url = prompt("Link URL", "https://");
-    if (!url) return;
-    // Block javascript: and data: URLs at entry, not just at render time.
-    if (!/^(https?:\/\/|mailto:|tel:|\/)/i.test(url)) {
-      alert("Use an http(s), mailto:, tel: or relative (/) link.");
+    // Clone the range now — once the modal renders and the input receives focus
+    // the selection inside contentEditable is lost.
+    savedRangeRef.current = selection.getRangeAt(0).cloneRange();
+    setLinkModal({
+      text: selection.toString(),
+      url: "https://",
+      external: false,
+      nofollow: false,
+    });
+  }, []);
+
+  const insertLink = useCallback(() => {
+    if (!linkModal || !savedRangeRef.current) return;
+    const { url, external, nofollow } = linkModal;
+
+    if (!/^(https?:\/\/|mailto:|tel:|\/|#)/i.test(url)) {
+      alert("Use an http(s), mailto:, tel:, # or a relative (/) link.");
       return;
     }
-    exec("createLink", url);
-  }, [exec]);
+
+    // Build rel attribute combining security tokens and nofollow as needed.
+    const relParts: string[] = [];
+    if (external) relParts.push("noopener", "noreferrer");
+    if (nofollow) relParts.push("nofollow");
+
+    // Capture the existing inline HTML inside the selection (preserves bold
+    // etc.) before we replace it.
+    const fragment = savedRangeRef.current.cloneContents();
+    const tmp = document.createElement("div");
+    tmp.appendChild(fragment);
+    const innerHtml = tmp.innerHTML;
+
+    const escapedUrl = url.replace(/"/g, "&quot;");
+    const attrParts = [`href="${escapedUrl}"`];
+    if (external) attrParts.push('target="_blank"');
+    if (relParts.length) attrParts.push(`rel="${relParts.join(" ")}"`);
+
+    const html = `<a ${attrParts.join(" ")}>${innerHtml}</a>`;
+
+    // Restore the saved selection, then replace it with the anchor.
+    const el = ref.current;
+    if (!el) return;
+    el.focus();
+    const sel = window.getSelection();
+    if (sel) {
+      sel.removeAllRanges();
+      sel.addRange(savedRangeRef.current);
+    }
+    document.execCommand("insertHTML", false, html);
+
+    setLinkModal(null);
+    savedRangeRef.current = null;
+    sync();
+  }, [linkModal, sync]);
+
+  const cancelLinkModal = useCallback(() => {
+    setLinkModal(null);
+    savedRangeRef.current = null;
+  }, []);
+
+  // ── Highlight ───────────────────────────────────────────────────────────────
+
+  const toggleHighlight = useCallback(() => {
+    document.execCommand("styleWithCSS", false, "true");
+    ref.current?.focus();
+    // If the selection already has a yellow background, remove it.
+    document.execCommand("hiliteColor", false, "#fef08a");
+    sync();
+  }, [sync]);
 
   const btn =
     "w-8 h-8 shrink-0 flex items-center justify-center rounded-lg text-slate-500 hover:bg-white hover:text-primary hover:shadow-sm transition-colors";
@@ -126,6 +200,9 @@ export default function RichTextEditor({ value, onChange, placeholder }: Props) 
         <button type="button" title="Underline" onClick={() => exec("underline")} className={btn}>
           <Underline className="w-4 h-4" />
         </button>
+        <button type="button" title="Highlight text (yellow)" onClick={toggleHighlight} className={btn}>
+          <Highlighter className="w-4 h-4" />
+        </button>
 
         {divider}
 
@@ -150,7 +227,7 @@ export default function RichTextEditor({ value, onChange, placeholder }: Props) 
 
         {divider}
 
-        <button type="button" title="Add link" onClick={addLink} className={btn}>
+        <button type="button" title="Add / edit link" onClick={openLinkModal} className={btn}>
           <Link2 className="w-4 h-4" />
         </button>
         <button type="button" title="Remove link" onClick={() => exec("unlink")} className={btn}>
@@ -169,6 +246,71 @@ export default function RichTextEditor({ value, onChange, placeholder }: Props) 
           <Redo2 className="w-4 h-4" />
         </button>
       </div>
+
+      {/* ── Link panel (shown inline below toolbar) ─────────────────────────── */}
+      {linkModal && (
+        <div className="border-b border-blue-100 bg-blue-50 px-3 py-3 space-y-2">
+          {/* URL row */}
+          <div className="flex items-center gap-2">
+            <input
+              autoFocus
+              type="text"
+              value={linkModal.url}
+              onChange={(e) => setLinkModal({ ...linkModal, url: e.target.value })}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") { e.preventDefault(); insertLink(); }
+                if (e.key === "Escape") cancelLinkModal();
+              }}
+              placeholder="https://example.com  or  /internal-page"
+              className="flex-1 px-3 py-1.5 text-sm rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+            />
+            <button
+              type="button"
+              onClick={insertLink}
+              className="px-3 py-1.5 bg-primary hover:bg-primary-dark text-white text-xs font-bold rounded-lg transition-colors"
+            >
+              Insert
+            </button>
+            <button
+              type="button"
+              onClick={cancelLinkModal}
+              className="p-1.5 text-slate-400 hover:text-slate-600 rounded-lg transition-colors"
+              title="Cancel"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* Options row */}
+          <div className="flex items-center gap-5 flex-wrap">
+            <label className="flex items-center gap-1.5 text-xs text-slate-600 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={linkModal.external}
+                onChange={(e) => setLinkModal({ ...linkModal, external: e.target.checked })}
+                className="rounded"
+              />
+              Open in new tab
+              <span className="text-slate-400">(external link)</span>
+            </label>
+            <label className="flex items-center gap-1.5 text-xs text-slate-600 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={linkModal.nofollow}
+                onChange={(e) => setLinkModal({ ...linkModal, nofollow: e.target.checked })}
+                className="rounded"
+              />
+              No follow
+              <span className="text-slate-400">(rel=&quot;nofollow&quot;)</span>
+            </label>
+            {linkModal.text && (
+              <span className="text-xs text-slate-400 truncate max-w-[200px]">
+                Linking: &ldquo;{linkModal.text.slice(0, 50)}{linkModal.text.length > 50 ? "…" : ""}&rdquo;
+              </span>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Editable surface */}
       <div className="relative">

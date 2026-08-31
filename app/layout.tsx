@@ -156,7 +156,7 @@ export default function RootLayout({
         </Script>
       </head>
 
-      <body className="min-h-full flex flex-col bg-cream font-sans">
+      <body suppressHydrationWarning className="min-h-full flex flex-col bg-cream font-sans">
         {/* Meta Pixel noscript fallback */}
         <noscript>
           {/* eslint-disable-next-line @next/next/no-img-element */}
