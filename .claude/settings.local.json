@@ -26,7 +26,8 @@
       "WebFetch(domain:meditroncdc.com)",
       "Bash(cd \"D:/creative_touch/meditorn/backend/meditron-api\" && npx prisma migrate dev --name add_cover_image_alt 2>&1)",
       "Bash(cd \"D:/creative_touch/meditorn/backend/meditron-api\" && npx prisma db push 2>&1)",
-      "Bash(cd \"D:/creative_touch/meditorn/backend/meditron-api\" && npx prisma generate 2>&1)"
+      "Bash(cd \"D:/creative_touch/meditorn/backend/meditron-api\" && npx prisma generate 2>&1)",
+      "Bash(cd \"D:\\\\creative_touch\\\\meditorn\\\\front-end\" && npx tsc --noEmit 2>&1 | head -40)"
     ]
   }
 }
