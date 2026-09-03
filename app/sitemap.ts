@@ -82,6 +82,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.5,
     },
+    {
+      url: `${BASE_URL}/autism-faqs-for-parents`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 
   // ── Condition pages — base × location ───────────────────────────────────────
