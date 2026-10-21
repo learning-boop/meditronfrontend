@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Send, CheckCircle, Loader2 } from "lucide-react";
-import { createAppointment } from "@/lib/api";
+import { sendContactEmail } from "@/lib/emailjs";
 
 const CONDITIONS = [
   "Autism Spectrum Disorder",
@@ -55,12 +55,12 @@ export default function BookingForm() {
     setLoading(true);
     setError(null);
 
-    const result = await createAppointment({
+    const result = await sendContactEmail({
       parentName: form.parentName,
-      email: form.email || undefined,
       phone: form.phone,
+      email: form.email || undefined,
       childName: form.childName || undefined,
-      childAge: form.childAge ? Number(form.childAge) : undefined,
+      childAge: form.childAge || undefined,
       concern: form.concern || undefined,
       message: form.message || undefined,
     });

@@ -7,6 +7,8 @@ import { blogPosts } from "@/lib/data";
 const BASE_URL = "https://meditroncdc.com";
 const now = new Date().toISOString();
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   // ── Static pages ────────────────────────────────────────────────────────────
   const staticPages: MetadataRoute.Sitemap = [

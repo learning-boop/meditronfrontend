@@ -1,6 +1,13 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, Clock } from "lucide-react";
-import { getPublishedPosts, resolveImageUrl } from "@/lib/api";
+import {
+  getPublishedPosts,
+  urlFor,
+  type SanityBlogPost,
+} from "@/lib/sanity";
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-IN", {
@@ -16,12 +23,14 @@ const FALLBACK_COVERS = [
   "/images/Blogs/Blog_3.png",
 ];
 
+export default function BlogPreview() {
+  const [posts, setPosts] = useState<SanityBlogPost[]>([]);
 
-export default async function BlogPreview() {
-  const posts = await getPublishedPosts();
-  const preview = posts.slice(0, 3);
+  useEffect(() => {
+    getPublishedPosts().then((all) => setPosts(all.slice(0, 3)));
+  }, []);
 
-  if (preview.length === 0) return null;
+  if (posts.length === 0) return null;
 
   return (
     <section className="py-12 bg-cream" aria-labelledby="blog-heading">
@@ -50,52 +59,60 @@ export default async function BlogPreview() {
 
         {/* Post cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {preview.map((post, i) => (
-            <Link
-              key={post.id}
-              href={`/blog/${post.slug}`}
-              className="group flex flex-col bg-clean-neutral rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-primary-light"
-            >
-              {/* Cover image */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={resolveImageUrl(post.coverImage) ?? FALLBACK_COVERS[i % 3]}
-                alt={post.coverImageAlt || post.title}
-                className="h-44 w-full object-cover"
-              />
+          {posts.map((post, i) => {
+            const cover = post.coverImage?.asset
+              ? urlFor(post.coverImage)
+              : FALLBACK_COVERS[i % 3];
 
-              {/* Content */}
-              <div className="flex flex-col flex-1 p-6">
-                {post.category && (
-                  <span className="text-primary text-xs font-semibold uppercase tracking-wide mb-2">
-                    {post.category}
-                  </span>
-                )}
-                <div className="flex items-center gap-3 text-sage text-xs mb-3">
-                  <time dateTime={post.createdAt}>{formatDate(post.createdAt)}</time>
-                  {post.readTime && (
-                    <>
-                      <span aria-hidden="true">·</span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5" aria-hidden="true" />
-                        {post.readTime}
-                      </span>
-                    </>
+            return (
+              <Link
+                key={post._id}
+                href={`/blog/${post.slug.current}`}
+                className="group flex flex-col bg-clean-neutral rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-primary-light"
+              >
+                {/* Cover image */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={cover}
+                  alt={post.coverImageAlt || post.title}
+                  className="h-44 w-full object-cover"
+                />
+
+                {/* Content */}
+                <div className="flex flex-col flex-1 p-6">
+                  {post.category && (
+                    <span className="text-primary text-xs font-semibold uppercase tracking-wide mb-2">
+                      {post.category}
+                    </span>
                   )}
+                  <div className="flex items-center gap-3 text-sage text-xs mb-3">
+                    <time dateTime={post.publishedAt}>
+                      {formatDate(post.publishedAt)}
+                    </time>
+                    {post.readTime && (
+                      <>
+                        <span aria-hidden="true">&middot;</span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-3.5 h-3.5" aria-hidden="true" />
+                          {post.readTime}
+                        </span>
+                      </>
+                    )}
+                  </div>
+                  <h3 className="font-extrabold text-confident-navy text-base leading-snug mb-2 group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-dusty-blue text-sm leading-relaxed flex-1">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center gap-1 mt-5 text-primary font-semibold text-sm group-hover:gap-2 transition-all">
+                    Read article
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
                 </div>
-                <h3 className="font-extrabold text-confident-navy text-base leading-snug mb-2 group-hover:text-primary transition-colors">
-                  {post.title}
-                </h3>
-                <p className="text-dusty-blue text-sm leading-relaxed flex-1">
-                  {post.excerpt}
-                </p>
-                <div className="flex items-center gap-1 mt-5 text-primary font-semibold text-sm group-hover:gap-2 transition-all">
-                  Read article
-                  <ArrowRight className="w-4 h-4" />
-                </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

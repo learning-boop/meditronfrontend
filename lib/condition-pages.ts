@@ -6,7 +6,7 @@ export const conditionPages: Record<string, TherapyPageData> = {
   "autism-vijayawada": {
     slug: "autism-vijayawada",
     name: "Autism Spectrum Disorder",
-    image: "/images/Conditions/1.png",
+    image: "/images/Conditions/1.jpeg",
     metaTitle: "Best Autism Treatment in Vijayawada | Meditron Child Development Centre",
     metaDescription:
       "Expert Autism treatment in Vijayawada at Meditron. Early, evidence-based therapy for children on the spectrum — ABA, speech, OT, and behaviour support.",
@@ -106,7 +106,7 @@ export const conditionPages: Record<string, TherapyPageData> = {
   "adhd-vijayawada": {
     slug: "adhd-vijayawada",
     name: "ADHD",
-    image: "/images/Conditions/2.png",
+    image: "/images/Conditions/2.jpeg",
     metaTitle: "Best ADHD Treatment in Vijayawada | Meditron Child Development Centre",
     metaDescription:
       "Expert ADHD treatment in Vijayawada at Meditron. Evidence-based behaviour therapy, psychological support, and occupational therapy for children with ADHD.",
@@ -206,7 +206,7 @@ export const conditionPages: Record<string, TherapyPageData> = {
   "cerebral-palsy-vijayawada": {
     slug: "cerebral-palsy-vijayawada",
     name: "Cerebral Palsy",
-    image: "/images/Conditions/3.png",
+    image: "/images/Conditions/3.jpeg",
     metaTitle: "Best Cerebral Palsy Treatment in Vijayawada | Meditron Child Development Centre",
     metaDescription:
       "Expert Cerebral Palsy treatment in Vijayawada at Meditron. Physiotherapy, occupational therapy, and speech therapy for children with CP — all severity levels.",
@@ -306,7 +306,7 @@ export const conditionPages: Record<string, TherapyPageData> = {
   "down-syndrome-vijayawada": {
     slug: "down-syndrome-vijayawada",
     name: "Down Syndrome",
-    image: "/images/Conditions/4.png",
+    image: "/images/Conditions/4.jpeg",
     metaTitle: "Best Down Syndrome Treatment in Vijayawada | Meditron Child Development Centre",
     metaDescription:
       "Expert Down Syndrome treatment in Vijayawada at Meditron. Speech therapy, physiotherapy, and occupational therapy helping children with Down syndrome reach their full potential.",

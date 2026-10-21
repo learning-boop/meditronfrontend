@@ -16,7 +16,7 @@ const conditions = [
       "Not talking yet? Avoids looking into your eyes? Prefers playing alone?",
     body: "You're not alone — about 1 in 68 children in India is on the autism spectrum, most undiagnosed until it's late. Here's what we've seen in our own centre: with early therapy, children begin communicating, connecting, and joining the world at their own pace. The earlier we start, the further they go.",
     cta: "Understand Autism Care",
-    image: "/images/Conditions/1.png",
+    image: "/images/Conditions/1.jpeg",
     imageAlt: "Child with autism receiving therapy at Meditron, Vijayawada",
   },
   {
@@ -26,7 +26,7 @@ const conditions = [
       "Can't sit still even for two minutes? School keeps complaining? Forgets everything instantly?",
     body: "This is not naughtiness, and it\u2019s not your parenting. Around 1 in 15 school-age children lives with ADHD. With behaviour therapy and focus training, these same \u2018restless\u2019 children become the most energetic learners in their class. We watch it happen every week.",
     cta: "Understand ADHD Support",
-    image: "/images/Conditions/2.png",
+    image: "/images/Conditions/2.jpeg",
     imageAlt: "Child with ADHD in therapy session at Meditron, Vijayawada",
   },
   {
@@ -36,7 +36,7 @@ const conditions = [
       "Late to sit, stand, or walk? Stiff or floppy arms and legs? Milestones not coming?",
     body: "Roughly 3 in every 1,000 children in India are born with cerebral palsy. It\u2019s lifelong — but here\u2019s what matters: with consistent physiotherapy, children who were told they\u2019d never walk take supported steps, feed themselves, gain independence. Movement improves. Every single year.",
     cta: "Understand CP Therapy",
-    image: "/images/Conditions/3.png",
+    image: "/images/Conditions/3.jpeg",
     imageAlt:
       "Physiotherapy for child with cerebral palsy at Meditron, Vijayawada",
   },
@@ -46,7 +46,7 @@ const conditions = [
     question: "Slower to learn, but faster to love.",
     body: "About 1 in 830 babies in India is born with Down syndrome. These children learn everything — speaking, reading, self-care — just on their own timeline. Our job is walking that timeline with them, milestone by milestone, so they live full, capable, joyful lives.",
     cta: "Understand Down Syndrome Care",
-    image: "/images/Conditions/4.png",
+    image: "/images/Conditions/4.jpeg",
     imageAlt: "Child with Down syndrome in therapy at Meditron, Vijayawada",
   },
 ];

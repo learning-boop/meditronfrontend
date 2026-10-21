@@ -41,11 +41,11 @@ const cardAccents = [
 
 // Using 5 Vimeo videos — lazy-loaded only when the strip enters the viewport
 const videos = [
-  { id: "1210464722", label: "Occupational Therapy", poster: "/images/Theorapies/2.png" },
-  { id: "1210464720", label: "Physiotherapy", poster: "/images/Theorapies/3.png" },
-  { id: "1210464686", label: "Therapy Session", poster: "/images/Theorapies/1.png" },
-  { id: "1210464685", label: "Therapy Session", poster: "/images/Theorapies/2.png" },
-  { id: "1210464684", label: "Therapy Session", poster: "/images/Theorapies/3.png" },
+  { id: "1210464722", label: "Occupational Therapy", poster: "/images/Theorapies/2.jpeg" },
+  { id: "1210464720", label: "Physiotherapy", poster: "/images/Theorapies/3.jpeg" },
+  { id: "1210464686", label: "Therapy Session", poster: "/images/Theorapies/1.jpeg" },
+  { id: "1210464685", label: "Therapy Session", poster: "/images/Theorapies/2.jpeg" },
+  { id: "1210464684", label: "Therapy Session", poster: "/images/Theorapies/3.jpeg" },
 ];
 
 // Two identical copies so translateX(-50%) loops perfectly with no gap or jump

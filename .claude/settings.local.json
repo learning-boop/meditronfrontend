@@ -27,7 +27,19 @@
       "Bash(cd \"D:/creative_touch/meditorn/backend/meditron-api\" && npx prisma migrate dev --name add_cover_image_alt 2>&1)",
       "Bash(cd \"D:/creative_touch/meditorn/backend/meditron-api\" && npx prisma db push 2>&1)",
       "Bash(cd \"D:/creative_touch/meditorn/backend/meditron-api\" && npx prisma generate 2>&1)",
-      "Bash(cd \"D:\\\\creative_touch\\\\meditorn\\\\front-end\" && npx tsc --noEmit 2>&1 | head -40)"
+      "Bash(cd \"D:\\\\creative_touch\\\\meditorn\\\\front-end\" && npx tsc --noEmit 2>&1 | head -40)",
+      "Bash(cd D:/creative_touch/meditorn/front-end && npm run build 2>&1)",
+      "Bash(cd D:/creative_touch/meditorn/front-end && rm -rf .next && npm run build 2>&1)",
+      "Bash(cd D:/creative_touch/meditorn/front-end && npx next build 2>&1 | head -30)",
+      "Bash(cd D:/creative_touch/meditorn/front-end && mv app/admin app/_admin)",
+      "Bash(cd D:/creative_touch/meditorn/front-end && mv app/_admin app/admin)",
+      "Bash(cd D:/creative_touch/meditorn/front-end && rm -rf .next && npx next build --no-turbopack 2>&1)",
+      "Bash(cd D:/creative_touch/meditorn/front-end && mv app/admin app-admin-backup)",
+      "Bash(cd D:/creative_touch/meditorn/front-end && mkdir -p app-admin-backup/blog-slug-backup && mv \"app/blog/[slug]/page.tsx\" app-admin-backup/blog-slug-backup/page.tsx && rmdir \"app/blog/[slug]\")",
+      "Bash(cd D:/creative_touch/meditorn/front-end && mv app-admin-backup app/admin)",
+      "Bash(cd D:/creative_touch/meditorn/front-end && mkdir -p \"app/blog/[slug]\" && mv app/admin/blog-slug-backup/page.tsx \"app/blog/[slug]/page.tsx\" && rmdir app/admin/blog-slug-backup)",
+      "Bash(cd \"D:/creative_touch/meditorn/front-end\" && npx tsc --noEmit 2>&1 | head -50)",
+      "Bash(cd \"D:/creative_touch/meditorn/front-end\" && npx tsc --noEmit 2>&1 | head -10)"
     ]
   }
 }

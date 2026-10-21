@@ -34,6 +34,13 @@
   --color-terracotta: #c46a5e;
   --color-clean-neutral: #f7f8f9;
 
+  /* New-home palette */
+  --color-nh-cream: #FBF6EE;
+  --color-nh-terracotta: #D9775B;
+  --color-nh-sage: #8FA98B;
+  --color-nh-teal: #1F4E5A;
+  --color-nh-ink: #2A2A2A;
+
   /* Typography */
   --font-sans: var(--font-nunito-sans);
   --font-heading: var(--font-manrope);
@@ -111,10 +118,27 @@ body {
 .muggu-arch { border-radius: 180px 180px 22px 22px; }
 .muggu-arch-outline { border-radius: 190px 190px 26px 26px; }
 
+/* ── New-home animations ─────────────────────────────────── */
+@keyframes nh-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.nh-fade-up {
+  animation: nh-fade-up 0.7s ease-out both;
+}
+
+@keyframes nh-hero-fade {
+  0%   { opacity: 0; }
+  8%   { opacity: 1; }
+  25%  { opacity: 1; }
+  33%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .muggu-dots, .muggu-pulse, .muggu-floaty,
   .animate-marquee, .animate-marquee-videos,
-  .animate-popup-in { animation: none; }
+  .animate-popup-in, .nh-fade-up { animation: none; }
 }
 
 /* ── Keyboard focus visibility ───────────────────────────────── */

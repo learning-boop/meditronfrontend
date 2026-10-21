@@ -13,7 +13,7 @@ export const conditions: Condition[] = [
     tagline: "Communication & Connection",
     description:
       "Early, play-based intervention that builds communication, social skills, and daily routines for children on the spectrum.",
-    image: "/images/Conditions/1.png",
+    image: "/images/Conditions/1.jpeg",
   },
   {
     slug: "adhd",
@@ -21,7 +21,7 @@ export const conditions: Condition[] = [
     tagline: "Focus & Self-Regulation",
     description:
       "Evidence-based strategies to develop attention, impulse control, and learning skills so children can succeed at school and at home.",
-    image: "/images/Conditions/2.png",
+    image: "/images/Conditions/2.jpeg",
   },
   {
     slug: "cerebral-palsy",
@@ -29,7 +29,7 @@ export const conditions: Condition[] = [
     tagline: "Movement & Independence",
     description:
       "Multidisciplinary therapy to improve mobility, posture, speech, and everyday independence for children with CP.",
-    image: "/images/Conditions/3.png",
+    image: "/images/Conditions/3.jpeg",
   },
   {
     slug: "down-syndrome",
@@ -37,7 +37,7 @@ export const conditions: Condition[] = [
     tagline: "Development & Potential",
     description:
       "Compassionate, goal-oriented programs supporting cognitive, language, and social growth at every stage of development.",
-    image: "/images/Conditions/4.png",
+    image: "/images/Conditions/4.jpeg",
   },
 ];
 
@@ -55,7 +55,7 @@ export const therapies: Therapy[] = [
     name: "Speech Therapy",
     description:
       "Structured, engaging sessions that build language, articulation, and communication skills from the ground up.",
-    image: "/images/Theorapies/1.png",
+    image: "/images/Theorapies/1.jpeg",
     icon: "MessageCircle",
   },
   {
@@ -63,7 +63,7 @@ export const therapies: Therapy[] = [
     name: "Occupational Therapy",
     description:
       "Developing fine motor skills, sensory processing, and daily-living abilities to increase independence.",
-    image: "/images/Theorapies/2.png",
+    image: "/images/Theorapies/2.jpeg",
     icon: "Hand",
   },
   {
@@ -71,7 +71,7 @@ export const therapies: Therapy[] = [
     name: "Physiotherapy",
     description:
       "Movement-based therapy to strengthen gross motor skills, balance, coordination, and physical confidence.",
-    image: "/images/Theorapies/3.png",
+    image: "/images/Theorapies/3.jpeg",
     icon: "Activity",
   },
   {
@@ -79,7 +79,7 @@ export const therapies: Therapy[] = [
     name: "Child Psychology",
     description:
       "Compassionate psychological assessment and counselling to support emotional well-being, behaviour, and mental health.",
-    image: "/images/Theorapies/1.png",
+    image: "/images/Theorapies/1.jpeg",
     icon: "Brain",
   },
   {
@@ -87,7 +87,7 @@ export const therapies: Therapy[] = [
     name: "Sensory Integration",
     description:
       "Specialised therapy that helps children process and respond to sensory information from their environment.",
-    image: "/images/Theorapies/2.png",
+    image: "/images/Theorapies/2.jpeg",
     icon: "Sparkles",
   },
   {
@@ -95,7 +95,7 @@ export const therapies: Therapy[] = [
     name: "Behaviour Therapy",
     description:
       "Positive, evidence-based techniques to reduce challenging behaviours and build adaptive skills for everyday life.",
-    image: "/images/Theorapies/3.png",
+    image: "/images/Theorapies/3.jpeg",
     icon: "Heart",
   },
   {
@@ -103,7 +103,7 @@ export const therapies: Therapy[] = [
     name: "Vision Therapy",
     description:
       "Targeted eye exercises and visual training to improve tracking, focusing, and visual-motor integration.",
-    image: "/images/Theorapies/1.png",
+    image: "/images/Theorapies/1.jpeg",
     icon: "Eye",
   },
   {
@@ -111,7 +111,7 @@ export const therapies: Therapy[] = [
     name: "Play Therapy",
     description:
       "Child-led play sessions that allow children to express emotions, develop social skills, and heal through the natural language of play.",
-    image: "/images/Theorapies/2.png",
+    image: "/images/Theorapies/2.jpeg",
     icon: "Smile",
   },
   {
@@ -119,7 +119,7 @@ export const therapies: Therapy[] = [
     name: "ABA Therapy",
     description:
       "Applied Behaviour Analysis programmes using data-driven strategies to teach communication, social, and self-care skills.",
-    image: "/images/Theorapies/3.png",
+    image: "/images/Theorapies/3.jpeg",
     icon: "BookOpen",
   },
   {
@@ -127,7 +127,7 @@ export const therapies: Therapy[] = [
     name: "Specific Learning",
     description:
       "Targeted support for dyslexia, dyscalculia, and other learning differences to help children achieve their academic potential.",
-    image: "/images/Theorapies/1.png",
+    image: "/images/Theorapies/1.jpeg",
     icon: "GraduationCap",
   },
 ];

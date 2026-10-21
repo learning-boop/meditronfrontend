@@ -22,7 +22,7 @@ const conditions = [
     tagline: "Communication & Connection",
     summary:
       "ASD affects how children communicate, relate to others, and experience the world. Early, personalised therapy unlocks language, connection, and independence.",
-    image: "/images/Conditions/1.png",
+    image: "/images/Conditions/1.jpeg",
     imageAlt: "Child with autism in therapy at Meditron, Vijayawada",
     symptoms: ["Limited eye contact", "Delayed speech", "Repetitive behaviours", "Sensory sensitivities"],
   },
@@ -32,7 +32,7 @@ const conditions = [
     tagline: "Focus & Self-Regulation",
     summary:
       "ADHD is not naughtiness — it's a neurodevelopmental difference in attention and impulse control. Behaviour therapy and focus training transform how these children learn.",
-    image: "/images/Conditions/2.png",
+    image: "/images/Conditions/2.jpeg",
     imageAlt: "Child with ADHD in therapy at Meditron, Vijayawada",
     symptoms: ["Can't stay seated", "Forgets instructions", "Impulsive behaviour", "Difficulty focusing"],
   },
@@ -42,7 +42,7 @@ const conditions = [
     tagline: "Movement & Independence",
     summary:
       "CP affects movement and muscle tone. With consistent physiotherapy and occupational therapy, children gain strength, mobility, and independence — milestone by milestone.",
-    image: "/images/Conditions/3.png",
+    image: "/images/Conditions/3.jpeg",
     imageAlt: "Child with cerebral palsy in physiotherapy at Meditron, Vijayawada",
     symptoms: ["Delayed motor milestones", "Stiff or floppy muscles", "Asymmetric movement", "Difficulty walking"],
   },
@@ -52,7 +52,7 @@ const conditions = [
     tagline: "Development & Potential",
     summary:
       "Children with Down syndrome learn everything — speaking, reading, self-care — on their own timeline. Our therapists walk every step of that timeline with them.",
-    image: "/images/Conditions/4.png",
+    image: "/images/Conditions/4.jpeg",
     imageAlt: "Child with Down syndrome in therapy at Meditron, Vijayawada",
     symptoms: ["Low muscle tone", "Developmental delays", "Speech differences", "Learning differences"],
   },
