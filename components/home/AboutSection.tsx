@@ -41,7 +41,7 @@ export default function AboutSection() {
             </div>
             <div className="relative h-44 sm:h-52 rounded-2xl overflow-hidden shadow-md">
               <Image
-                src="/images/Mother obsvering/1.png"
+                src="/images/Mother obsvering/1.jpeg"
                 alt="Mother watching her child's therapy session at Meditron"
                 fill
                 className="object-cover"

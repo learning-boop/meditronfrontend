@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     url: "https://meditroncdc.com",
     images: [
       {
-        url: "/images/og-meditron.jpg",
+        url: "/images/banner.png",
         width: 1200,
         height: 630,
         alt: "Meditron Child Development Centre — Best therapy centre in Vijayawada",

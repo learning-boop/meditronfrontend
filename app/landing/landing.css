@@ -1,0 +1,215 @@
+/* ── /landing page tokens ───────────────────────────────────────
+   Cream matches the walls in the photography so image edges melt
+   into the page. Deep teal carries headings and actions; clay is
+   reserved for the mother's own words. */
+.lp {
+  --lp-cream: #fbf6ee;
+  --lp-sand: #f3ebdf;
+  --lp-teal: #1f4e5a;
+  --lp-teal-deep: #173c46;
+  --lp-ink: #2b3a3f;
+  --lp-muted: #56676b;
+  --lp-sage: #8fa98b;
+  --lp-sage-tint: #e6ede2;
+  --lp-sage-deep: #5d7a59;
+  --lp-clay: #a9533b;
+  --lp-clay-light: #f0b9a3;
+  --lp-wa: #25d366;
+  --lp-night: #1f4e5a;
+  --lp-night-ink: #0f2a30;
+
+  background: var(--lp-cream);
+  color: var(--lp-ink);
+  font-family: var(--font-nunito-sans), system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.lp h1,
+.lp h2,
+.lp h3,
+.lp .lp-serif {
+  font-family: var(--font-lp-serif), Georgia, serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+
+.lp .lp-voice {
+  font-family: var(--font-lp-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.lp p {
+  text-wrap: pretty;
+}
+
+/* Hero: the photograph fades into the cream on the text side */
+.lp-hero-fade {
+  background: linear-gradient(90deg, #fbf6ee 0%, rgba(251, 246, 238, 0.94) 34%, rgba(251, 246, 238, 0) 60%);
+}
+.lp-hero-fade-mobile {
+  background: linear-gradient(180deg, #fbf6ee 0%, rgba(251, 246, 238, 0.86) 24%, rgba(251, 246, 238, 0) 44%),
+    linear-gradient(0deg, #fbf6ee 0%, rgba(251, 246, 238, 0) 14%);
+}
+
+/* Night section: lamp-lit photo sinks into teal on the text side */
+.lp-night-fade {
+  background: linear-gradient(90deg, rgba(31, 78, 90, 0.97) 0%, rgba(31, 78, 90, 0.86) 34%, rgba(31, 78, 90, 0) 62%);
+}
+.lp-night-fade-mobile {
+  background: linear-gradient(180deg, rgba(31, 78, 90, 1) 0%, rgba(31, 78, 90, 0.8) 34%, rgba(31, 78, 90, 0) 56%),
+    linear-gradient(0deg, rgba(31, 78, 90, 1) 0%, rgba(31, 78, 90, 0) 16%);
+}
+
+/* The one orchestrated moment: the growing-brain tree opens like a bloom */
+@keyframes lp-bloom {
+  from {
+    opacity: 0;
+    clip-path: circle(8% at 44% 92%);
+  }
+  to {
+    opacity: 1;
+    clip-path: circle(75% at 44% 60%);
+  }
+}
+.lp-bloom {
+  opacity: 0;
+}
+.lp-bloom.is-in {
+  animation: lp-bloom 1.6s cubic-bezier(0.22, 0.8, 0.3, 1) forwards;
+}
+
+/* Desktop top bar slides down once the hero buttons are gone */
+.lp-topbar {
+  transform: translateY(-110%);
+  transition: transform 0.35s ease;
+}
+.lp-topbar.is-on {
+  transform: translateY(0);
+}
+
+/* Sticky mobile bar slides up once the hero is gone */
+.lp-sticky {
+  transform: translateY(110%);
+  transition: transform 0.35s ease;
+}
+.lp-sticky.is-on {
+  transform: translateY(0);
+}
+
+/* Horizontal swipe rows on mobile */
+.lp-swipe {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.lp-swipe::-webkit-scrollbar {
+  display: none;
+}
+.lp-swipe > * {
+  scroll-snap-align: start;
+}
+
+.lp :focus-visible {
+  outline: 3px solid var(--lp-sage-deep);
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+
+/* ── First-visit logo splash (components/landing/IntroSplash.tsx) ──
+   0.00s emblem settles in · 0.30s name revealed · 0.45s line grows
+   1.05s curtain lifts · gone by ~1.5s */
+.lp-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  background: #fbf6ee;
+  cursor: pointer;
+  animation: lp-intro-out 0.45s cubic-bezier(0.65, 0, 0.35, 1) 1.05s forwards;
+}
+.lp-intro[data-skip] {
+  display: none;
+}
+.lp-intro-mark {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 2vw, 14px);
+  animation: lp-intro-lift 0.45s cubic-bezier(0.65, 0, 0.35, 1) 1.05s forwards;
+}
+.lp-intro-emblem,
+.lp-intro-word {
+  height: clamp(72px, 22vw, 104px);
+  width: auto;
+}
+.lp-intro-emblem {
+  opacity: 0;
+  transform: scale(0.6) rotate(-10deg);
+  animation: lp-intro-emblem 0.6s cubic-bezier(0.34, 1.4, 0.64, 1) 0.05s forwards;
+}
+.lp-intro-word {
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  transform: translateX(-10px);
+  animation: lp-intro-word 0.6s cubic-bezier(0.22, 0.8, 0.3, 1) 0.3s forwards;
+}
+.lp-intro-line {
+  display: block;
+  width: clamp(120px, 34vw, 180px);
+  height: 3px;
+  border-radius: 3px;
+  background: #8fa98b;
+  transform: scaleX(0);
+  animation: lp-intro-line 0.6s cubic-bezier(0.6, 0, 0.2, 1) 0.45s forwards;
+}
+@keyframes lp-intro-emblem {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes lp-intro-word {
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: none;
+  }
+}
+@keyframes lp-intro-line {
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes lp-intro-lift {
+  to {
+    transform: translateY(-16px);
+  }
+}
+@keyframes lp-intro-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-bloom,
+  .lp-bloom.is-in {
+    animation: none;
+    opacity: 1;
+    clip-path: none;
+  }
+  .lp-sticky,
+  .lp-topbar {
+    transition: none;
+  }
+  .lp-intro {
+    display: none;
+  }
+}

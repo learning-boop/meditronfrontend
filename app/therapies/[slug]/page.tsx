@@ -42,7 +42,16 @@ export async function generateMetadata({
   return {
     title: data.metaTitle,
     description: data.metaDescription,
-    openGraph: { title: data.metaTitle, description: data.metaDescription },
+    alternates: {
+      canonical: `https://meditroncdc.com/therapies/${slug}`,
+    },
+    openGraph: {
+      title: data.metaTitle,
+      description: data.metaDescription,
+      url: `https://meditroncdc.com/therapies/${slug}`,
+      type: "article",
+      images: [{ url: data.image, alt: data.name }],
+    },
   };
 }
 
@@ -62,31 +71,71 @@ export default async function TherapyPage({
     `Hi Meditron, I'd like to book an assessment for ${data.name} in ${location.name}.`
   )}`;
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    name: "Meditron Child Development Centre",
-    description: data.metaDescription,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Sri Nilayam, 2nd Floor, Dr No 30-20-31A, Nehru Street, Seetharamapuram",
-      addressLocality: "Vijayawada",
-      addressRegion: "Andhra Pradesh",
-      postalCode: "520002",
-      addressCountry: "IN",
+  const faqEntries = [
+    {
+      "@type": "Question" as const,
+      name: `When does a child need ${data.name} in ${location.name}?`,
+      acceptedAnswer: {
+        "@type": "Answer" as const,
+        text: `Signs that your child may need ${data.name}: ${data.whyChild.signs.join("; ")}. Early assessment at Meditron ${location.name} leads to better outcomes.`,
+      },
     },
-    telephone: NAP.phone,
-    url: "/",
-    medicalSpecialty: data.name,
-    areaServed: location.name,
-  };
+    {
+      "@type": "Question" as const,
+      name: `How does ${data.name} work at Meditron ${location.name}?`,
+      acceptedAnswer: {
+        "@type": "Answer" as const,
+        text: data.howItWorks.steps.map(s => `${s.title}: ${s.body}`).join(" "),
+      },
+    },
+    {
+      "@type": "Question" as const,
+      name: `Where is the best ${data.name} centre in ${location.name}?`,
+      acceptedAnswer: {
+        "@type": "Answer" as const,
+        text: `Meditron Child Development Centre in ${location.name} offers expert ${data.name} with certified therapists. Call ${NAP.phone} to book a free assessment.`,
+      },
+    },
+  ];
+
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      name: data.metaTitle,
+      description: data.metaDescription,
+      url: `https://meditroncdc.com/therapies/${slug}`,
+      provider: {
+        "@type": "MedicalClinic",
+        name: "Meditron Child Development Centre",
+        telephone: NAP.phone,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Sri Nilayam, 2nd Floor, Dr No 30-20-31A, Nehru Street, Seetharamapuram",
+          addressLocality: "Vijayawada",
+          addressRegion: "Andhra Pradesh",
+          postalCode: "520002",
+          addressCountry: "IN",
+        },
+        areaServed: location.name,
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqEntries,
+    },
+  ];
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {jsonLd.map((ld, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
+        />
+      ))}
       <TherapyPageContent data={data} waUrl={waUrl} />
     </>
   );

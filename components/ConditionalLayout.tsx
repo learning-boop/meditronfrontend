@@ -14,15 +14,19 @@ export default function ConditionalLayout({
 }) {
   const pathname = usePathname();
   const isAdmin = pathname?.startsWith("/admin");
+  // The /landing page has its own calm header and sticky bar: no marquee,
+  // popup or side tabs interrupting a worried parent.
+  const isLanding = pathname?.startsWith("/landing");
+  const showChrome = !isAdmin && !isLanding;
 
   return (
     <>
-      {!isAdmin && <AnnouncementBar />}
-      {!isAdmin && <Navbar />}
+      {showChrome && <AnnouncementBar />}
+      {showChrome && <Navbar />}
       {children}
       {!isAdmin && <Footer />}
-      {!isAdmin && <TimedPopup />}
-      {!isAdmin && <SocialPeekTabs />}
+      {showChrome && <TimedPopup />}
+      {showChrome && <SocialPeekTabs />}
     </>
   );
 }

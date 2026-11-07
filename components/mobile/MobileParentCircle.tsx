@@ -6,7 +6,7 @@ import { NAP } from "@/lib/data";
 const faces = [
   { src: "/images/About/1.png", alt: "Parent in the Meditron circle" },
   { src: "/images/About/2.png", alt: "Parent in the Meditron circle" },
-  { src: "/images/Mother obsvering/2.png", alt: "Parent in the Meditron circle" },
+  { src: "/images/Mother obsvering/2.jpeg", alt: "Parent in the Meditron circle" },
 ];
 
 const waUrl = `https://wa.me/${NAP.whatsapp}?text=${encodeURIComponent(

@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/og-meditron.jpg",
+        url: "/images/banner.png",
         width: 1200,
         height: 630,
         alt: "Meditron Child Development Centre — Vijayawada",
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     title: "Meditron Child Development Centre | Vijayawada",
     description:
       "Expert speech therapy, physiotherapy and sensory integration for children in Vijayawada. Autism · ADHD · Cerebral Palsy · Down Syndrome.",
-    images: ["/images/og-meditron.jpg"],
+    images: ["/images/banner.png"],
   },
   robots: {
     index: true,

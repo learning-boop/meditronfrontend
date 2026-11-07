@@ -39,7 +39,15 @@
       "Bash(cd D:/creative_touch/meditorn/front-end && mv app-admin-backup app/admin)",
       "Bash(cd D:/creative_touch/meditorn/front-end && mkdir -p \"app/blog/[slug]\" && mv app/admin/blog-slug-backup/page.tsx \"app/blog/[slug]/page.tsx\" && rmdir app/admin/blog-slug-backup)",
       "Bash(cd \"D:/creative_touch/meditorn/front-end\" && npx tsc --noEmit 2>&1 | head -50)",
-      "Bash(cd \"D:/creative_touch/meditorn/front-end\" && npx tsc --noEmit 2>&1 | head -10)"
+      "Bash(cd \"D:/creative_touch/meditorn/front-end\" && npx tsc --noEmit 2>&1 | head -10)",
+      "Bash(npm run:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000 2>&1)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://localhost:3000/images/Mother%20obsvering/1.jpeg\" && echo \"\" && curl -s -o /dev/null -w \"%{http_code}\" \"http://localhost:3000/images/Mother%20obsvering/2.jpeg\" && echo \"\" && curl -s -o /dev/null -w \"%{http_code}\" \"http://localhost:3000/images/Mother%20obsvering/mobile1.jpeg\" && echo \"\" && curl -s -o /dev/null -w \"%{http_code}\" \"http://localhost:3000/images/banner.png\" && echo \"\")",
+      "WebFetch(domain:developers.google.com)",
+      "WebFetch(domain:developers.openai.com)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/conditions/autism-vijayawada 2>&1 && echo \" conditions\" && curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/therapies/speech-therapy-vijayawada 2>&1 && echo \" therapies\" && curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/robots.txt 2>&1 && echo \" robots\")",
+      "Bash(curl -s http://localhost:3000/robots.txt 2>&1)",
+      "Bash(curl -s http://localhost:3000/conditions/autism-vijayawada 2>&1 | grep -o '<script type=\"application/ld+json\">[^<]*' | head -5)"
     ]
   }
 }

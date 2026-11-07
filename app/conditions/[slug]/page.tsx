@@ -42,7 +42,16 @@ export async function generateMetadata({
   return {
     title: data.metaTitle,
     description: data.metaDescription,
-    openGraph: { title: data.metaTitle, description: data.metaDescription },
+    alternates: {
+      canonical: `https://meditroncdc.com/conditions/${slug}`,
+    },
+    openGraph: {
+      title: data.metaTitle,
+      description: data.metaDescription,
+      url: `https://meditroncdc.com/conditions/${slug}`,
+      type: "article",
+      images: [{ url: data.image, alt: data.name }],
+    },
   };
 }
 
@@ -62,31 +71,81 @@ export default async function ConditionPage({
     `Hi Meditron, I'd like to book an assessment for ${data.name} treatment in ${location.name}.`
   )}`;
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    name: "Meditron Child Development Centre",
-    description: data.metaDescription,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Sri Nilayam, 2nd Floor, Dr No 30-20-31A, Nehru Street, Seetharamapuram",
-      addressLocality: "Vijayawada",
-      addressRegion: "Andhra Pradesh",
-      postalCode: "520002",
-      addressCountry: "IN",
+  // Build FAQ entries from the "signs" and "how it works" steps
+  const faqEntries = [
+    ...data.whyChild.signs.slice(0, 5).map((sign, i) => ({
+      "@type": "Question" as const,
+      name: i === 0
+        ? `What are the early signs of ${data.name} in children?`
+        : `Is "${sign.toLowerCase()}" a sign of ${data.name}?`,
+      acceptedAnswer: {
+        "@type": "Answer" as const,
+        text: i === 0
+          ? `Key early signs include: ${data.whyChild.signs.join("; ")}. If you notice any of these, seek an assessment at Meditron Child Development Centre in ${location.name}.`
+          : `Yes — "${sign.toLowerCase()}" can be an indicator of ${data.name}. Early assessment and intervention at Meditron ${location.name} leads to better outcomes.`,
+      },
+    })),
+    {
+      "@type": "Question" as const,
+      name: `Where can I get ${data.name} treatment in ${location.name}?`,
+      acceptedAnswer: {
+        "@type": "Answer" as const,
+        text: `Meditron Child Development Centre in ${location.name} offers evidence-based ${data.name} treatment including ${data.relatedTreatments.map(t => t.name).join(", ")}. Call ${NAP.phone} to book a free assessment.`,
+      },
     },
-    telephone: NAP.phone,
-    url: "/",
-    medicalSpecialty: data.name,
-    areaServed: location.name,
-  };
+    {
+      "@type": "Question" as const,
+      name: `How does ${data.name} treatment work at Meditron?`,
+      acceptedAnswer: {
+        "@type": "Answer" as const,
+        text: data.howItWorks.steps.map(s => `${s.title}: ${s.body}`).join(" "),
+      },
+    },
+  ];
+
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      name: data.metaTitle,
+      description: data.metaDescription,
+      url: `https://meditroncdc.com/conditions/${slug}`,
+      mainEntity: {
+        "@type": "MedicalCondition",
+        name: data.name,
+        associatedAnatomy: { "@type": "AnatomicalStructure", name: "Brain" },
+      },
+      provider: {
+        "@type": "MedicalClinic",
+        name: "Meditron Child Development Centre",
+        telephone: NAP.phone,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Sri Nilayam, 2nd Floor, Dr No 30-20-31A, Nehru Street, Seetharamapuram",
+          addressLocality: "Vijayawada",
+          addressRegion: "Andhra Pradesh",
+          postalCode: "520002",
+          addressCountry: "IN",
+        },
+        areaServed: location.name,
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqEntries,
+    },
+  ];
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {jsonLd.map((ld, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
+        />
+      ))}
       <TherapyPageContent data={data} waUrl={waUrl} />
     </>
   );

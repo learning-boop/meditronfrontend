@@ -10,11 +10,11 @@ import { NAP } from "@/lib/data";
 
 const BANNERS = [
   {
-    src: "/images/Mother obsvering/1.png",
+    src: "/images/Mother obsvering/1.jpeg",
     alt: "Mother watching her child during physiotherapy session at Meditron, Vijayawada",
   },
   {
-    src: "/images/Mother obsvering/2.png",
+    src: "/images/Mother obsvering/2.jpeg",
     alt: "Father observing his child's balance therapy session at Meditron Child Development Centre",
   },
 ];
@@ -77,7 +77,7 @@ function MobileHero() {
           />
           <div className="relative h-[300px] overflow-hidden shadow-[0_24px_44px_-22px_rgba(42,58,87,0.45)] muggu-arch">
             <Image
-              src="/images/Mother obsvering/mobile1.png"
+              src="/images/Mother obsvering/mobile1.jpeg"
               alt={BANNERS[0].alt}
               fill
               priority

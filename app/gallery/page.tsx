@@ -26,12 +26,12 @@ const photos = [
     span: "",
   },
   {
-    src: "/images/Mother obsvering/1.png",
+    src: "/images/Mother obsvering/1.jpeg",
     alt: "Mother watching her child's physiotherapy session at Meditron",
     span: "",
   },
   {
-    src: "/images/Mother obsvering/2.png",
+    src: "/images/Mother obsvering/2.jpeg",
     alt: "Parents observing their child's therapy progress at Meditron",
     span: "",
   },
