@@ -3,8 +3,8 @@
    into the page. Deep teal carries headings and actions; clay is
    reserved for the mother's own words. */
 .lp {
-  --lp-cream: #fbf6ee;
-  --lp-sand: #f3ebdf;
+  --lp-cream: #f4f8f9;
+  --lp-sand: #e9f0f2;
   --lp-teal: #1f4e5a;
   --lp-teal-deep: #173c46;
   --lp-ink: #2b3a3f;
@@ -47,11 +47,11 @@
 
 /* Hero: the photograph fades into the cream on the text side */
 .lp-hero-fade {
-  background: linear-gradient(90deg, #fbf6ee 0%, rgba(251, 246, 238, 0.94) 34%, rgba(251, 246, 238, 0) 60%);
+  background: linear-gradient(90deg, #f4f8f9 0%, rgba(244, 248, 249, 0.94) 34%, rgba(244, 248, 249, 0) 60%);
 }
 .lp-hero-fade-mobile {
-  background: linear-gradient(180deg, #fbf6ee 0%, rgba(251, 246, 238, 0.86) 24%, rgba(251, 246, 238, 0) 44%),
-    linear-gradient(0deg, #fbf6ee 0%, rgba(251, 246, 238, 0) 14%);
+  background: linear-gradient(180deg, #f4f8f9 0%, rgba(244, 248, 249, 0.86) 24%, rgba(244, 248, 249, 0) 44%),
+    linear-gradient(0deg, #f4f8f9 0%, rgba(244, 248, 249, 0) 14%);
 }
 
 /* Night section: lamp-lit photo sinks into teal on the text side */
@@ -130,7 +130,7 @@
   align-items: center;
   justify-content: center;
   gap: 22px;
-  background: #fbf6ee;
+  background: #f4f8f9;
   cursor: pointer;
   animation: lp-intro-out 0.45s cubic-bezier(0.65, 0, 0.35, 1) 1.05s forwards;
 }
@@ -164,7 +164,7 @@
   width: clamp(120px, 34vw, 180px);
   height: 3px;
   border-radius: 3px;
-  background: #8fa98b;
+  background: var(--lp-sage);
   transform: scaleX(0);
   animation: lp-intro-line 0.6s cubic-bezier(0.6, 0, 0.2, 1) 0.45s forwards;
 }

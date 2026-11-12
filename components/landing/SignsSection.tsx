@@ -127,7 +127,7 @@ export default function SignsSection() {
           </ul>
 
           {/* Notes panel: same height as the photos, so it never floats as an empty box */}
-          <aside className="flex min-h-0 flex-col rounded-[28px] bg-white p-7 shadow-[0_1px_0_#e9dfd0]">
+          <aside className="flex min-h-0 flex-col rounded-[28px] bg-white p-7 shadow-[0_1px_0_#c8d8dc]">
             <div className="flex items-baseline justify-between gap-3">
               <h3 className="text-[1.25rem] font-semibold text-[var(--lp-teal)]">Your notes for the doctor</h3>
               {picked.length > 0 && (

@@ -32,7 +32,7 @@ export default function DoctorSection() {
               className="aspect-[4/5] w-full rounded-[28px] object-cover object-[50%_25%]"
             />
           ) : (
-            <div className="flex aspect-[4/5] w-full flex-col items-center justify-center rounded-[28px] border-2 border-dashed border-[#d9cbb6] bg-[var(--lp-cream)] text-center">
+            <div className="flex aspect-[4/5] w-full flex-col items-center justify-center rounded-[28px] border-2 border-dashed border-[#b8cdd2] bg-[var(--lp-cream)] text-center">
               <span className="lp-serif text-[5rem] font-semibold leading-none text-[var(--lp-sage)]">VS</span>
               <span className="mt-4 inline-flex items-center gap-2 text-[0.9375rem] text-[var(--lp-muted)]">
                 <Camera className="h-4 w-4" aria-hidden="true" />
@@ -71,7 +71,7 @@ export default function DoctorSection() {
             We care for your child the way a mother would. Every small step is a celebration for us.
           </p>
 
-          <div className="mt-10 border-t border-[#e3d7c5] pt-8">
+          <div className="mt-10 border-t border-[#c8d8dc] pt-8">
             <p className="lp-serif text-[1.375rem] leading-snug text-[var(--lp-teal)]">
               {FACTS.years} years of practice, and {FACTS.families} families guided so far.
             </p>

@@ -58,7 +58,7 @@ export default function FirstVisitSection() {
           />
         </div>
 
-        <div className={showCentrePhotos ? "mt-16 md:mt-20" : "mt-12 border-t border-[#e3d7c5] pt-8 md:mt-16"}>
+        <div className={showCentrePhotos ? "mt-16 md:mt-20" : "mt-12 border-t border-[#c8d8dc] pt-8 md:mt-16"}>
           {/* Centre photos stay hidden until at least one real photo is added in content.ts */}
           {showCentrePhotos && (
             <>
@@ -79,7 +79,7 @@ export default function FirstVisitSection() {
                         className="aspect-[4/3] w-full rounded-[16px] object-cover"
                       />
                     ) : (
-                      <div className="flex aspect-[4/3] w-full flex-col items-center justify-center gap-2 rounded-[16px] border-2 border-dashed border-[#d9cbb6] bg-[var(--lp-cream)] text-[0.875rem] text-[var(--lp-muted)]">
+                      <div className="flex aspect-[4/3] w-full flex-col items-center justify-center gap-2 rounded-[16px] border-2 border-dashed border-[#b8cdd2] bg-[var(--lp-cream)] text-[0.875rem] text-[var(--lp-muted)]">
                         <Camera className="h-5 w-5" aria-hidden="true" />
                         Real photo coming
                       </div>

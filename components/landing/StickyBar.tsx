@@ -45,7 +45,7 @@ export default function StickyBar() {
     <>
       {/* Desktop: a slim bar slides down from the top with the same two actions */}
       <div
-        className={`lp-topbar fixed inset-x-0 top-0 z-40 hidden border-b border-[#e3d7c5] bg-[var(--lp-cream)]/95 px-8 backdrop-blur lg:block ${
+        className={`lp-topbar fixed inset-x-0 top-0 z-40 hidden border-b border-[#c8d8dc] bg-[var(--lp-cream)]/95 px-8 backdrop-blur lg:block ${
           show ? "is-on" : ""
         }`}
         aria-hidden={!show}
@@ -91,7 +91,7 @@ export default function StickyBar() {
       </div>
 
       <div
-        className={`lp-sticky fixed inset-x-0 bottom-0 z-40 border-t border-[#e3d7c5] bg-[var(--lp-cream)]/95 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur lg:hidden ${
+        className={`lp-sticky fixed inset-x-0 bottom-0 z-40 border-t border-[#c8d8dc] bg-[var(--lp-cream)]/95 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur lg:hidden ${
           show ? "is-on" : ""
         }`}
         aria-hidden={!show}

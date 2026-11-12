@@ -73,7 +73,7 @@ export default function HeroSection() {
                   className={`inline-flex min-h-[42px] items-center gap-1.5 rounded-full border px-3.5 text-[0.875rem] font-semibold transition-colors md:min-h-[44px] md:px-4 md:text-[0.9375rem] ${
                     on
                       ? "border-[var(--lp-sage-deep)] bg-[var(--lp-sage-tint)] text-[var(--lp-teal)]"
-                      : "border-[#e2d6c4] bg-white/75 text-[var(--lp-ink)] hover:border-[var(--lp-sage)]"
+                      : "border-[#c8d8dc] bg-white/75 text-[var(--lp-ink)] hover:border-[var(--lp-sage)]"
                   }`}
                 >
                   {on && <Check className="h-4 w-4 text-[var(--lp-sage-deep)]" aria-hidden="true" />}
