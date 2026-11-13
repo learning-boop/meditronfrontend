@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   CalendarCheck,
-  MessageCircle,
   Video,
   Globe,
   Languages,
@@ -17,6 +16,7 @@ import {
 import PageHero from "@/components/PageHero";
 import { NAP } from "@/lib/data";
 
+import WhatsAppCta from "@/components/WhatsAppCta";
 export const metadata: Metadata = {
   title: "Online Consultations for International & NRI Families | Meditron Vijayawada",
   description:
@@ -132,15 +132,9 @@ export default function InternationalPage() {
                 Message us on WhatsApp with your time zone and a few slots that work for you. We will get back to you within 24 hours to confirm.
               </p>
             </div>
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="shrink-0 inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-5 py-3 rounded-xl transition-colors text-sm"
-            >
-              <MessageCircle className="w-4 h-4 shrink-0" />
+            <WhatsAppCta href={waUrl} className="shrink-0">
               WhatsApp Us
-            </a>
+            </WhatsAppCta>
           </div>
         </div>
       </section>
@@ -218,7 +212,7 @@ export default function InternationalPage() {
               <div key={item.condition} className="bg-primary-dark/70 border border-white/10 rounded-2xl p-7">
                 <Link
                   href={item.href}
-                  className="text-accent font-extrabold text-base sm:text-lg hover:underline underline-offset-4 mb-3 block"
+                  className="text-accent-soft font-extrabold text-base sm:text-lg hover:underline underline-offset-4 mb-3 block"
                 >
                   {item.condition} →
                 </Link>
@@ -303,18 +297,12 @@ export default function InternationalPage() {
             Message us with your time zone and availability. We will respond within 24 hours and confirm a session time that works for your family — no pressure, no obligation.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
-            >
-              <MessageCircle className="w-5 h-5 shrink-0" />
+            <WhatsAppCta href={waUrl} tone="dark">
               WhatsApp Us
-            </a>
+            </WhatsAppCta>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
+              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-full transition-colors shadow-lg text-sm"
             >
               <CalendarCheck className="w-5 h-5 shrink-0" />
               Schedule a Call

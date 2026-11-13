@@ -2,11 +2,14 @@
 
 import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
-import AnnouncementBar from "@/components/AnnouncementBar";
-import TimedPopup from "@/components/TimedPopup";
 import Footer from "@/components/Footer";
-import SocialPeekTabs from "@/components/SocialPeekTabs";
 
+/*
+ * Every page follows the calm home-page design: the navbar and footer only.
+ * The old scrolling announcement bar, timed popup and side social tabs
+ * (AnnouncementBar, TimedPopup, SocialPeekTabs) are no longer shown anywhere;
+ * their files are kept in components/ in case they are wanted again.
+ */
 export default function ConditionalLayout({
   children,
 }: {
@@ -14,19 +17,12 @@ export default function ConditionalLayout({
 }) {
   const pathname = usePathname();
   const isAdmin = pathname?.startsWith("/admin");
-  // The /landing page has its own calm header and sticky bar: no marquee,
-  // popup or side tabs interrupting a worried parent.
-  const isLanding = pathname?.startsWith("/landing");
-  const showChrome = !isAdmin && !isLanding;
 
   return (
     <>
-      {showChrome && <AnnouncementBar />}
-      {showChrome && <Navbar />}
+      {!isAdmin && <Navbar />}
       {children}
       {!isAdmin && <Footer />}
-      {showChrome && <TimedPopup />}
-      {showChrome && <SocialPeekTabs />}
     </>
   );
 }

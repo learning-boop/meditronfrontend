@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { MapPin, Phone, Mail, Clock, MessageCircle, Navigation } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Navigation } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import BookingForm from "@/components/BookingForm";
 import { NAP } from "@/lib/data";
 
+import { WhatsAppGlyph } from "@/components/WhatsAppCta";
 export const metadata: Metadata = {
   title: "Book a Free Assessment | Contact Meditron CDC Vijayawada",
   description:
@@ -110,10 +111,10 @@ export default function ContactPage() {
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 bg-[#25D366] hover:bg-[#1ebe5d] text-white rounded-2xl px-6 py-5 transition-colors shadow-md"
+              className="flex items-center gap-4 bg-primary hover:bg-primary-dark text-white rounded-2xl px-6 py-5 transition-colors shadow-md"
             >
-              <div className="w-12 h-12 rounded-xl bg-clean-neutral/20 flex items-center justify-center shrink-0">
-                <MessageCircle className="w-6 h-6" aria-hidden="true" />
+              <div className="w-12 h-12 rounded-full bg-[#25D366] flex items-center justify-center shrink-0">
+                <WhatsAppGlyph className="w-6 h-6" />
               </div>
               <div>
                 <p className="font-extrabold text-base">WhatsApp Us Directly</p>
@@ -197,18 +198,18 @@ export default function ContactPage() {
         <div className="bg-primary-dark px-4 sm:px-6 lg:px-8 py-4">
           <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-x-6 gap-y-2">
             <div className="flex items-center gap-2 text-white/70 text-sm">
-              <MapPin className="w-4 h-4 text-accent shrink-0" aria-hidden="true" />
+              <MapPin className="w-4 h-4 text-accent-soft shrink-0" aria-hidden="true" />
               {NAP.address}
             </div>
             <div className="flex items-center gap-2 text-white/70 text-sm">
-              <Clock className="w-4 h-4 text-accent shrink-0" aria-hidden="true" />
+              <Clock className="w-4 h-4 text-accent-soft shrink-0" aria-hidden="true" />
               {NAP.hours}
             </div>
             <a
               href={`tel:${NAP.phone.replace(/\s/g, "")}`}
               className="flex items-center gap-2 text-white/70 hover:text-white text-sm transition-colors"
             >
-              <Phone className="w-4 h-4 text-accent shrink-0" aria-hidden="true" />
+              <Phone className="w-4 h-4 text-accent-soft shrink-0" aria-hidden="true" />
               {NAP.phone}
             </a>
           </div>

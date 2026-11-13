@@ -14,14 +14,14 @@ const tabs = [
     label: "Instagram",
     Icon: IconInstagram,
     href: NAP.socials.instagram,
-    color: "#d67861", // brand accent (coral)
+    color: "var(--color-accent)", // brand accent (follows the site theme)
     delay: 0,
   },
   {
     label: "YouTube",
     Icon: IconYouTube,
     href: NAP.socials.youtube,
-    color: "#2a8e8b", // brand primary (teal)
+    color: "var(--color-primary)", // brand primary (follows the site theme)
     delay: 0.11,
   },
 ];

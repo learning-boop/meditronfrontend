@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { CalendarCheck, MessageCircle, CheckCircle, ArrowRight } from "lucide-react";
+import { CalendarCheck, CheckCircle, ArrowRight } from "lucide-react";
 import type { TherapyPageData } from "@/lib/therapy-pages";
 import { NAP } from "@/lib/data";
 
+import WhatsAppCta from "@/components/WhatsAppCta";
 // ── Inline link parser: converts [text](/href) to <Link> ──────────────────────
 function ParsedParagraph({ text }: { text: string }) {
   const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
@@ -79,20 +80,14 @@ export default function TherapyPageContent({
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
+                className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-full transition-colors shadow-lg text-sm"
               >
                 <CalendarCheck className="w-5 h-5 shrink-0" />
                 Book Free Assessment
               </Link>
-              <a
-                href={waUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#10783F] hover:bg-[#0d6635] text-white font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
-              >
-                <MessageCircle className="w-5 h-5 shrink-0" />
+              <WhatsAppCta href={waUrl} tone="dark">
                 Ask on WhatsApp
-              </a>
+              </WhatsAppCta>
             </div>
           </div>
           {/* Image */}
@@ -226,20 +221,14 @@ export default function TherapyPageContent({
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
+              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-full transition-colors shadow-lg text-sm"
             >
               <CalendarCheck className="w-5 h-5 shrink-0" />
               Book Free Assessment
             </Link>
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#10783F] hover:bg-[#0d6635] text-white font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
-            >
-              <MessageCircle className="w-5 h-5 shrink-0" />
+            <WhatsAppCta href={waUrl} tone="dark">
               WhatsApp Meditron Vijayawada
-            </a>
+            </WhatsAppCta>
           </div>
         </div>
       </section>

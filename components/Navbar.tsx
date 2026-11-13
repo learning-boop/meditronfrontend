@@ -4,9 +4,10 @@ import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, MessageCircle, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { IconInstagram, IconFacebook, IconYouTube } from "@/components/SocialIcons";
 import { NAP } from "@/lib/data";
+import { WhatsAppGlyph } from "@/components/WhatsAppCta";
 
 // ─── Nav structure ────────────────────────────────────────────────────
 type SimpleLink = { kind: "link"; label: string; href: string };
@@ -208,9 +209,11 @@ export default function Navbar() {
           href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden lg:inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors shadow-sm"
+          className="hidden lg:inline-flex min-h-[44px] items-center gap-2.5 rounded-full bg-primary pl-1.5 pr-5 text-sm font-bold text-white transition-colors hover:bg-primary-dark"
         >
-          <MessageCircle className="w-4 h-4 shrink-0" />
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white">
+              <WhatsAppGlyph className="h-[18px] w-[18px]" />
+            </span>
           WhatsApp Us
         </a>
 
@@ -294,9 +297,11 @@ export default function Navbar() {
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-5 py-3 rounded-xl text-sm transition-colors w-full"
+            className="mt-4 flex min-h-[52px] w-full items-center justify-center gap-3 rounded-full bg-primary pl-2 pr-6 text-[0.9375rem] font-bold text-white transition-colors hover:bg-primary-dark"
           >
-            <MessageCircle className="w-4 h-4 shrink-0" />
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white">
+                <WhatsAppGlyph className="h-5 w-5" />
+              </span>
             WhatsApp Us
           </a>
 

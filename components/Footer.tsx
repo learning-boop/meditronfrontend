@@ -109,25 +109,25 @@ export default function Footer() {
             {/* NAP */}
             <address className="not-italic space-y-3 text-sm">
               <p className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" aria-hidden="true" />
+                <MapPin className="w-4 h-4 text-primary-soft mt-0.5 shrink-0" aria-hidden="true" />
                 <a href={NAP.mapUrl} target="_blank" rel="noopener noreferrer" className="text-sage hover:text-white transition-colors leading-snug">
                   {NAP.address}
                 </a>
               </p>
               <p className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-primary shrink-0" aria-hidden="true" />
+                <Phone className="w-4 h-4 text-primary-soft shrink-0" aria-hidden="true" />
                 <a href={`tel:${NAP.phone.replace(/\s/g, "")}`} className="text-sage hover:text-white transition-colors">
                   {NAP.phone}
                 </a>
               </p>
               <p className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-primary shrink-0" aria-hidden="true" />
+                <Mail className="w-4 h-4 text-primary-soft shrink-0" aria-hidden="true" />
                 <a href={`mailto:${NAP.email}`} className="text-sage hover:text-white transition-colors">
                   {NAP.email}
                 </a>
               </p>
               <p className="flex items-center gap-2.5 text-sage">
-                <Clock className="w-4 h-4 text-primary shrink-0" aria-hidden="true" />
+                <Clock className="w-4 h-4 text-primary-soft shrink-0" aria-hidden="true" />
                 {NAP.hours}
               </p>
             </address>
@@ -162,7 +162,7 @@ export default function Footer() {
               {conditionLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-sm text-sage hover:text-white transition-colors flex items-center gap-1.5 group">
-                    <span className="w-1 h-1 rounded-full bg-primary group-hover:bg-accent transition-colors shrink-0" />
+                    <span className="w-1 h-1 rounded-full bg-primary-soft group-hover:bg-accent-soft transition-colors shrink-0" />
                     {link.label}
                   </Link>
                 </li>
@@ -179,7 +179,7 @@ export default function Footer() {
               {treatmentLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-sm text-sage hover:text-white transition-colors flex items-center gap-1.5 group">
-                    <span className="w-1 h-1 rounded-full bg-primary group-hover:bg-accent transition-colors shrink-0" />
+                    <span className="w-1 h-1 rounded-full bg-primary-soft group-hover:bg-accent-soft transition-colors shrink-0" />
                     {link.label}
                   </Link>
                 </li>
@@ -196,7 +196,7 @@ export default function Footer() {
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-sm text-sage hover:text-white transition-colors flex items-center gap-1.5 group">
-                    <span className="w-1 h-1 rounded-full bg-primary group-hover:bg-accent transition-colors shrink-0" />
+                    <span className="w-1 h-1 rounded-full bg-primary-soft group-hover:bg-accent-soft transition-colors shrink-0" />
                     {link.label}
                   </Link>
                 </li>

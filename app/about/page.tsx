@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   CalendarCheck,
-  MessageCircle,
   Heart,
   Users,
   BookOpen,
@@ -17,6 +16,7 @@ import {
 import PageHero from "@/components/PageHero";
 import { NAP } from "@/lib/data";
 
+import WhatsAppCta from "@/components/WhatsAppCta";
 export const metadata: Metadata = {
   title: "About Meditron | Best Child Development Centre in Vijayawada",
   description:
@@ -209,7 +209,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
           {stats.map((s) => (
             <div key={s.label}>
-              <p className="text-accent font-black text-4xl sm:text-5xl tabular-nums">{s.value}</p>
+              <p className="text-accent-soft font-black text-4xl sm:text-5xl tabular-nums">{s.value}</p>
               <p className="text-white/70 text-sm mt-2">{s.label}</p>
             </div>
           ))}
@@ -303,20 +303,14 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
+              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-full transition-colors shadow-lg text-sm"
             >
               <CalendarCheck className="w-5 h-5 shrink-0" />
               Book Free Assessment
             </Link>
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#10783F] hover:bg-[#0d6635] text-white font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
-            >
-              <MessageCircle className="w-5 h-5 shrink-0" />
+            <WhatsAppCta href={waUrl} tone="dark">
               WhatsApp Us
-            </a>
+            </WhatsAppCta>
           </div>
         </div>
       </section>

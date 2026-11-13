@@ -7,9 +7,11 @@ import { useConcerns } from "./ConcernsContext";
 import { WhatsAppGlyph } from "./ui";
 
 /**
- * Keeps the two actions in reach: a bottom bar on phones and tablets, a slim top
- * bar on desktop. Hidden while the hero's own buttons or the final section are on
- * screen, so the actions never appear twice.
+ * Keeps the two actions in reach: a bottom bar on phones and tablets. Hidden while
+ * the hero's own buttons or the final section are on screen, so the actions never
+ * appear twice. The desktop top bar is switched off now that the site's sticky
+ * navbar (with its WhatsApp button) sits on this page; add `lg:block` back to
+ * the lp-topbar div to bring it back.
  */
 export default function StickyBar() {
   const { waUrl, selected } = useConcerns();
@@ -45,7 +47,7 @@ export default function StickyBar() {
     <>
       {/* Desktop: a slim bar slides down from the top with the same two actions */}
       <div
-        className={`lp-topbar fixed inset-x-0 top-0 z-40 hidden border-b border-[#c8d8dc] bg-[var(--lp-cream)]/95 px-8 backdrop-blur lg:block ${
+        className={`lp-topbar fixed inset-x-0 top-0 z-40 hidden border-b border-[#c8d8dc] bg-[var(--lp-cream)]/95 px-8 backdrop-blur ${
           show ? "is-on" : ""
         }`}
         aria-hidden={!show}

@@ -6,7 +6,6 @@ import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import {
   CalendarCheck,
-  MessageCircle,
   CheckCircle,
   ChevronDown,
   ChevronRight,
@@ -16,6 +15,7 @@ import {
 } from "lucide-react";
 import type { ConditionDetail } from "@/lib/conditions-detail";
 
+import WhatsAppCta from "@/components/WhatsAppCta";
 // ── Animation primitives ───────────────────────────────────────────────────────
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -186,15 +186,9 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
                   <CalendarCheck className="w-4 h-4 shrink-0" aria-hidden="true" />
                   Book Free Assessment
                 </Link>
-                <a
-                  href={waUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-6 py-3.5 rounded-2xl transition-colors shadow-lg shadow-green-500/15 text-sm"
-                >
-                  <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
+                <WhatsAppCta href={waUrl}>
                   WhatsApp Us
-                </a>
+                </WhatsAppCta>
               </motion.div>
 
               {/* Trust chips */}
@@ -442,7 +436,7 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
           >
             <motion.span
               variants={fadeUp}
-              className="text-accent font-semibold text-xs uppercase tracking-widest"
+              className="text-accent-soft font-semibold text-xs uppercase tracking-widest"
             >
               How We Help
             </motion.span>
@@ -645,7 +639,7 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
             {[0, 1, 2, 3, 4].map((i) => (
               <Star
                 key={i}
-                className="w-5 h-5 text-accent"
+                className="w-5 h-5 text-accent-soft"
                 fill="currentColor"
                 aria-hidden="true"
               />
@@ -674,20 +668,14 @@ export default function ConditionPageContent({ detail, image, waUrl }: Props) {
           >
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-xl text-sm"
+              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-full transition-colors shadow-xl text-sm"
             >
               <CalendarCheck className="w-5 h-5 shrink-0" aria-hidden="true" />
               Book Free Assessment
             </Link>
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-xl text-sm"
-            >
-              <MessageCircle className="w-5 h-5 shrink-0" aria-hidden="true" />
+            <WhatsAppCta href={waUrl} tone="dark">
               WhatsApp Us Now
-            </a>
+            </WhatsAppCta>
           </motion.div>
         </motion.div>
       </section>

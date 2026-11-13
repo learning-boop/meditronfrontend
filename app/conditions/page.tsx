@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, CalendarCheck, MessageCircle } from "lucide-react";
+import { ArrowRight, CalendarCheck } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import { NAP } from "@/lib/data";
 
+import WhatsAppCta from "@/components/WhatsAppCta";
 export const metadata: Metadata = {
   title: "Conditions We Treat",
   description:
@@ -120,7 +121,7 @@ export default function ConditionsPage() {
       {/* ── "Not sure?" section ─────────────────────────────────────────── */}
       <section className="bg-primary-dark py-16 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-2xl mx-auto">
-          <span className="text-accent font-semibold text-xs uppercase tracking-widest">Not sure where to start?</span>
+          <span className="text-accent-soft font-semibold text-xs uppercase tracking-widest">Not sure where to start?</span>
           <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold text-white mb-4">
             You don&apos;t need a diagnosis to reach out.
           </h2>
@@ -130,20 +131,14 @@ export default function ConditionsPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-clean-neutral text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
+              className="inline-flex items-center justify-center gap-2 bg-clean-neutral text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-full transition-colors shadow-lg text-sm"
             >
               <CalendarCheck className="w-5 h-5 shrink-0" />
               Book Free Assessment
             </Link>
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
-            >
-              <MessageCircle className="w-5 h-5 shrink-0" />
+            <WhatsAppCta href={waUrl} tone="dark">
               Ask on WhatsApp
-            </a>
+            </WhatsAppCta>
           </div>
         </div>
       </section>

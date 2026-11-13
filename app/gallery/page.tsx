@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CalendarCheck } from "lucide-react";
 import { NAP } from "@/lib/data";
 
+import WhatsAppCta from "@/components/WhatsAppCta";
 export const metadata: Metadata = {
   title: "Gallery | Meditron Child Development Centre, Vijayawada",
   description:
@@ -126,14 +127,9 @@ export default function GalleryPage() {
             <CalendarCheck className="w-5 h-5 shrink-0" />
             Book Free Assessment
           </Link>
-          <a
-            href={waUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-8 py-4 rounded-2xl transition-colors shadow-md"
-          >
+          <WhatsAppCta href={waUrl}>
             WhatsApp Us
-          </a>
+          </WhatsAppCta>
         </div>
       </div>
     </main>

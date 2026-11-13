@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowLeft, Clock, CalendarCheck, MessageCircle, Loader2 } from "lucide-react";
+import { ArrowLeft, Clock, CalendarCheck, Loader2 } from "lucide-react";
 import { PortableText } from "@portabletext/react";
 import Footer from "@/components/Footer";
 import { NAP } from "@/lib/data";
@@ -13,6 +13,7 @@ import {
   type SanityImageSource,
 } from "@/lib/sanity";
 
+import WhatsAppCta from "@/components/WhatsAppCta";
 const waUrl = `https://wa.me/${NAP.whatsapp}?text=${encodeURIComponent(
   "Hi Meditron, I read your blog article and I have a question about my child."
 )}`;
@@ -245,20 +246,14 @@ export default function BlogPostContent({ slug }: { slug: string }) {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-8 py-4 rounded-2xl transition-colors shadow-lg text-sm"
+              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-8 py-4 rounded-full transition-colors shadow-lg text-sm"
             >
               <CalendarCheck className="w-5 h-5 shrink-0" />
               Book Free Assessment
             </Link>
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#10783F] hover:bg-[#0d6635] text-white font-bold px-8 py-4 rounded-2xl transition-colors shadow-lg text-sm"
-            >
-              <MessageCircle className="w-5 h-5 shrink-0" />
+            <WhatsAppCta href={waUrl} tone="dark">
               Ask on WhatsApp
-            </a>
+            </WhatsAppCta>
           </div>
         </div>
       </section>

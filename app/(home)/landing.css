@@ -213,3 +213,13 @@
     display: none;
   }
 }
+
+/* In-page links (e.g. #signs) land below the site's sticky navbar */
+.lp [id] {
+  scroll-margin-top: 5rem;
+}
+@media (min-width: 768px) {
+  .lp [id] {
+    scroll-margin-top: 6.5rem;
+  }
+}

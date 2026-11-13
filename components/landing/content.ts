@@ -1,11 +1,12 @@
 /**
- * All copy and data for the /landing page lives here, so wording changes
+ * All copy and data for the home page (/) lives here, so wording changes
  * never require touching layout code.
  *
  * TO CONFIRM WITH CLIENT before going live:
  *  - FACTS.years / FACTS.families (taken from the current live site)
  *  - Every Telugu line (marked `te`) — reviewed by someone at the clinic
- *  - Real photos for CENTRE_PHOTOS (currently placeholders)
+ *  - CENTRE_PHOTOS are frames from the centre's own therapy videos; swap in
+ *    room photos (entrance, waiting area) if the client sends them
  */
 import { NAP } from "@/lib/data";
 
@@ -182,12 +183,28 @@ export const VISIT_STEPS = [
   { title: "You get clear answers", body: "Dr. Sirisha explains what she sees in plain words and what you can do next. There's no pressure to start therapy." },
 ];
 
-/** Replace `src: null` with real photos (4:3) when the client sends them. */
+/** Real photos (4:3), taken from the centre's own therapy videos. */
 export const CENTRE_PHOTOS: { src: string | null; label: string; alt: string }[] = [
-  { src: null, label: "The entrance", alt: "Entrance of Meditron Child Development Centre" },
-  { src: null, label: "Where parents wait", alt: "Waiting area at Meditron" },
-  { src: null, label: "The therapy room", alt: "Main therapy room at Meditron" },
-  { src: null, label: "The sensory room", alt: "Sensory play room at Meditron" },
+  {
+    src: "/images/therapies/physio-therapy-ball-480.webp",
+    label: "Therapy ball for balance",
+    alt: "A child sitting on a large therapy ball on colourful play mats, a therapist steadying them",
+  },
+  {
+    src: "/images/therapies/ot-pencil-grip-480.webp",
+    label: "Pencil-grip practice",
+    alt: "A child tracing lines and shapes on a pre-writing worksheet",
+  },
+  {
+    src: "/images/therapies/fine-motor-peg-board-480.webp",
+    label: "Peg board for hand–eye skills",
+    alt: "A child placing coloured pegs into a peg board on the play mat",
+  },
+  {
+    src: "/images/therapies/shape-colour-matching-480.webp",
+    label: "Shape and colour matching",
+    alt: "Wooden shape blocks and a peg stand laid out on an orange play mat",
+  },
 ];
 
 /* ── Telugu lines (te) — client to review ── */

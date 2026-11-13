@@ -42,16 +42,16 @@ export default function PageHero({ label, title, accent, subtitle, breadcrumbs }
         {/* Label */}
         {label && (
           <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="w-6 h-px bg-accent/50" />
-            <span className="text-accent font-semibold text-xs uppercase tracking-[0.22em]">{label}</span>
-            <span className="w-6 h-px bg-accent/50" />
+            <span className="w-6 h-px bg-accent-soft/50" />
+            <span className="text-accent-soft font-semibold text-xs uppercase tracking-[0.22em]">{label}</span>
+            <span className="w-6 h-px bg-accent-soft/50" />
           </div>
         )}
 
         {/* Heading */}
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-[1.15] tracking-tight mb-5">
           {title}
-          {accent && <span className="text-accent"> {accent}</span>}
+          {accent && <span className="text-accent-soft"> {accent}</span>}
         </h1>
 
         {/* Subtitle */}

@@ -63,7 +63,7 @@ export default function FirstVisitSection() {
           {showCentrePhotos && (
             <>
               <h3 className="text-[1.375rem] font-semibold text-[var(--lp-teal)] md:text-[1.625rem]">
-                See the place before you come
+                A look inside our therapy rooms
               </h3>
               <ul className="lp-swipe -mx-5 mt-6 flex scroll-px-5 gap-4 overflow-x-auto px-5 pb-2 md:mx-0 md:grid md:grid-cols-4 md:gap-5 md:overflow-visible md:px-0">
                 {CENTRE_PHOTOS.map((p) => (

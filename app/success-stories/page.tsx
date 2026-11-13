@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CalendarCheck, MessageCircle } from "lucide-react";
+import { CalendarCheck } from "lucide-react";
 import VideoGallery from "@/components/home/VideoGallery";
 import { NAP } from "@/lib/data";
 
+import WhatsAppCta from "@/components/WhatsAppCta";
 export const metadata: Metadata = {
   title: "Success Stories | Meditron Child Development Centre Vijayawada",
   description:
@@ -25,7 +26,7 @@ export default function SuccessStoriesPage() {
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-white leading-tight mb-6">
             See What Happens Inside<br />
-            <span className="text-accent">Our Therapy Sessions</span>
+            <span className="text-accent-soft">Our Therapy Sessions</span>
           </h1>
           <p className="text-white/80 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-10">
             Watch our therapists in action — real techniques, real children, real progress.
@@ -34,20 +35,14 @@ export default function SuccessStoriesPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
+              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-full transition-colors shadow-lg text-sm"
             >
               <CalendarCheck className="w-5 h-5 shrink-0" />
               Book Free Assessment
             </Link>
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#10783F] hover:bg-[#0d6635] text-white font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
-            >
-              <MessageCircle className="w-5 h-5 shrink-0" />
+            <WhatsAppCta href={waUrl} tone="dark">
               Ask on WhatsApp
-            </a>
+            </WhatsAppCta>
           </div>
         </div>
       </section>
@@ -71,20 +66,14 @@ export default function SuccessStoriesPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
+              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-full transition-colors shadow-lg text-sm"
             >
               <CalendarCheck className="w-5 h-5 shrink-0" />
               Book Free Assessment
             </Link>
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#10783F] hover:bg-[#0d6635] text-white font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
-            >
-              <MessageCircle className="w-5 h-5 shrink-0" />
+            <WhatsAppCta href={waUrl} tone="dark">
               WhatsApp Meditron
-            </a>
+            </WhatsAppCta>
           </div>
         </div>
       </section>

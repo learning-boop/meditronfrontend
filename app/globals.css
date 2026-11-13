@@ -1,45 +1,18 @@
 @import "tailwindcss";
 
+/*
+ * Site colours, matched to the home page design (app/(home)/landing.css).
+ * Written as a plain @theme (not inline), so every utility reads a CSS variable
+ * and a section can re-theme itself by overriding the variables.
+ */
 :root {
-  --background: #f7f5f2;
-  --foreground: #2a3a57;
+  --background: #f4f8f9;
+  --foreground: #2b3a3f;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-
-  /* ── Meditron Emotional Colour Journey ── */
-
-  /* Primary — Calm Teal (Stage 2: Safety) */
-  --color-primary: #2a8e8b;
-  --color-primary-light: #d5ebe7;
-  --color-primary-dark: #3f8c8a;
-
-  /* Neutral / Background */
-  --color-cream: #f7f5f2;
-
-  /* Accent — Warm Coral (Stage 6: Action) */
-  --color-accent: #d67861;
-  --color-accent-dark: #c4614b;
-
-  /* Extended palette */
-  --color-navy: #234b6e;
-  --color-confident-navy: #2a3a57;
-  --color-dusty-blue: #7897aa;
-  --color-muted-navy: #34495e;
-  --color-sage: #a9bba9;
-  --color-healing-green: #75baa0;
-  --color-gold: #c6aa4e;
-  --color-terracotta: #c46a5e;
-  --color-clean-neutral: #f7f8f9;
-
-  /* New-home palette */
-  --color-nh-cream: #FBF6EE;
-  --color-nh-terracotta: #D9775B;
-  --color-nh-sage: #8FA98B;
-  --color-nh-teal: #1F4E5A;
-  --color-nh-ink: #2A2A2A;
 
   /* Typography */
   --font-sans: var(--font-nunito-sans);
@@ -49,8 +22,59 @@
   --font-telugu: var(--font-mandali);
 }
 
+@theme {
+  /* Primary: deep teal */
+  --color-primary: #1f4e5a;
+  --color-primary-light: #dbe7ea;
+  --color-primary-dark: #173c46;
+  --color-primary-soft: #8fbcc4;   /* teal for icons/text on dark backgrounds */
+
+  /* Neutral / background: cool off-white */
+  --color-cream: #f4f8f9;
+
+  /* Accent: clay */
+  --color-accent: #a9533b;
+  --color-accent-dark: #8e4330;
+  --color-accent-soft: #f0b9a3;    /* clay for accents on dark backgrounds */
+
+  /* Extended palette */
+  --color-navy: #173c46;
+  --color-confident-navy: #173c46;
+  --color-dusty-blue: #7a9298;
+  --color-muted-navy: #56676b;
+  --color-sage: #8fa98b;
+  --color-healing-green: #5d7a59;
+  --color-gold: #c6aa4e;
+  --color-terracotta: #a9533b;
+  --color-clean-neutral: #e9f0f2;
+
+  /* New-home palette */
+  --color-nh-cream: #FBF6EE;
+  --color-nh-terracotta: #D9775B;
+  --color-nh-sage: #8FA98B;
+  --color-nh-teal: #1F4E5A;
+  --color-nh-ink: #2A2A2A;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+}
+
+/*
+ * Main headings use the home page's serif (Source Serif 4) on every page.
+ * Small uppercase label headings stay in the sans font.
+ * Unlayered on purpose, so it wins over the bold/extrabold weight classes
+ * the older pages put on their headings.
+ */
+:is(h1, h2, h3):not(.uppercase) {
+  font-family: var(--font-source-serif), Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+/* The home page (.lp) sets its own heading weights */
+.lp :is(h1, h2, h3) {
+  font-weight: revert-layer;
 }
 
 body {

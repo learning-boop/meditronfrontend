@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CalendarCheck, MessageCircle, Mic, Hand, Activity } from "lucide-react";
+import { CalendarCheck, Mic, Hand, Activity } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import { NAP } from "@/lib/data";
 
+import WhatsAppCta from "@/components/WhatsAppCta";
 export const metadata: Metadata = {
   title: "Therapy Programmes",
   description:
@@ -17,6 +18,8 @@ const waUrl = `https://wa.me/${NAP.whatsapp}?text=${encodeURIComponent(
 const therapies = [
   {
     id: "speech",
+    image: "/images/therapies/speech-therapy-card",
+    imageAlt: "A speech therapist showing a picture card while a boy copies the sound",
     icon: Mic,
     label: "Speech Therapy",
     tagline: "Language & Communication",
@@ -41,6 +44,8 @@ const therapies = [
   },
   {
     id: "occupational",
+    image: "/images/therapies/ot-pencil-grip",
+    imageAlt: "A child at Meditron practising pencil grip on a pre-writing worksheet",
     icon: Hand,
     label: "Occupational Therapy",
     tagline: "Independence & Daily Living",
@@ -65,6 +70,8 @@ const therapies = [
   },
   {
     id: "physiotherapy",
+    image: "/images/therapies/physio-therapy-ball",
+    imageAlt: "A child at Meditron sitting on a therapy ball for balance and core strength, a therapist steadying them",
     icon: Activity,
     label: "Physiotherapy",
     tagline: "Movement & Strength",
@@ -112,20 +119,25 @@ export default function TherapiesPage() {
           >
             <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
 
-              {/* Visual panel — replaces placeholder image */}
+              {/* Visual panel: real photo, highlights and quote */}
               <div className={reverse ? "md:order-2" : "md:order-1"}>
-                <div className="rounded-3xl bg-primary-light/40 p-8 sm:p-10 h-full flex flex-col justify-between gap-8 min-h-[360px]">
-                  {/* Top: number + icon */}
-                  <div className="flex items-start justify-between">
-                    <span
-                      className="text-primary/10 font-black select-none leading-none"
-                      style={{ fontSize: "6rem", lineHeight: 1 }}
-                      aria-hidden="true"
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div className="w-14 h-14 rounded-2xl bg-primary/15 flex items-center justify-center shrink-0">
-                      <Icon className="w-7 h-7 text-primary" aria-hidden="true" />
+                <div className="rounded-3xl bg-primary-light/40 p-6 sm:p-8 h-full flex flex-col gap-7">
+                  {/* Photo, with the therapy icon as a small badge */}
+                  <div className="relative -mx-3 -mt-3 sm:-mx-5 sm:-mt-5">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`${therapy.image}-800.webp`}
+                      srcSet={`${therapy.image}-480.webp 480w, ${therapy.image}-800.webp 800w`}
+                      sizes="(min-width: 768px) 45vw, 92vw"
+                      alt={therapy.imageAlt}
+                      width={800}
+                      height={600}
+                      loading={i === 0 ? "eager" : "lazy"}
+                      decoding="async"
+                      className="aspect-[4/3] w-full rounded-2xl object-cover"
+                    />
+                    <div className="absolute right-3 top-3 w-11 h-11 rounded-xl bg-white/90 shadow-sm flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-primary" aria-hidden="true" />
                     </div>
                   </div>
 
@@ -200,20 +212,14 @@ export default function TherapiesPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
+              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-full transition-colors shadow-lg text-sm"
             >
               <CalendarCheck className="w-5 h-5 shrink-0" />
               Book Free Assessment
             </Link>
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#10783F] hover:bg-[#0d6635] text-white font-bold px-7 py-3.5 rounded-2xl transition-colors shadow-lg text-sm"
-            >
-              <MessageCircle className="w-5 h-5 shrink-0" />
+            <WhatsAppCta href={waUrl} tone="dark">
               Ask on WhatsApp
-            </a>
+            </WhatsAppCta>
           </div>
         </div>
       </section>

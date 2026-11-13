@@ -5,6 +5,7 @@ import { conditionPages } from "@/lib/condition-pages";
 import { locations } from "@/lib/locations";
 import { NAP } from "@/lib/data";
 
+import WhatsAppCta from "@/components/WhatsAppCta";
 export const metadata: Metadata = {
   title: "Sitemap — All Treatments & Locations | Meditron Child Development Centre",
   description:
@@ -201,20 +202,15 @@ export default function SitemapPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-2xl transition-colors text-sm shadow-lg"
+              className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-cream font-bold px-7 py-3.5 rounded-full transition-colors text-sm shadow-lg"
             >
               Book Free Assessment
             </Link>
-            <a
-              href={`https://wa.me/${NAP.whatsapp}?text=${encodeURIComponent(
+            <WhatsAppCta href={`https://wa.me/${NAP.whatsapp}?text=${encodeURIComponent(
                 "Hi Meditron, I'd like to know which therapy is right for my child."
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#10783F] hover:bg-[#0d6635] text-white font-bold px-7 py-3.5 rounded-2xl transition-colors text-sm shadow-lg"
-            >
+              )}`} tone="dark">
               Ask on WhatsApp
-            </a>
+            </WhatsAppCta>
           </div>
         </section>
 
